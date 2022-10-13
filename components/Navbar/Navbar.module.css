@@ -20,7 +20,6 @@
 .navbar__menus{
     display: flex;
     list-style: none;
-    text-decoration: none;
 }
 
 .navbar__menu{

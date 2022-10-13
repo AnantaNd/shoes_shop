@@ -15,20 +15,20 @@ const Navbar = () => {
             <div className={style.navbar__brand}>
                 {'ShoesStore'}
             </div>
-            <ul className={`${style.navbar__menus} ${isMenuShown&&style.navbar__menus_active}`}>
-                <li className={`${style.navbar__menu} + ${style.navbar__menu_active}`}> <Link href='/'>Home</Link></li>
-                <li className={style.navbar__menu}><Link href='/'>Shop</Link></li>
-                <li className={style.navbar__menu}><Link href='/product'>Product</Link></li>
-                <li className={style.navbar__menu}><Link href='/'>Service</Link></li>
-                <li className={style.navbar__menu}><Link href='/'>Contact</Link></li>
-                <li className={style.navbar__menu_closed} onClick={isMenuShownHandler}><XLg width="20" height="20"/></li>
+            <ul className={`${style.navbar__menus} ${isMenuShown && style.navbar__menus_active}`}>
+                <Link href='/'><li className={`${style.navbar__menu} + ${style.navbar__menu_active}`}>Home</li></Link>
+                <Link href='/'><li className={style.navbar__menu}>Shop</li></Link>
+                <Link href='/product'><li className={style.navbar__menu}>Product</li></Link>
+                <Link href='/'><li className={style.navbar__menu}>Service</li></Link>
+                <Link href='/'><li className={style.navbar__menu}>Contact</li></Link>
+                <li className={style.navbar__menu_closed} onClick={isMenuShownHandler}><XLg width="20" height="20" /></li>
             </ul>
             <div className={style.navbar__actions}>
-                <Cart className={style.navbar__action} width="24" height="24"/>
-                <Heart className={style.navbar__action} width="24" height="24" style={{ marginTop: 2 + "px" }}/>
+                <Cart className={style.navbar__action} width="24" height="24" />
+                <Heart className={style.navbar__action} width="24" height="24" style={{ marginTop: 2 + "px" }} />
                 <div className={`${style.navbar__action} + ${style.account}`}></div>
                 {
-                    <ListNested onClick={isMenuShownHandler} className={style.navbar__toggel} width="24" height="24" style={{ marginTop: 2 + "px" }}/>
+                    <ListNested onClick={isMenuShownHandler} className={style.navbar__toggel} width="24" height="24" style={{ marginTop: 2 + "px" }} />
                 }
             </div>
         </nav>
