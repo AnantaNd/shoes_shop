@@ -1,0 +1,48 @@
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hero__container{
+    width: 500px;
+}
+
+.hero__headline{
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.highlight{
+    font-weight: 800;
+}
+
+.hero__headlinesupport{
+    line-height: 180%;
+}
+
+.banner{
+    width: 500px;
+}
+
+@media only screen and (max-width: 414px) {
+    .hero{
+        text-align: center;
+        padding: 24px 0;
+    }
+
+    .hero__headline{
+        font-weight: 600;
+        font-size: 28px;
+    }
+
+    .hero__headlinesupport{
+        font-size: 12px;
+
+    }
+
+    .banner{
+        display: none;
+    }
+}

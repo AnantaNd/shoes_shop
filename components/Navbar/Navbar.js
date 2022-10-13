@@ -16,11 +16,11 @@ const Navbar = () => {
                 {'ShoesStore'}
             </div>
             <ul className={`${style.navbar__menus} ${isMenuShown && style.navbar__menus_active}`}>
-                <Link href='/'><li className={`${style.navbar__menu} + ${style.navbar__menu_active}`}>Home</li></Link>
-                <Link href='/'><li className={style.navbar__menu}>Shop</li></Link>
-                <Link href='/product'><li className={style.navbar__menu}>Product</li></Link>
-                <Link href='/'><li className={style.navbar__menu}>Service</li></Link>
-                <Link href='/'><li className={style.navbar__menu}>Contact</li></Link>
+                <Link href="/"><li className={`${style.navbar__menu} + ${style.navbar__menu_active}`}>Home</li></Link>
+                <Link href="/"><li className={style.navbar__menu}>Shop</li></Link>
+                <Link href="/product"><li className={style.navbar__menu}>Product</li></Link>
+                <Link href="/"><li className={style.navbar__menu}>Service</li></Link>
+                <Link href="/"><li className={style.navbar__menu}>Contact</li></Link>
                 <li className={style.navbar__menu_closed} onClick={isMenuShownHandler}><XLg width="20" height="20" /></li>
             </ul>
             <div className={style.navbar__actions}>
