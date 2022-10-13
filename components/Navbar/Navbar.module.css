@@ -4,7 +4,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    position: fixed;
+    /* position: fixed; */
     padding: 0px 140px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     display: flex;
@@ -20,9 +20,11 @@
 .navbar__menus{
     display: flex;
     list-style: none;
+    text-decoration: none;
 }
 
 .navbar__menu{
+    text-decoration: none;
     margin: 0 27px;
     cursor: pointer;
     padding: 32px 0;
