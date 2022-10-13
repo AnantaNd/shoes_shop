@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-top: 80px;
 }
 
 .hero__container{
@@ -22,9 +23,54 @@
     line-height: 180%;
 }
 
+.cta{
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 0;
+    background-color: var(--yellow-color);
+    font-weight: 700;
+    margin-top: 16px;
+}
+
+.cta:hover{
+    background-color: var(--yellow-2-color);
+}
+
 .banner{
     width: 500px;
 }
+
+/* BRAND */
+.section__title{
+    text-align: center;
+    font-size: 24px;
+}
+
+.brands{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 48px;
+    gap: 50px;
+}
+/* END BRAND */
+
+/* PRODUCT */
+.product{
+    display: flex;
+    overflow-x: scroll;
+    /* padding: 24px; */
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 24px;
+    gap: 100px;
+}
+
+.item{
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+/* END PRODUCT */
 
 @media only screen and (max-width: 414px) {
     .hero{
