@@ -1,10 +1,37 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import Card from '../components/Card/Card'
 import Layouts from '../components/Layouts/Layouts'
 import Section from '../components/Section/Section'
 import style from '../styles/Home.module.css'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 export default function Home() {
+  const [data, setData] = useState([])
+
+  const fetchApiAsyncAwait = async () => {
+    try {
+      const response = await fetch('/api/products');
+      const data = await response.json();
+      setData(data)
+      console.log(data)
+    } catch (err) {
+      console.error('Error' + err);
+    }
+  };
+
+  useEffect(() => {
+    fetchApiAsyncAwait();
+  }, [])
+
   return (
     <div className={style.container}>
       <Head>
@@ -21,11 +48,68 @@ export default function Home() {
               <p className={style.hero__headlinesupport}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis.
               </p>
+              <Link href="/products"><button className={style.cta}> Get Started</button></Link>
             </div>
             <div className={style.banner}>
-              <Image src="/hero_banner.png" width="500" height="470" style={{ marginLeft: 8 + "px" }}/>
+              <Image src="/hero_banner.png" width="500" height="470" style={{ marginLeft: 8 + "px" }} />
             </div>
-            
+
+          </div>
+        </Section>
+        <Section>
+          <div className={style.section__container}>
+            <h1 className={style.section__title}>BRANDS</h1>
+            <div className={style.brands}>
+              <Image src="/brand_nike.png" width="128" height="80" />
+              <Image src="/brand_adidas.png" width="128" height="80" />
+              <Image src="/brand_reebok.png" width="128" height="80" />
+            </div>
+          </div>
+        </Section>
+        <Section>
+          <div className={style.section__container}>
+            <h1 className={style.section__title}>PRODUCTS</h1>
+            <Swiper
+              modules={[Navigation, Pagination, Scrollbar, A11y]}
+              navigation={{
+                nextEl: 'Next',
+                prevEl: 'Prev',
+              }}
+
+              style={
+                {
+                  paddingTop: 20 + 'px',
+                  paddingBottom: 20 + 'px',
+                  marginTop: 24 + 'px'
+                }
+              }
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 100
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 10
+                },
+                1440: {
+                  slidesPerView: 6,
+                  spaceBetween: 10
+                },
+              }}
+            >
+              {data.length != 0 && data.map((shoes, i) =>
+                <SwiperSlide>
+                  <Card
+                    className={style.item}
+                    img={'/sepatu.png'}
+                    name={shoes.name}
+                    price={shoes.price}
+                    ratting={shoes.rating}
+                  />
+                </SwiperSlide>
+              )}
+            </Swiper>
           </div>
         </Section>
       </Layouts>

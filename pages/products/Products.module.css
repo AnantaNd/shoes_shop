@@ -1,0 +1,15 @@
+.container{
+  margin-top: 80px;
+}
+
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+@media screen and (max-width: 768px){
+  .products{
+    gap: 8px;
+  }
+}
