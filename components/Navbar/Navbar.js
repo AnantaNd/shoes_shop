@@ -26,7 +26,7 @@ const Navbar = () => {
                 <li className={style.navbar__menu_closed} onClick={isMenuShownHandler}><XLg width="20" height="20" /></li>
             </ul>
             <div className={style.navbar__actions}>
-                <Cart className={style.navbar__action} width="24" height="24" />
+            <Link href="/cart"><Cart className={style.navbar__action} width="24" height="24" /></Link>
                 <Heart className={style.navbar__action} width="24" height="24" style={{ marginTop: 2 + "px" }} />
                 <div className={`${style.navbar__action} + ${style.account}`}></div>
                 {

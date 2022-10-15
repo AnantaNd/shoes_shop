@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 import Card from '../../components/Card/Card'
 import Layouts from '../../components/Layouts/Layouts'
-import Navbar from '../../components/Navbar/Navbar'
-import Search from '../../components/Search/Search'
 import Section from '../../components/Section/Section'
-import Select from '../../components/Select/Select'
 import style from './Products.module.css'
 
 export default function index() {
@@ -80,6 +77,9 @@ export default function index() {
                 name={shoes.name}
                 price={shoes.price}
                 ratting={shoes.rating}
+                colorA={shoes.colorA}
+                colorB={shoes.colorB}
+                colorC={shoes.colorC}
               />
             )}
           </div>

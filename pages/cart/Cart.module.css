@@ -1,0 +1,23 @@
+.container{
+  margin: 8rem auto;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: auto auto ;
+
+}
+.title{
+  margin: 0 1rem;
+  padding: 1rem 0 ;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 768px){
+  .container{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .grid_item{
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,44 @@
+.container{
+  max-width: 600px;
+  /* height: 100%; */
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius:10px ; 
+  margin: 3rem auto; 
+
+}
+.btn_payment{
+  border: none;
+  padding: 15px;
+  width: 200px;
+  background-color: var(--green-color);
+  font-weight: 700;
+  color: #fff;
+  border-radius: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn_payment:hover{
+  background-color: var(--green-2-color);
+
+}
+.title{
+  text-transform: capitalize;
+  font-size: 18px;
+  padding: 10px 0;
+}
+.price, .disc{
+  padding: 10px 0;
+}
+@media screen and (max-width: 768px){
+  .container{
+    width: 340px;
+  }
+  .title{
+    font-size: 16px;
+  }
+  .price, .disc{
+    font-size: 15px;
+  }
+  
+}

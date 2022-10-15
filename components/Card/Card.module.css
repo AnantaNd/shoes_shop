@@ -45,7 +45,7 @@
 .color{
   width: 20px;
   height: 20px;
-  background-color: #f88765;
+  /* background-color: #f88765; */
   margin: 3px ;
   display: inline-flex;
   border-radius: 100%;

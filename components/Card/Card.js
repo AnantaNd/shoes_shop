@@ -1,8 +1,7 @@
-import { Heart } from 'react-bootstrap-icons'
+import { Heart, StarFill } from 'react-bootstrap-icons'
 import styles from './Card.module.css'
-import { StarFill } from 'react-bootstrap-icons'
 
-export default function Card({ img, name, price, ratting, color }) {
+export default function Card({ img, name, price, ratting, colorA, colorB, colorC }) {
 
   return (
     <>
@@ -16,9 +15,9 @@ export default function Card({ img, name, price, ratting, color }) {
               <h4 className={styles.title}>{name}</h4>
               <Heart className={styles.btn_favorite} width="24" height="24" />
             </div>
-            <div className={styles.color}></div>  
-            <div className={styles.color}></div>
-            <div className={styles.color}></div>
+            <div className={styles.color} style={{backgroundColor: `${colorA}`}}></div>  
+            <div className={styles.color} style={{backgroundColor: `${colorB}`}}></div>  
+            <div className={styles.color} style={{backgroundColor: `${colorC}`}}></div>  
             <p className={styles.price}>Rp. {price}</p>
           </div>
         </div>
