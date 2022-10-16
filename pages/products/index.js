@@ -40,14 +40,31 @@ export default function index() {
   }, [])
 
   useEffect(() => {
-    if (selected || dataFound) {
+    // if(selected || dataFound){
+    //   const dataFilter = data
+    //     .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
+    //     .filter(({ brand }) => selected ? (brand === selected) : true)
+    //   setData(dataFilter)
+    // }
+
+    if ((selected !== '') && (dataFound !== '')) {
       const dataFilter = data
-                          .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLocaleLowerCase())) : true)
-                          .filter(({ brand }) => selected ? (brand === selected) : true)
+        .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
+        .filter(({ brand }) => selected ? (brand === selected) : true)
       setData(dataFilter)
       return
+    } else if ((selected === '') && (dataFound !== '')) {
+      const dataFilter = data
+        .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
+      setData(dataFilter)
+      return
+    } else if ((selected !== '') && (dataFound === '')) {
+      const dataFilter = data
+        .filter(({ brand }) => selected ? (brand === selected) : true)
+      setData(dataFilter)
+    }else{
+      fetchApiAsyncAwait();
     }
-    fetchApiAsyncAwait()
   }, [selected, dataFound])
 
   return (
