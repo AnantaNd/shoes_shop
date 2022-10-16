@@ -1,11 +1,11 @@
 .container{
-  max-width: 600px;
+  max-width: 500px;
   height: 200px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   border-radius:10px ;
   display: grid;
-  grid-template-columns: 1fr .8fr;
+  grid-template-columns: .7fr .8fr;
   
 }
 .img_cart{
@@ -15,8 +15,17 @@
   background-position: center;
   background-size: contain;
 }
+.desc{
+  color: black;
+}
+.desc_disabled{
+  color: gray;
+}
+.btn{
+  margin: 8px 0;
+  display: flex;
+}
 .btn_decr{
-  margin-right: 10px;
   border: 2px solid var(--red-color);
   color: var(--red-color);
   background-color: transparent;
@@ -25,9 +34,9 @@
   border-radius:100%;
   font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
 }
 .btn_incr{
-  margin-right: 10px;
   border: 2px solid var(--green-color);
   color: var(--green-color);
   background-color: transparent;
@@ -36,11 +45,25 @@
   border-radius:100%;
   font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
 }
 .btn_trash{
   border: none;
   background-color: transparent;
+  cursor: pointer;
+  margin: 0 10px;
+  /* margin: 10px; */
   
+}
+.btn_incr:hover{
+  border: 2px solid var(--green-2-color);
+  background-color: var(--green-2-color);
+  color: #fff;
+}
+.btn_decr:hover{
+  border: 2px solid var(--red-2-color);
+  background-color: var(--red-2-color);
+  color: #fff;
 }
 .brand{
   font-size: 16px;
@@ -52,7 +75,8 @@
   padding: 8px 0;
 }
 .count{
-  margin: 0 3px;
+  margin:  3px 10px;
+  width: 20px;
   display: inline;
   text-align: center;
   justify-content: center;

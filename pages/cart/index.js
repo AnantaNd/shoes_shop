@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from "react";
 import CardCart from "../../components/CardCart/CardCart";
 import Layouts from "../../components/Layouts/Layouts";
@@ -6,6 +7,8 @@ import style from "./Cart.module.css";
 export default function index(){
 
   const [count, setCount] = useState(0)
+  // const [isChecked, setIsChecked] = useState(false)
+
 
   const increment =()=>{
     setCount(count++)
@@ -37,7 +40,6 @@ export default function index(){
             decrement={decrement}
             reset={reset}
           />
-          
         </div>
         <div className={style.grid_item}>
           <Payment
