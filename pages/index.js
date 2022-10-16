@@ -104,7 +104,7 @@ export default function Home() {
                     className={style.item}
                     img={'/sepatu.png'}
                     name={shoes.name}
-                    price={shoes.price}
+                    price={shoes.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                     ratting={shoes.rating}
                   />
                 </SwiperSlide>

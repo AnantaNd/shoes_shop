@@ -36,44 +36,19 @@ export default function index() {
   useEffect(() => {
     fetchApiAsyncAwait();
     console.log(data)
+
   }, [])
 
-  useEffect(()=>{
-    if(selected){
-      const dataFilter = data.filter((i)=>(i.brand === selected))
+  useEffect(() => {
+    if (selected || dataFound) {
+      const dataFilter = data
+                          .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLocaleLowerCase())) : true)
+                          .filter(({ brand }) => selected ? (brand === selected) : true)
       setData(dataFilter)
-    }else{
-      fetchApiAsyncAwait()
+      return
     }
-  },[selected])
-
-  useEffect(()=>{
-    if(!dataFound){
-      fetchApiAsyncAwait()
-    }else{
-      const dataFilter = data.length != null && data.filter((i) => (i.name.toLowerCase() === dataFound.toLowerCase()))
-      setData(dataFilter)
-      console.log(dataFilter)
-    }
-  },[dataFound])
-
-
-
-  // useEffect(() => {
-  //   if (selected || dataFound) {
-  //     const filterData = data.length!=0 && data.filter((i) => (i.brand === selected) || i.name === isFound)
-  //     // isfound in case sensitive filter
-  //     setData(filterData)
-  //   } else if (selected) {
-  //     const filterData = data.length!=0 && data.filter((i) => (i.brand === selected))
-  //     setData(filterData)
-  //   } else if (dataFound) {
-  //     const filterData = data.length!=0 && data.filter((i) => (i.name.toLowreCase() === isFound))
-  //     setData(filterData)
-  //   }
-  //   fetchApiAsyncAwait()
-  // }, [dataFound, selected])
-
+    fetchApiAsyncAwait()
+  }, [selected, dataFound])
 
   return (
     <Layouts>
