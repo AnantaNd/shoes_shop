@@ -77,6 +77,7 @@ export default function index() {
           />
           <Select
             onChangeSelect={onSelected}
+            value={selected}
           />
 
           <div className={style.products}>

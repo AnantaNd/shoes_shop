@@ -1,12 +1,11 @@
 .container{
-  margin: 8rem auto;
-  padding: 25px;
   display: grid;
-  grid-template-columns: auto auto ;
-
+  grid-template-columns: auto auto;
+  column-gap: 30px;
 }
 .title{
-  margin: 0 1rem;
+  
+  margin-top: 80px;
   padding: 1rem 0 ;
   text-transform: capitalize;
 }
