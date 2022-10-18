@@ -1,13 +1,9 @@
-FROM node:latest as build
-WORKDIR /app
-COPY package*.json ./
-RUN npm i
-COPY . ./
-RUN npm run build
-
-# production
-# FROM node:latest
-# RUN npm i -g serve
-# WORKDIR /app
-# COPY --from=build /app/build/ .
-# CMD ["serve", "-p", "80", "-s", "."]
+# Dockerfile# base image
+FROM node:6.9.0
+WORKDIR /appCOPY package*.json ./# install dependencies
+RUN yarn install# copy source files
+COPY . .
+RUN yarn build
+EXPOSE 3000
+ENTRYPOINT ["yarn"]
+CMD ["serve"]
