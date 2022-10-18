@@ -1,37 +1,37 @@
-# before_script:
-#   - apt-get update -qy
-#   - apt-get install -y ruby-dev
-#   - gem install dpl
-
-# stages:
-#   - production build
-
-# deploy to production server:
-#   image: ruby:latest
-#   stage: production build
-#   script:
-#     - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
-#   only:
-#     - main
-
-
-cache:
-  paths:
-    - node_modules/
+before_script:
+  - apt-get update -qy
+  - apt-get install -y ruby-dev
+  - gem install dpl
 
 stages:
-  - development build
+  - production build
 
-deploy to development server:
-  image: node:latest
-  stage: development build
+deploy to production server:
+  image: ruby:latest
+  stage: production build
   script:
-    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/shoes-shop-prod.git
-    - git push -f heroku HEAD:master
-    - echo "Deployed to prod server"
-  environment:
-    name: development
-    url: 'https://git.heroku.com/shoes-shop-prod.git'
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
   only:
-    - master
+    - main
+
+
+# cache:
+#   paths:
+#     - node_modules/
+
+# stages:
+#   - development build
+
+# deploy to development server:
+#   image: node:latest
+#   stage: development build
+#   script:
+#     - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/shoes-shop-prod.git
+#     - git push -f heroku HEAD:master
+#     - echo "Deployed to prod server"
+#   environment:
+#     name: development
+#     url: 'https://git.heroku.com/shoes-shop-prod.git'
+#   only:
+#     - master
 
