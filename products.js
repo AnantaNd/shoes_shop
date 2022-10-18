@@ -3,6 +3,7 @@ export const products = [
   {
     id :1,
     name : "Nike AJ 12 retro",
+    img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
     brand: "nike",
@@ -14,6 +15,7 @@ export const products = [
   {
     id :2,
     name : "Addidas Supernova ",
+    img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
     brand: "addidas",
@@ -25,6 +27,7 @@ export const products = [
   {
     id :3,
     name : "Reebok Nanofles TR ",
+    img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
     brand: "reebok",
@@ -35,6 +38,7 @@ export const products = [
   {
     id :4,
     name : "Reebok Nanofles TR ",
+    img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
     brand: "reebok",
@@ -45,6 +49,7 @@ export const products = [
   {
     id :5,
     name : "Reebok Nanofles TR ",
+    img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
     brand: "reebok",
@@ -55,6 +60,7 @@ export const products = [
   {
     id :6,
     name : "Reebok Nanofles TR ",
+    img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
     brand: "reebok",
@@ -65,6 +71,7 @@ export const products = [
   {
     id :7,
     name : "Reebok Nanofles TR ",
+    img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
     brand: "reebok",
@@ -75,6 +82,7 @@ export const products = [
   {
     id :8,
     name : "Reebok Nanofles TR ",
+    img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
     brand: "reebok",
@@ -85,6 +93,7 @@ export const products = [
   {
     id :9,
     name : "Reebok Nanofles TR ",
+    img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
     brand: "reebok",

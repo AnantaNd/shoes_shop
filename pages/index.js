@@ -111,7 +111,7 @@ export default function Home() {
                   <Card
                   idProduct={shoes.id}
                     className={style.item}
-                    img={'/sepatu.png'}
+                    img={shoes.img}
                     name={shoes.name}
                     price={shoes.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                     ratting={shoes.rating}
