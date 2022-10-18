@@ -11,7 +11,7 @@ stages:
 #   only:
 #     - main
 deploy to development server:
-  image: node:17
+  image: node:6.9.0
   stage: dev build
   script:
     - yarn install
