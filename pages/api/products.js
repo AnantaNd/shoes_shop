@@ -1,8 +1,8 @@
-import {products} from "../../products";
+import { products } from "../../products";
 
 export default function handler(req, res) {
     const method = req.method
-    let { id, name, rating, price, brand } = req.body
+    let { id, name, rating, price, brand, desc } = req.body
 
     switch (method) {
         case 'GET':
@@ -16,7 +16,8 @@ export default function handler(req, res) {
                 name,
                 rating,
                 price,
-                brand
+                brand,
+                desc
             }
             products.push(newProduct)
             res.status(200).json(products)

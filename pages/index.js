@@ -2,17 +2,17 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import Card from '../components/Card/Card'
 import Layouts from '../components/Layouts/Layouts'
 import Section from '../components/Section/Section'
 import style from '../styles/Home.module.css'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
 
 export default function Home() {
   const [data, setData] = useState([])
@@ -51,7 +51,7 @@ export default function Home() {
               <Link href="/products"><button className={style.cta}> Get Started</button></Link>
             </div>
             <div className={style.banner}>
-              <Image src="/hero_banner.png" width="500" height="470" style={{ marginLeft: 8 + "px" }} />
+              <Image src="/hero_banner.png" width="500" height="470" style={{ marginLeft: 8 + "px" }} alt='img'/>
             </div>
 
           </div>
@@ -60,9 +60,9 @@ export default function Home() {
           <div className={style.section__container}>
             <h1 className={style.section__title}>BRANDS</h1>
             <div className={style.brands}>
-              <Image src="/brand_nike.png" width="128" height="80" />
-              <Image src="/brand_adidas.png" width="128" height="80" />
-              <Image src="/brand_reebok.png" width="128" height="80" />
+              <Image src="/brand_nike.png" width="128" height="80" alt='img'/>
+              <Image src="/brand_adidas.png" width="128" height="80" alt='img'/>
+              <Image src="/brand_reebok.png" width="128" height="80" alt='img'/>
             </div>
           </div>
         </Section>
@@ -107,7 +107,7 @@ export default function Home() {
               }}
             >
               {data.length != 0 && data.map((shoes, i) =>
-                <SwiperSlide>
+                <SwiperSlide key={i}>
                   <Card
                   idProduct={shoes.id}
                     className={style.item}
