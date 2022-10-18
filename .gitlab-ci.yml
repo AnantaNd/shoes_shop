@@ -27,7 +27,7 @@ deploy to development server:
   stage: development build
   script:
     - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/shoes-shop-prod.git
-    - git push -f heroku master
+    - git push -f heroku HEAD:main
     - echo "Deployed to prod server"
   environment:
     name: development
