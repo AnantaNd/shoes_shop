@@ -8,8 +8,7 @@ stages:
 deploy to production server:
   stage: production build
   script:
-    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/studikasus.git
-    - git push heroku main
-    - echo "Deployed to development server"
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
   only:
     - main
