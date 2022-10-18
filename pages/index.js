@@ -93,9 +93,13 @@ export default function Home() {
                   spaceBetween: 10
                 },
                 1440: {
-                  slidesPerView: 6,
-                  spaceBetween: 10
+                  slidesPerView: 5,
+                  spaceBetween: 50
                 },
+                1728:{
+                  slidesPerView: 5,
+                  spaceBetween: 5
+                }
               }}
             >
               {data.length != 0 && data.map((shoes, i) =>
