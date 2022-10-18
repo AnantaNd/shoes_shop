@@ -5,11 +5,10 @@ cache:
 stages:
   - test
   - development build
-  - build docker
   - production build
 
 test application:
-  image: node:latest
+  # image: node:latest
   stage: test
   script:
     - npm install
