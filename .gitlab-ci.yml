@@ -9,7 +9,7 @@ deploy to production server:
   stage: production build
   script:
     - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/studikasus.git
-    - git push heroku main:u
+    - git push heroku main
     - echo "Deployed to development server"
   only:
     - main
