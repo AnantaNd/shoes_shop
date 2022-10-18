@@ -7,7 +7,7 @@ test aplication:
   image: node:17
   script:
     - yarn install
-		- yarn test
+    - yarn test
   only:
     - main
 deploy to development server:
@@ -15,6 +15,6 @@ deploy to development server:
   stage: dev build
   script:
     - yarn install
-		- yarn test
+    - yarn test
   only:
     - main
