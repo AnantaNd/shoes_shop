@@ -13,8 +13,6 @@ export default function Search ({onChangeInput, value}){
         type="text"
         placeholder="Search"
       />
-
-
       {/* <Search  width="24" height="24"/> */}
     </div>
   )

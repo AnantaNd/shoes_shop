@@ -83,6 +83,7 @@ export default function index() {
           <div className={style.products}>
             {data.length != 0 && data.map((shoes, i) =>
               <Card key={i}
+              idProduct={shoes.id}
                 img={'/sepatu.png'}
                 name={shoes.name}
                 price={shoes.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
