@@ -1,4 +1,4 @@
-import { Heart, StarFill, Cart } from 'react-bootstrap-icons'
+import { Heart, StarFill } from 'react-bootstrap-icons'
 import styles from './Card.module.css'
 
 export default function Card({ img, name, price, ratting, colorA, colorB, colorC }) {
