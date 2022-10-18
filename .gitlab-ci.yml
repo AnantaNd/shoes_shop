@@ -2,14 +2,14 @@ stages:
   - test
   - dev build
 
-test aplication:
-  stage: test
-  image: node:17
-  script:
-    - yarn install
-    - yarn test
-  only:
-    - main
+# test aplication:
+#   stage: test
+#   image: node:17
+#   script:
+#     - yarn install
+#     - yarn test
+#   only:
+#     - main
 deploy to development server:
   image: node:17
   stage: dev build
