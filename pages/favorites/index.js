@@ -5,6 +5,7 @@ import styles from './Favorites.module.css'
 import Section from '../../components/Section/Section'
 import Select from '../../components/Select/Select'
 import Card from '../../components/Card/Card'
+import { useRouter } from 'next/router'
 
 const index = () => {
     const [data, setData] = useState([])
@@ -51,6 +52,7 @@ const index = () => {
                         <div className={styles.favorite__products}>
                             {data.length != 0 && data.map((shoes, i) =>
                                 <Card key={i}
+                                    idProduct={shoes.id}
                                     img={'/sepatu.png'}
                                     name={shoes.name}
                                     price={shoes.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
