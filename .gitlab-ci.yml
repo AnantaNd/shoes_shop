@@ -4,7 +4,7 @@ stages:
 
 test aplication:
   stage: test
-  image: node:6.9.0
+  # image: node:6.9.0
   script:
     - yarn install
     - yarn test
