@@ -2,17 +2,17 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import Card from '../components/Card/Card'
 import Layouts from '../components/Layouts/Layouts'
 import Section from '../components/Section/Section'
 import style from '../styles/Home.module.css'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
 
 export default function Home() {
   const [data, setData] = useState([])
@@ -99,7 +99,7 @@ export default function Home() {
               }}
             >
               {data.length != 0 && data.map((shoes, i) =>
-                <SwiperSlide>
+                <SwiperSlide key={i}>
                   <Card
                     className={style.item}
                     img={'/sepatu.png'}
