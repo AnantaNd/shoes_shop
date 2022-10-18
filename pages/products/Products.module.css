@@ -3,9 +3,10 @@
 }
 
 .products{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  justify-content: center;
+  row-gap: 20px;
 }
 
 @media screen and (max-width: 768px){
