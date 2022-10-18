@@ -3,18 +3,18 @@ stages:
   - dev build
 
 test aplication:
-  image: node:17
   stage: test
+  image: node:17
   script:
-    - npm install
-    - npm run test
+    - yarn install
+		- yarn test
   only:
     - main
 deploy to development server:
   image: node:17
   stage: dev build
   script:
-    - npm install
-    - npm run test
+    - yarn install
+		- yarn test
   only:
     - main
