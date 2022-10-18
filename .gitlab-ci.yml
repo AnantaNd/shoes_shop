@@ -8,7 +8,7 @@ stages:
   - production build
 
 test application:
-  # image: node:latest
+  image: node:latest
   stage: test
   script:
     - npm install
