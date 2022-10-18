@@ -9,7 +9,7 @@ import CardCart from '../../components/CardCart/CardCart'
 import Payment from '../../components/Payment/Payment'
 import { useRouter } from 'next/router'
 
-const index = () => {
+const Index = () => {
     const [data, setData] = useState([])
     // const [isChecked, setIsChecked] = useState(false)
 
@@ -63,4 +63,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index
