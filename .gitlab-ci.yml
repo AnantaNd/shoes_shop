@@ -3,15 +3,11 @@ cache:
     - node_modules/
 
 stages:
-  - test
-  - development build
   - production build
 
-test application:
-  # image: node:17
-  stage: test
+deploy to production server:
+  stage: production build
   script:
-    - npm install
-    - npm run test
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
   only:
     - main
