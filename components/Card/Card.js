@@ -23,14 +23,6 @@ export default function Card({ img, name, price, ratting, colorA, colorB, colorC
     console.log(id);
   }
 
-  const handleToRemoveFromCart = (id) => {
-    const dataLocal = JSON.parse(localStorage.getItem('cart'))
-    const newItems = [...dataLocal].filter(cartId => id !== cartId.id)
-    console.log(dataLocal);
-    console.log(newItems);
-    console.log(id);
-  }
-
   return (
    
       <div className={styles.card}>
