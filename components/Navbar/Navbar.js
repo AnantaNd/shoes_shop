@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { Cart, Heart, ListNested, XLg } from 'react-bootstrap-icons'
+import { Cart, ListNested, XLg } from 'react-bootstrap-icons'
 import style from './Navbar.module.css'
 
 const Navbar = () => {
@@ -19,10 +19,8 @@ const Navbar = () => {
             </Link>
             <ul className={`${style.navbar__menus} ${isMenuShown && style.navbar__menus_active}`}>
                 <Link href="/"><li className={`${style.navbar__menu} + ${style.navbar__menu_active}`}>Home</li></Link>
-                <Link href="/"><li className={style.navbar__menu}>Shop</li></Link>
                 <Link href="/products"><li className={style.navbar__menu}>Product</li></Link>
-                <Link href="/"><li className={style.navbar__menu}>Service</li></Link>
-                <Link href="/"><li className={style.navbar__menu}>Contact</li></Link>
+                <Link href="/about"><li className={style.navbar__menu}>about</li></Link>
                 <li className={style.navbar__menu_closed} onClick={isMenuShownHandler}><XLg width="20" height="20" /></li>
             </ul>
             <div className={style.navbar__actions}>
