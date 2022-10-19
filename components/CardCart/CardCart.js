@@ -19,19 +19,19 @@ export default function CardCart({ idProduct, brand, name, img, price }) {
     setCount(1)
   }
 
-  const handleToRemoveFromCart = (id) => {
-    const dataLocal = [JSON.parse(localStorage.getItem('cart'))]
-    // const newItems = [...dataLocal].filter(cartId => id !== cartId.id)
-    // if (dataLocal) {
-    //   localStorage.removeItem('cart')
-    // }
-    // localStorage.setItem('cart', newItems)
-    console.log(dataLocal);
-  }
-
   const onChecked = () => {
     setChecked(!checked);
     // console.log(!checked)
+  }
+
+  const handleToRemoveFromCart = (id) => {
+    const dataLocal = JSON.parse(localStorage.getItem('cart'))
+    const newItems = [...dataLocal].filter(cartId => id !== cartId.id)
+    if(dataLocal){
+      localStorage.removeItem('cart')
+    }
+    localStorage.setItem('cart', JSON.stringify(newItems))
+    location.reload()
   }
 
   return (
