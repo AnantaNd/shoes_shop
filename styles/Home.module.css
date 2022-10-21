@@ -8,6 +8,7 @@
 
 .hero__container{
     width: 500px;
+    
 }
 
 .hero__headline{
@@ -17,10 +18,12 @@
 
 .highlight{
     font-weight: 800;
+    color: var(--red-color);
 }
 
 .hero__headlinesupport{
     line-height: 180%;
+    text-align: justify;
 }
 
 .cta{
@@ -37,10 +40,15 @@
 }
 
 .banner{
-    width: 500px;
+    width: 400px;
+    padding: 0 1rem;
 }
 
 /* BRAND */
+.section__container{
+    margin: 0 auto;
+    padding: auto;
+}
 .section__title{
     text-align: center;
     font-size: 24px;
@@ -72,13 +80,14 @@
 }
 /* END PRODUCT */
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 768px) {
     .hero{
         text-align: center;
         padding: 24px 0;
     }
 
     .hero__headline{
+        /* text-align: center; */
         font-weight: 600;
         font-size: 28px;
     }

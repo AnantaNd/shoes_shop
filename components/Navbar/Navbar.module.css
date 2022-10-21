@@ -17,6 +17,7 @@
 .navbar__brand{
     font-family: 'Pacifico', cursive;
     font-size: 24px;
+    cursor: pointer;
 }
 
 .navbar__menus{
@@ -34,16 +35,20 @@
     font-size: 16px;
 }
 
-.navbar__menu_active{
+/* .navbar__menu_active{
     margin: 0 27px;
     cursor: pointer;
     padding: 32px 0;
     border-bottom: 3px solid var(--yellow-color);
     transition: all ease-in-out .3s;
-}
-
+} */
 .navbar__menu:hover{
     border-bottom: 3px solid var(--yellow-color);
+    margin: 0 27px;
+    cursor: pointer;
+    padding: 32px 0;
+    border-bottom: 3px solid var(--yellow-color);
+    transition: all ease-in-out .3s;
 }
 
 .navbar__actions{

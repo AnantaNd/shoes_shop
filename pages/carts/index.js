@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import Layouts from '../../components/Layouts/Layouts'
 import Head from 'next/head'
-import styles from './Carts.module.css'
-import Section from '../../components/Section/Section'
-import Select from '../../components/Select/Select'
-import Card from '../../components/Card/Card'
+import React, { useEffect, useState } from 'react'
 import CardCart from '../../components/CardCart/CardCart'
+import Layouts from '../../components/Layouts/Layouts'
 import Payment from '../../components/Payment/Payment'
-import { useRouter } from 'next/router'
+import Section from '../../components/Section/Section'
+import styles from './Carts.module.css'
 
 const Index = () => {
     const [data, setData] = useState([])
@@ -32,6 +29,7 @@ const Index = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layouts>
+                
                 <Section>
                     <h1 className={styles.title}>cart</h1>
                     <div className={styles.container}>

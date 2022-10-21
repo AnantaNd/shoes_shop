@@ -8,11 +8,11 @@ export default function CardCart({ idProduct, brand, name, img, price }) {
   const [count, setCount] = useState(1)
 
   const increment = () => {
-    setCount(count++)
+    setCount(count+1)
   }
   const decrement = () => {
     if (count !== 1) {
-      setCount(count--)
+      setCount(count-1)
     }
   }
   const reset = () => {
