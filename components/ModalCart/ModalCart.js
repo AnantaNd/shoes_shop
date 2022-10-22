@@ -9,7 +9,7 @@ export default function ModalCart(){
   const [isShow, setShow] = useState(false)
   const handleModal =()=>{
       setShow(!isShow)
-      console.log('click')
+      // console.log('click')
     }
 
 
@@ -21,7 +21,7 @@ export default function ModalCart(){
 
     useEffect(() => {
         getItemFromLocal()
-    }, [data])
+    }, [isShow])
 
   const priceDot =(price)=>{
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
@@ -48,7 +48,7 @@ export default function ModalCart(){
         localStorage.removeItem('cart')
       }
       localStorage.setItem('cart', JSON.stringify(newItems))
-      // location.reload()
+      location.reload()
     }
 
   return (

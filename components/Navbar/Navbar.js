@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { ListNested, XLg } from 'react-bootstrap-icons'
 import ModalCart from '../ModalCart/ModalCart'
 import style from './Navbar.module.css'
-
 const Navbar = () => {
     const [isMenuShown, setIsMenuShown] = useState(false)
     // const [isShow, setShow] = useState(false)
