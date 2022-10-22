@@ -1,37 +1,68 @@
 import { useEffect, useState } from 'react';
-import { Trash } from 'react-bootstrap-icons';
+import { Cart3, Trash } from 'react-bootstrap-icons';
 import style from './ModalCart.module.css';
 
 export default function ModalCart(){
 
-  const [isShow, setShow] = useState(false);
   const [data, setData] = useState([])
+  const [count, setCount] = useState(1)
+  const [isShow, setShow] = useState(false)
+  const handleModal =()=>{
+      setShow(!isShow)
+      console.log('click')
+    }
+
+
+  const getItemFromLocal = () => {
+    const dataLocal = localStorage.getItem('cart')
+    setData(JSON.parse(dataLocal))
+    console.log(dataLocal);
+  }
+
+    useEffect(() => {
+        getItemFromLocal()
+    }, [data])
 
   const priceDot =(price)=>{
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
 
-    const getItemFromLocal = () => {
-        const dataLocal = localStorage.getItem('cart')
-        setData(JSON.parse(dataLocal))
-        console.log(dataLocal);
-    }
+  // const onChecked = () => {
+  //   setIsChecked(!isChecked)
+  // }
 
-    useEffect(() => {
-        getItemFromLocal()
-    }, [])
-
-
-  const handleModal =()=>{
-    setShow(!isShow)
-    console.log('click')
+  const increment = () => {
+    setCount(count+1)
+    
   }
+  const decrement = () => {
+    if (count !== 1) {
+      setCount(count-1)
+    }
+  }
+
+    const handleToRemoveFromCart = (id) => {
+      const dataLocal = JSON.parse(localStorage.getItem('cart'))
+      const newItems = [...dataLocal].filter(cartId => id !== cartId.id)
+      if(dataLocal){
+        localStorage.removeItem('cart')
+      }
+      localStorage.setItem('cart', JSON.stringify(newItems))
+      // location.reload()
+    }
 
   return (
     <>
-      <div className={style.container}>
+      <div onClick={handleModal}>
+        <p className={data.length? `${style.length_cart}` :`${style.length_cart_none}`}>{data.length}</p>
+        <Cart3 className={style.navbar__action} width="24" height="24" />
+      </div>
+
+      <div className={isShow? `${style.container}`: `${style.container_none}`}>
         <h1 className={style.title}>Keranjang</h1>
-          {data?data.map((shoes, i)=>
+        <p className={style.len_product}>jumlah produk : {data.length}</p>
+          {data.length === 0 ? <h1 className={style.alert}>keranjang kosong</h1> : 
+            data.map((shoes, i)=>
             <div className={style.container_cart} key={i}>
               <div
                 className={style.img_cart}
@@ -41,14 +72,16 @@ export default function ModalCart(){
               <p className={style.product_name}>{shoes.name}</p> 
               <p className={style.product_price}>Rp. {priceDot(shoes.price)}</p> 
               <div className={style.count}>
-                <button className={style.bnt_incr}>+</button>
-                <p className={style.numb_count}>0</p>
-                <button className={style.bnt_decr}>-</button>
-                <Trash className={style.btn_del}/>
+                <button onClick={increment} className={style.btn_incr}>+</button>
+                <p className={style.numb_count}>{count}</p>
+                <button onClick={decrement} className={style.btn_decr} >-</button>
+                <button onClick={()=>handleToRemoveFromCart(shoes.id)} className={style.btn_del}>
+                  <Trash width="24" height="24" />
+                </button>
               </div>
              </div>
             </div>
-          ):<h1 className={style.alert}>keranjang kosong</h1>}
+          )}
           <button className={style.btn_checkout}>checkout</button>
       </div>
     </>

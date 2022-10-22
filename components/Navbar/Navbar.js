@@ -1,16 +1,16 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { Cart, ListNested, XLg } from 'react-bootstrap-icons'
+import { ListNested, XLg } from 'react-bootstrap-icons'
 import ModalCart from '../ModalCart/ModalCart'
 import style from './Navbar.module.css'
 
 const Navbar = () => {
     const [isMenuShown, setIsMenuShown] = useState(false)
-    const [isShow, setShow] = useState(false)
-    const handleModal =()=>{
-        setShow(!isShow)
-        console.log('click')
-      }
+    // const [isShow, setShow] = useState(false)
+    // const handleModal =()=>{
+    //     setShow(!isShow)
+    //     console.log('click')
+    //   }
 
     const isMenuShownHandler = () => {
         setIsMenuShown(!isMenuShown)
@@ -31,8 +31,8 @@ const Navbar = () => {
             </ul>
             <div className={style.navbar__actions}>
                 {/* <Link href="/carts"><Cart className={style.navbar__action} width="24" height="24" /></Link> */}
-                <div onClick={handleModal}><Cart className={style.navbar__action} width="24" height="24" /></div>
-                {isShow && <ModalCart/>}
+                {/* <div onClick={handleModal}><Cart className={style.navbar__action} width="24" height="24" /></div> */}
+                <ModalCart/>
                 {
                     <ListNested onClick={isMenuShownHandler} className={style.navbar__toggel} width="24" height="24" style={{ marginTop: 2 + "px" }} />
                 }
