@@ -1,0 +1,54 @@
+.banner{
+  /* background-color: red; */
+  margin: 6rem 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: relative;
+  transform: translate(0, -425%);
+  z-index: 99;
+}
+
+.image {
+  width: 100%;
+  height: 350px;
+  border-radius: 8px;
+}
+
+.container_arrow {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  border: 2px solid var(--greyColor);
+  background-color: var(--whiteColor);
+  cursor: pointer;
+}
+
+.prev_arrow,
+.next_arrow {
+  font-size: 32px;
+}
+
+@media only screen and (max-width: 1280px) {
+  .navigation {
+    transform: translate(0, -400%);
+  }
+}
+
+@media only screen and (max-width: 856px) {
+  .image {
+    width: 100%;
+    height: auto;
+  }
+
+  .navigation {
+    display: none;
+  }
+}

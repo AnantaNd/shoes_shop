@@ -47,7 +47,8 @@
 /* BRAND */
 .section__container{
     margin: 0 auto;
-    padding: auto;
+    padding: 0 auto;
+    align-items: center;
 }
 .section__title{
     text-align: center;

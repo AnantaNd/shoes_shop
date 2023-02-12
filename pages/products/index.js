@@ -8,7 +8,7 @@ import Section from '../../components/Section/Section'
 import Select from '../../components/Select/Select'
 import style from './Products.module.css'
 
-export default function index() {
+export default function index({product}) {
   const [data, setData] = useState([])
   const [dataFound, setDataFound] = useState('')
   const [selected, setSelected] = useState('')
@@ -40,13 +40,6 @@ export default function index() {
   }, [])
 
   useEffect(() => {
-    // if(selected || dataFound){
-    //   const dataFilter = data
-    //     .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
-    //     .filter(({ brand }) => selected ? (brand === selected) : true)
-    //   setData(dataFilter)
-    // }
-
     if ((selected !== '') && (dataFound !== '')) {
       const dataFilter = data
         .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
@@ -69,33 +62,59 @@ export default function index() {
 
   return (
     <Layouts>
-      <Section>
-        <div className={style.container}>
-          <Search
-            onChangeInput={onChangeSearch}
-            value={dataFound}
-          />
-          <Select
-            onChangeSelect={onSelected}
-            value={selected}
-          />
-
-          <div className={style.products}>
-            {data.length != 0 && data.map((shoes, i) =>
-                <Card key={i}
-                idProduct={shoes.id}
-                  img={shoes.img}
-                  name={shoes.name}
-                  price={shoes.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-                  ratting={shoes.rating}
-                  colorA={shoes.colorA}
-                  colorB={shoes.colorB}
-                  colorC={shoes.colorC}
-                />
-            )}
+      <div className={style.container}>
+        <Section>
+          <div className={style.filter}>
+            <Search
+              onChangeInput={onChangeSearch}
+              value={dataFound}
+              />
+            <Select
+              onChangeSelect={onSelected}
+              value={selected}
+              />
+            {/* <BtnFilter/> */}
           </div>
+          <p className={style.length_products}>{data.length} products</p>
+        </Section>
+        <Section>
+            <div className={style.products}>
+              {product.length != 0 && data.map((shoes, i) =>
+                // <Link href={`products/${shoes.id}`} key={i} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Card key={i}
+                    idProduct={shoes.id}
+                    img={shoes.img}
+                    name={shoes.name}
+                    price={shoes.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                    ratting={shoes.rating}
+                    colorA={shoes.colorA}
+                    colorB={shoes.colorB}
+                    colorC={shoes.colorC}
+                  />
+                // </Link>
+              )}
+            </div>
+        </Section>
         </div>
-      </Section>
     </Layouts>
   )
+}
+export async function getStaticProps(){
+  try{
+    const res = await fetch('http://localhost:3000/api/products')
+    const product = await res.json()
+    return {
+      props:{
+        product
+      }
+    }
+  }
+  catch(err){
+    console.error(err)
+  }
+  return {
+    props:{
+      product
+    }
+  }
 }

@@ -1,12 +1,24 @@
 .container{
-  margin: 6rem auto;
+  margin-top: 5rem;
 }
 
 .products{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 20rem);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  row-gap: 20px;
+  gap: 50px;
+}
+.filter{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;  
+}
+.length_products{
+  text-align: center;
+  margin: 10px 0;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 768px){

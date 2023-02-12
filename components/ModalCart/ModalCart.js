@@ -54,15 +54,15 @@ export default function ModalCart(){
   return (
     <>
       <div onClick={handleModal}>
-        <p className={data.length? `${style.length_cart}` :`${style.length_cart_none}`}>{data.length}</p>
+        {/* <p className={data.length? `${style.length_cart}` :`${style.length_cart_none}`}>{data.length}</p> */}
         <Cart3 className={style.navbar__action} width="24" height="24" />
       </div>
 
       <div className={isShow? `${style.container}`: `${style.container_none}`}>
         <h1 className={style.title}>Keranjang</h1>
-        <p className={style.len_product}>jumlah produk : {data.length}</p>
-          {data.length === 0 ? <h1 className={style.alert}>keranjang kosong</h1> : 
-            data.map((shoes, i)=>
+        {/* <p className={style.len_product}>jumlah produk : {data.length}</p> */}
+          { 
+            data?.map((shoes, i)=>
             <div className={style.container_cart} key={i}>
               <div
                 className={style.img_cart}

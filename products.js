@@ -6,6 +6,7 @@ export const products = [
     img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
+    discount: 10,
     brand: "nike",
     colorA: "#000",
     colorB: "#BCCEF8",

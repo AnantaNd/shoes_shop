@@ -1,0 +1,10 @@
+.container{
+  margin: 7rem 0;
+}
+.content{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  gap: 10px;
+  flex-wrap: wrap;
+}

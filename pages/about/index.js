@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Hero from '../../components/Hero/Hero';
 import Layouts from '../../components/Layouts/Layouts';
 import style from './About.module.css';
 
@@ -19,7 +20,8 @@ export default function index(){
   return (
     <Layouts>
       <div className={style.container}>
-        <div className={style.about}>
+        <Hero/>
+        {/* <div className={style.about}>
           <h1 className={style.title}>about us</h1>
           <p className={style.desc_about}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
         </div>
@@ -30,7 +32,7 @@ export default function index(){
             <textarea className={style.input_comment} placeholder="Type your message" />
             <button className={style.btn_submit} type='submit'>submit</button>
           </form>
-        </div>
+        </div> */}
       </div>
     </Layouts>
   )

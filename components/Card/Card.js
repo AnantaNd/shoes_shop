@@ -1,3 +1,4 @@
+// import Link from 'next/link'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { StarFill, ThreeDotsVertical } from 'react-bootstrap-icons'
@@ -27,17 +28,20 @@ export default function Card({ img, name, price, ratting, colorA, colorB, colorC
    
       <div className={styles.card}>
         <div className={styles.container}>
-          <div className={styles.card__image} style={{ backgroundImage: `url(${img})`, width: '100%', height: '170%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
-            <div className={styles.rating}>{ratting} <StarFill /></div>
+          <div className={styles.card_img} style={{ backgroundImage: `url(${img})` }}>
           </div>
           <div className={styles.card__details}>
             <div className={styles.name__container}>
               <h4 className={styles.title}>{name}</h4>
-              {pathname.includes('favorites') || <Link href={`/products/${idProduct}`}><ThreeDotsVertical className={styles.btn_favorite} width="24" height="24" /></Link>}
+              {/* {pathname.includes('favorites') || <Link href={`/products/${idProduct}`}><ThreeDotsVertical className={styles.btn_favorite} width="20" height="20" /></Link>} */}
+              <Link href={`products/${idProduct}`}>
+                <ThreeDotsVertical className={styles.btn_favorite} width="20" height="20" />
+              </Link>
             </div>
             <div className={styles.color} style={{ backgroundColor: `${colorA}` }}></div>
             <div className={styles.color} style={{ backgroundColor: `${colorB}` }}></div>
             <div className={styles.color} style={{ backgroundColor: `${colorC}` }}></div>
+            <div className={styles.rating}>{ratting} <StarFill /></div>
             <p className={styles.price}>Rp. {price}</p>
           </div>
         </div>

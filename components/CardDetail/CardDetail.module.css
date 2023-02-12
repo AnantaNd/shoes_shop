@@ -1,0 +1,18 @@
+
+.content{
+  padding: 1rem;
+  width: 500px;
+  line-height: 1.8;
+  float: right;
+}
+.title{
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.price{
+  font-weight: 500;
+  color: var(--red-color);
+}
+.desc{
+  text-align: justify;
+}

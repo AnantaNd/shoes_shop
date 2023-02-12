@@ -1,0 +1,25 @@
+.containerImg{
+  width: 350px;
+  height: 220px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius:10px ; 
+  align-items: center;
+}
+.containerSubImg{
+  margin: 10px 0;
+  width: 150px;
+  height: 90px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: .4rem;
+  border-radius:10px ; 
+}
+.subImg{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.img{
+  background-position: center;
+  background-size: cover;
+}

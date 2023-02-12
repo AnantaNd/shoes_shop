@@ -10,7 +10,7 @@
 
 .container {
     display: flex;
-    gap: 64px;
+    gap: 15rem;
     justify-content: center;
 }
 

@@ -1,0 +1,31 @@
+.container{
+  margin-top: 5.5rem;
+}
+.img{
+  background: url('../../public/about.png');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  margin: 0;
+}
+.title, .desc{
+  padding: 8px 2rem ;
+  /* text-align: right; */
+  /* position: absolute; */
+  /* text-align: right; */
+
+}
+.title{
+  font-weight: 600;
+  text-transform: uppercase;
+  /* text-align: center; */
+  position: absolute;
+  top: 20%;
+  right: 310px;
+}
+.desc{
+  position: absolute;
+  top: 30%;
+  right: 18px;
+
+}
