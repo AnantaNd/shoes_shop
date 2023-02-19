@@ -58,6 +58,10 @@ function SwipperProduct({ dataCard }) {
                 slidesPerView: 1,
                 width: 300,
               },
+              360:{
+                slidesPerView: 1,
+                width: 390,
+              }
             }
           }
           slidesPerView={4}
@@ -71,6 +75,7 @@ function SwipperProduct({ dataCard }) {
                 <Card
                   idProduct={data.id}
                   name={data.name}
+                  disc={data.discount}
                   img={data.img}
                   price={data.price}
                   ratting={data.rating}

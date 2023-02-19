@@ -16,3 +16,26 @@
 .desc{
   text-align: justify;
 }
+.container_btn{
+  margin: 1rem 0;
+}
+.btn_buy{
+  padding: .4rem 1rem;
+  margin: 0 1rem 0 0;
+  background-color: transparent;
+  border: 2px solid var(--green-2-color);
+  background-color: var(--green-color);
+  /* color: white; */
+  border-radius: 8px;
+  font-weight: 600;
+}
+.btn_cart{
+  padding: .4rem 1rem;
+  margin: 0 1rem 0 0;
+  background-color: transparent;
+  border: 2px solid var(--yellow-2-color);
+  background-color: var(--yellow-color);
+  /* color: white; */
+  border-radius: 8px;
+  font-weight: 600;
+}

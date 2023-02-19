@@ -1,3 +1,9 @@
+.container{
+  /* background-color: gainsboro; */
+  /* width: 500px; */
+  padding: 1rem;
+
+}
 .containerImg{
   width: 350px;
   height: 220px;
@@ -5,9 +11,10 @@
   padding: 1rem;
   border-radius:10px ; 
   align-items: center;
+
 }
 .containerSubImg{
-  margin: 10px 0;
+  margin: 2.4rem 0;
   width: 150px;
   height: 90px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
@@ -16,8 +23,8 @@
 }
 .subImg{
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-direction: row;
+  gap: 30px;
 }
 .img{
   background-position: center;

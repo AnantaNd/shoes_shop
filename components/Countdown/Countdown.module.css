@@ -1,0 +1,25 @@
+.container{
+  padding: 8px;
+  margin:0 10px;
+  /* background-color: rgb(255, 116, 116); */
+  border-radius: 8px;
+  display: flex;
+  color: white;
+}
+.timer{
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  background-color: white;
+  padding: 9px ;
+  text-align: center;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+}
+.dot{
+  font-size: 18px;
+  font-weight: 600;
+  padding: 9px 3px;
+  color: var(--textColor);
+}

@@ -9,7 +9,7 @@ import Select from '../../components/Select/Select'
 import style from './Products.module.css'
 
 export default function index({product}) {
-  const [data, setData] = useState([])
+  const [data, setData] = useState(product)
   const [dataFound, setDataFound] = useState('')
   const [selected, setSelected] = useState('')
 
@@ -22,43 +22,36 @@ export default function index({product}) {
     console.log(e.target.value);
   }
 
-  const fetchApiAsyncAwait = async () => {
-    try {
-      const response = await fetch('/api/products');
-      const data = await response.json();
-      setData(data)
-      // console.log(data)
-    } catch (err) {
-      console.error('Error' + err);
-    }
-  };
+  useEffect(()=>{
+   if(dataFound){
+    const search = dataFound.toLowerCase()
+    const temp = data.filter((data)=>data.name.toLowerCase().includes(search))
+    setData(temp)
+   }else{
+    setData(product)
+   }
+  })
 
-  useEffect(() => {
-    fetchApiAsyncAwait();
-    console.log(data)
-
-  }, [])
-
-  useEffect(() => {
-    if ((selected !== '') && (dataFound !== '')) {
-      const dataFilter = data
-        .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
-        .filter(({ brand }) => selected ? (brand === selected) : true)
-      setData(dataFilter)
-      return
-    } else if ((selected === '') && (dataFound !== '')) {
-      const dataFilter = data
-        .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
-      setData(dataFilter)
-      return
-    } else if ((selected !== '') && (dataFound === '')) {
-      const dataFilter = data
-        .filter(({ brand }) => selected ? (brand === selected) : true)
-      setData(dataFilter)
-    }else{
-      fetchApiAsyncAwait();
-    }
-  }, [selected, dataFound])
+  // useEffect(() => {
+  //   if ((selected !== '') && (dataFound !== '')) {
+  //     const dataFilter = data
+  //       .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
+  //       .filter(({ brand }) => selected ? (brand === selected) : true)
+  //     setData(dataFilter)
+  //     return
+  //   } else if ((selected === '') && (dataFound !== '')) {
+  //     const dataFilter = data
+  //       .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
+  //     setData(dataFilter)
+  //     return
+  //   } else if ((selected !== '') && (dataFound === '')) {
+  //     const dataFilter = data
+  //       .filter(({ brand }) => selected ? (brand === selected) : true)
+  //     setData(dataFilter)
+  //   }else{
+  //     fetchApiAsyncAwait();
+  //   }
+  // }, [selected, dataFound])
 
   return (
     <Layouts>
@@ -79,14 +72,17 @@ export default function index({product}) {
         </Section>
         <Section>
             <div className={style.products}>
-              {product.length != 0 && data.map((shoes, i) =>
+              {data.length != 0 && data.map((shoes, i) =>
                 // <Link href={`products/${shoes.id}`} key={i} style={{ textDecoration: 'none', color: 'inherit' }}>
                   <Card key={i}
                     idProduct={shoes.id}
                     img={shoes.img}
+                    disc={shoes.discount}
                     name={shoes.name}
-                    price={shoes.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                    // price={shoes.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                    price={shoes.price}
                     ratting={shoes.rating}
+                    brand={shoes.brand}
                     colorA={shoes.colorA}
                     colorB={shoes.colorB}
                     colorC={shoes.colorC}

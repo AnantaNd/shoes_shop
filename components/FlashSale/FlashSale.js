@@ -1,6 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import Card from '../Card/Card';
+import CountDown from '../Countdown/Countdown';
 import Styles from './FlashSale.module.css';
 
 
@@ -30,7 +31,6 @@ function FlashSale({ dataCard }) {
   return (
     <div className={Styles.container}>
       <div className={Styles.header}>
-        {/* <br></br> */}
         <h1 className={Styles.titleHeader}>Flash Sale</h1>
         <div className={Styles.navigation}>
           <div className={Styles.container_arrow} onClick={() => swiperRef.current?.slidePrev()}>
@@ -44,6 +44,7 @@ function FlashSale({ dataCard }) {
       <div className={Styles.container_collection}>
         <div className={Styles.background_collection} style={{ backgroundImage: `url('/background.jpg')` }} >
           <h1 className={Styles.title}>Flash Sale</h1>
+          <CountDown/>
         </div>
         <Swiper
           className={Styles.collections}
@@ -59,8 +60,12 @@ function FlashSale({ dataCard }) {
               },
               414: {
                 slidesPerView: 1,
-                width: 300,
+                width: 400,
               },
+              360:{
+                slidesPerView: 1,
+                width: 360,
+              }
             }
           }
           slidesPerView={4}
@@ -68,11 +73,12 @@ function FlashSale({ dataCard }) {
             swiperRef.current = swiper;
           }}
         >
-          {dataCard.map((data, idx) => {
+          {dataCard?.map((data, idx) => {
             return (
               <SwiperSlide key={idx}>
                 <Card
                   idProduct={data.id}
+                  disc={data.discount}
                   name={data.name}
                   img={data.img}
                   price={data.price}

@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import FooterBanner from '../components/FooterBanner/FooterBanner'
 import Layouts from '../components/Layouts/Layouts'
 import Section from '../components/Section/Section'
@@ -15,22 +16,14 @@ import FlashSale from '../components/FlashSale/FlashSale'
 import SwipperProduct from '../components/SwipperProduct/SwipperProduct'
 
 export default function Home({product}) {
-  const [data, setData] = useState([])
+  const [data, setData] = useState()
 
-  // const fetchApiAsyncAwait = async () => {
-  //   try {
-  //     const response = await fetch('/api/products');
-  //     const data = await response.json();
-  //     setData(data)
-  //     console.log(data)
-  //   } catch (err) {
-  //     console.error('Error' + err);
-  //   }
-  // };
+  useEffect(()=>{
+    const temp = product.filter((product)=> product.discount >= 0)
+    setData(temp)
+  },[])
 
-  // useEffect(() => {
-  //   fetchApiAsyncAwait();
-  // }, [])
+  
 
   return (
     <div className={style.container}>
@@ -70,7 +63,7 @@ export default function Home({product}) {
         </Section>
         {/* flashSale */}
         <Section>
-          <FlashSale dataCard={product}/>
+          <FlashSale dataCard={data}/>
         </Section>
         
         <Section>

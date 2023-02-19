@@ -19,10 +19,12 @@ export const products = [
     img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
+    discount: 20,
     brand: "addidas",
     colorA: "#000",
     colorB: "#2192FF",
     colorC: "#749F82",
+    desc: 'a supernova is the explosion of a star in space. It happens when a star has reached the end of its life and dies in a brilliant explosion — the biggest explosion that humans have ever seen. Since most stars can live for billions of years, it’s perhaps not surprising that when adidas launched their new running model in 2013 after 30 years of research, testing and reviewing, they dubbed it the Supernova because it was built for long-distance running and comfort.'
 
   },
   {
@@ -31,6 +33,7 @@ export const products = [
     img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
+    discount: 50,
     brand: "reebok",
     colorA: "#000",
     colorB: "#628E90",
@@ -42,10 +45,12 @@ export const products = [
     img:'/sepatu.png',
     rating: 4.5,
     price: 100000,
+    discount: 20,
     brand: "reebok",
     colorA: "#000",
     colorB: "#BCCEF8",
     colorC: "#628E90",
+    desc:'CMEVA Midsole Cushioning for long lasting comfort, Comfort Footbed 5MM OPEN CELL FOAM WITH LESS THAN 5 Percent COMPRESSION SET OVER TIME, SO THE CUSHIONING AND FIT NEVER CHANGES INSIDE THE SHOE TO PROVIDE ALL DAY COMFORT. Comfort Footbed 95 Percent RECYCLED FLEX GROOVES Multiple channels for high flexibility where you need it most. FLEX GROOVES Offer high flexibility in the forefoot. FLEX GROOVES for increased flexibility Full rubber outsole Rubber outsole provides traction and durability Heel TPU cage To provide locked in feel. Lightweight mesh upper A minimal feel and more direct touch from a lightweight mesh upper engineered for high acceleration. This product is made with recycled content as part of our ambition to end plastic waste.'
   },
   {
     id :5,

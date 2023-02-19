@@ -1,9 +1,12 @@
 // import Link from 'next/link'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { StarFill, ThreeDotsVertical } from 'react-bootstrap-icons'
-import styles from './Card.module.css'
-export default function Card({ img, name, price, ratting, colorA, colorB, colorC, idProduct }) {
+import { StarFill } from 'react-bootstrap-icons'
+import { BsThreeDotsVertical } from 'react-icons/bs'
+import style from './Card.module.css'
+
+export default function Card({ img, name, price, ratting, colorA, colorB, colorC, idProduct, brand, disc }) {
   const { pathname } = useRouter()
 
   const handleToCart = async (id) => {
@@ -25,32 +28,26 @@ export default function Card({ img, name, price, ratting, colorA, colorB, colorC
   }
 
   return (
-   
-      <div className={styles.card}>
-        <div className={styles.container}>
-          <div className={styles.card_img} style={{ backgroundImage: `url(${img})` }}>
-          </div>
-          <div className={styles.card__details}>
-            <div className={styles.name__container}>
-              <h4 className={styles.title}>{name}</h4>
-              {/* {pathname.includes('favorites') || <Link href={`/products/${idProduct}`}><ThreeDotsVertical className={styles.btn_favorite} width="20" height="20" /></Link>} */}
-              <Link href={`products/${idProduct}`}>
-                <ThreeDotsVertical className={styles.btn_favorite} width="20" height="20" />
-              </Link>
-            </div>
-            <div className={styles.color} style={{ backgroundColor: `${colorA}` }}></div>
-            <div className={styles.color} style={{ backgroundColor: `${colorB}` }}></div>
-            <div className={styles.color} style={{ backgroundColor: `${colorC}` }}></div>
-            <div className={styles.rating}>{ratting} <StarFill /></div>
-            <p className={styles.price}>Rp. {price}</p>
-          </div>
-        </div>
-        <div>
-          {pathname.includes('favorites')
-            ? <button onClick={() => handleToRemoveFromCart(idProduct)} className={styles.btn_cart}>REMOVE FROM FAVORITE</button>
-            : <button onClick={() => handleToCart(idProduct)} className={styles.btn_cart}>ADD TO CART</button>}
-          <button className={styles.btn_buy}>BUY</button>
-        </div>
+    <div className={style.container}>
+      <div className={style.tag}>
+        <p>{ratting} <StarFill size={13+'px'}/></p>
+        {disc? 
+          <p className={style.tagDisc}>{disc} %</p>:
+          <br></br>
+        }
       </div>
+      <Image src={img} width={200 + 'px'} height={100 + 'px'} alt={'img'} objectFit={'cover'}/>
+      <h1 className={style.title}>{name}<span><Link href={`products/${idProduct}`}><BsThreeDotsVertical /></Link></span></h1>
+      <p className={style.brand}>{brand}</p>
+      {disc?
+        <h2 className={style.disc}>Rp. {price-(price/disc)}</h2>:
+        <h2 className={style.price}>Rp. {price}</h2>
+      }
+      <div className={style.container_btn}>
+        <button onClick={() => handleToCart(idProduct)} className={style.btn_cart}>ADD TO CART</button>
+        <button className={style.btn_buy}>BUY</button>
+      </div>
+    </div>
   )
 }
+// total={(data.price-(data.price/data.discount))
