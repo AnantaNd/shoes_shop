@@ -39,6 +39,14 @@
 .text {
   font-size: 12px;
 }
+.title{
+  color: var(--gray-color);
+  font-weight: 600;
+}
+.title span{
+  color: var(--red-color);
+  text-decoration: underline;
+}
 
 .collections {
   padding: 32px;

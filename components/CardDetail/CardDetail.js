@@ -13,6 +13,7 @@ export default function CardDetail({title, rating, price, desc, image}){
             <button className={style.btn_cart}>Add to Cart</button>
           </div>
           <hr></hr>
+          <h1 className={style.title}>Detail</h1>
           <p className={style.desc}>{desc}</p>
           <hr></hr>
           <h1 className={style.title}>Shipping</h1>

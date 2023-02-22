@@ -3,8 +3,19 @@
 }
 .content{
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
-  width: 1000px;
-  gap: 10px;
-  flex-wrap: wrap;
+  /* width: 1000px; */
+  /* gap: 10px; */
+}
+@media screen and (max-width: 768px) {
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media  screen and (max-width: 414px){
+  
 }

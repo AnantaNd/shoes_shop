@@ -1,4 +1,6 @@
-
+.container{
+  padding: 1.6rem;
+}
 .content{
   padding: 1rem;
   width: 500px;
@@ -38,4 +40,12 @@
   /* color: white; */
   border-radius: 8px;
   font-weight: 600;
+}
+@media only screen and (max-width: 768px) {
+  .container{
+    padding: 0 1.8rem;
+  }
+  .desc{
+    font-size: 13px;
+  }
 }

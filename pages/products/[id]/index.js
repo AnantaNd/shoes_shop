@@ -31,21 +31,14 @@ export default function index({product}){
       <Section>
         <div className={style.container}>
           {data?.map((data, i)=>(
-            <>
-              <div key={i} className={style.content}>
-                <div>
-                  <CardImg img={data.img}/>
-                </div>
-                {/* <Payment price={data.price} discount={data.discount} total={(data.price-(data.price/data.discount))}/> */}
-                <div>
-                  <CardDetail image={data.img} title={data.name} price={data.price} rating={data.rating} desc={data.desc}/>
-                </div>
-              </div>
-            </>
+            <div key={i} className={style.content}>
+              <CardImg img={data.img}/>
+              <CardDetail image={data.img} title={data.name} price={data.price} rating={data.rating} desc={data.desc}/>
+              {/* <Payment price={data.price} discount={data.discount} total={(data.price-(data.price/data.discount))}/> */}
+            </div>
           ))}
         </div>
       </Section>
-      
     </Layouts>
   )
 }

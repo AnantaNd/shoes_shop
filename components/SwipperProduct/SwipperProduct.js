@@ -30,7 +30,6 @@ function SwipperProduct({ dataCard }) {
   return (
     <div className={Styles.container}>
       <div className={Styles.header}>
-        {/* <br></br> */}
         <h1 className={Styles.titleHeader}>Products</h1>
         <div className={Styles.navigation}>
           <div className={Styles.container_arrow} onClick={() => swiperRef.current?.slidePrev()}>
@@ -42,6 +41,10 @@ function SwipperProduct({ dataCard }) {
         </div>
       </div>
       <div className={Styles.container_collection}>
+        <div className={Styles.background_collection} style={{ backgroundImage: `url('/ourcollection.jpg')` }} >
+          <h1 className={Styles.title}>Our <span><br></br>Collections</span></h1>
+          {/* <CountDown/> */}
+        </div>
         <Swiper
           className={Styles.collections}
           breakpoints={
@@ -56,11 +59,11 @@ function SwipperProduct({ dataCard }) {
               },
               414: {
                 slidesPerView: 1,
-                width: 300,
+                width: 400,
               },
               360:{
                 slidesPerView: 1,
-                width: 390,
+                width: 360,
               }
             }
           }
@@ -69,13 +72,13 @@ function SwipperProduct({ dataCard }) {
             swiperRef.current = swiper;
           }}
         >
-          {dataCard.map((data, idx) => {
+          {dataCard?.map((data, idx) => {
             return (
               <SwiperSlide key={idx}>
                 <Card
                   idProduct={data.id}
-                  name={data.name}
                   disc={data.discount}
+                  name={data.name}
                   img={data.img}
                   price={data.price}
                   ratting={data.rating}
