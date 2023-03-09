@@ -6,6 +6,20 @@
   display: flex;
   color: white;
 }
+.container_days{
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  /* color: var(--red-color); */
+}
+.days{
+  font-size: 20px;
+  font-weight: 800;
+}
+.counting_days{
+  font-size: 18px;
+  text-transform: uppercase;
+}
 .timer{
   font-size: 18px;
   font-weight: 600;

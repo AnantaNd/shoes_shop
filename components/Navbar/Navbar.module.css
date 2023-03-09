@@ -15,7 +15,12 @@
 }
 
 .navbar__brand{
-    font-family: 'Pacifico', cursive;
+    background: url('../../public/shoesshop.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 80px;
+    height: 80px;
+    /* font-family: 'Pacifico', cursive; */
     font-size: 24px;
     cursor: pointer;
 }
@@ -34,7 +39,14 @@
     transition: all ease-in-out .3s;
     font-size: 16px;
 }
-
+.register_menu{
+    text-decoration: none;
+    cursor: pointer;
+    padding: 32px 0;
+    border: 3px solid transparent;
+    transition: all ease-in-out .3s;
+    font-size: 16px;
+}
 /* .navbar__menu_active{
     margin: 0 27px;
     cursor: pointer;
@@ -45,6 +57,14 @@
 .navbar__menu:hover{
     border-bottom: 3px solid var(--yellow-color);
     margin: 0 27px;
+    cursor: pointer;
+    padding: 32px 0;
+    border-bottom: 3px solid var(--yellow-color);
+    transition: all ease-in-out .3s;
+}
+.register_menu:hover{
+    border-bottom: 3px solid var(--yellow-color);
+    /* margin: 0 27px; */
     cursor: pointer;
     padding: 32px 0;
     border-bottom: 3px solid var(--yellow-color);
@@ -78,7 +98,7 @@
 
 @media only screen and (max-width: 768px) {
     .navbar{
-        padding: 16px 32px;
+        padding: 8px 32px;
     }
 
     .navbar__brand{

@@ -6,7 +6,7 @@ import { StarFill } from 'react-bootstrap-icons'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import style from './Card.module.css'
 
-export default function Card({ img, name, price, ratting, colorA, colorB, colorC, idProduct, brand, disc }) {
+export default function Card({ img, name, price, ratting, idProduct, brand, disc }) {
   const { pathname } = useRouter()
 
   const handleToCart = async (id) => {
@@ -37,7 +37,7 @@ export default function Card({ img, name, price, ratting, colorA, colorB, colorC
         }
       </div>
       <Image src={img} width={200 + 'px'} height={100 + 'px'} alt={'img'} objectFit={'cover'}/>
-      <h1 className={style.title}>{name}<span><Link href={`products/${idProduct}`}><BsThreeDotsVertical /></Link></span></h1>
+      <h1 className={style.title}>{name}<span><Link href={`products/${idProduct}`}><BsThreeDotsVertical className={style.btn_detail} /></Link></span></h1>
       <p className={style.brand}>{brand}</p>
       {disc?
         <h2 className={style.disc}>Rp. {price-(price/disc)}</h2>:

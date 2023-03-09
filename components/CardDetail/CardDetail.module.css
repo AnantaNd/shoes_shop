@@ -1,9 +1,18 @@
 .container{
   padding: 1.6rem;
 }
-.content{
-  padding: 1rem;
+.container_btn{
+  margin: 1rem 0;
+}
+.container_desc{
   width: 500px;
+}
+.wrapper{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: blue; */
+}
+.content{
   line-height: 1.8;
   float: right;
 }
@@ -18,28 +27,18 @@
 .desc{
   text-align: justify;
 }
-.container_btn{
-  margin: 1rem 0;
-}
 .btn_buy{
-  padding: .4rem 1rem;
+  padding: .4rem 2rem;
   margin: 0 1rem 0 0;
   background-color: transparent;
   border: 2px solid var(--green-2-color);
-  background-color: var(--green-color);
-  /* color: white; */
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
+  cursor: pointer;
 }
-.btn_cart{
-  padding: .4rem 1rem;
-  margin: 0 1rem 0 0;
-  background-color: transparent;
-  border: 2px solid var(--yellow-2-color);
-  background-color: var(--yellow-color);
-  /* color: white; */
-  border-radius: 8px;
-  font-weight: 600;
+.btn_buy:hover{
+  background-color: var(--green-color);
+  color: white;
 }
 @media only screen and (max-width: 768px) {
   .container{
@@ -48,4 +47,29 @@
   .desc{
     font-size: 13px;
   }
+}
+@media screen and (max-width: 414px){
+  .container{
+    width: 400px;
+    text-align: center;
+  }
+  .title, .price, .rating{
+    /* background-color: aqua; */
+    margin: .5rem auto;
+    text-align: center;
+  }
+  .container_btn{
+    /* width: 300px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container_desc{
+    width: 350px;
+    align-items: center;
+  }
+  .btn_buy{
+    width: 200px;
+  }
+
 }

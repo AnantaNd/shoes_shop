@@ -27,6 +27,8 @@
 
 .title {
   font-size: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 .price, .disc{
   font-weight: 600;
@@ -37,7 +39,9 @@
   color: var(--red-color);
   font-size: 14px;
 }
-
+.btn_detail{
+  cursor: pointer;
+}
 .btn_buy {
   border: none;
   margin-top: 8px;

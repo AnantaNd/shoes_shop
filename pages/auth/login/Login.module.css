@@ -14,3 +14,15 @@
 .img{
   background-size: cover;
 }
+@media screen and (max-width: 768px){
+  .container{
+    padding: 0 16px;
+    /* background-color: red; */
+  }
+}
+@media screen and (max-width: 414px){
+  .container{
+    margin: 2px 0;
+    /* background-color: red; */
+  }
+}

@@ -1,39 +1,61 @@
-/* .container{
-  box-sizing: border-box;
-  margin: 8rem auto;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 55% 45%;
+.container_store, .container_bio, .container_brand, .container_contactus{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
-.comment{
-  width: 80%;
-  height: 100%;
-  margin: 3rem auto;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-
+.container_store{
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  
+}
+.container_bio{
+  display: flex;
+}
+.container_brand{
+    margin: 0 auto;
+    padding: 0 auto;
+    align-items: center;
+}
+/* .container_contactus{
+  border: 1.9px solid var(--navy-color);
+  border-radius: 8px;
+  background-color: red;
+  display: flex;
+  grid-template-columns: 55% 45%;
+  padding: 0;
+  flex-direction: column;
+} */
+.content{
+  width: 700px;
+  line-height: 25px;
+  text-align: justify;
+}
+.img{
+  background-image: url('../../public/about1.jpg');
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px 0 10px 0;
+  width: 300px;
+  height: 350px;
 }
 .title{
+  color: var(--navy-color);
+  font-weight: 800;
+  font-style: oblique;
   text-align: center;
-  padding: 2rem;
-  text-transform: capitalize;
-
+  margin-top: 1rem;
 }
-.title_comment{
-  box-sizing: border-box;
-  text-align: center;;
-  text-transform: capitalize;
-  margin: 0;
-
+.brands{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 48px;
+    gap: 50px;
 }
-.desc_about{
-  box-sizing: border-box;
-  text-align: justify;
-  margin: 2px auto;
-  padding: 0 2rem 0 2rem;
-  font-size: 18px;
-  letter-spacing: 1px;
+.form{
+  margin: 5rem 0;
+  /* padding: 1rem; */
+  
 }
 .input_email{
   box-sizing: border-box;
@@ -57,6 +79,7 @@
   border-radius: 5px;
   font-size: 18px;
   resize: none;
+
 }
 .btn_submit{
   box-sizing: border-box;
@@ -70,39 +93,15 @@
   color: #fff;
   font-size: 18px;
   text-transform: capitalize;
-}
-.display_comment{
-  box-sizing: border-box;
-  font-size: 18px;
-  margin: 2rem ;
 
 }
-.content_comment{
-  width: 100%;
-  margin: 0 auto;
-  padding: .8rem;
-  border-radius: 10px;
-  box-shadow: 0 3px 3px 2px #A9C7C5 ;
-
-}
-.text_email{
-  font-size: 18px;
-  font-weight: 600;
-  opacity: .8;
-}
-.text_comment{
-  font-size: 19px;
-  text-align: justify;
-}
-@media screen and (max-width: 768px){
-  .container{
+@media screen and (min-width: 768px){
+  .container_contactus{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     display: grid;
     grid-template-columns: auto;
   }
-  .about{
-    margin-top: 9rem ;
-  }
-} */
+
+}

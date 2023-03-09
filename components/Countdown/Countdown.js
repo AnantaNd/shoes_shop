@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 import styles from './Countdown.module.css';
 
 export default function Countdown(){
+  const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  const deadline = "December, 31, 2023";
+  const deadline = "March, 11, 2023";
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now();
 
-    // setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
+    setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
     setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
     setMinutes(Math.floor((time / 1000 / 60) % 60));
     setSeconds(Math.floor((time / 1000) % 60));
@@ -24,12 +25,18 @@ export default function Countdown(){
   }, []);
   
   return (
-    <div className={styles.container}>
-      <div className={styles.timer}>{hours}</div>
-      <div className={styles.dot}>:</div>
-      <div className={styles.timer}>{minutes}</div>
-      <div className={styles.dot}>:</div>
-      <div className={styles.timer}>{seconds}</div>
+    <>
+    <div className={styles.container_days}>
+      <h1 className={styles.days}>{days} Days Left</h1>
     </div>
+      <div className={styles.container}>
+        {/* <h1>left</h1> */}
+        <div className={styles.timer}>{hours}</div>
+        <div className={styles.dot}>:</div>
+        <div className={styles.timer}>{minutes}</div>
+        <div className={styles.dot}>:</div>
+        <div className={styles.timer}>{seconds}</div>
+      </div>
+    </>
   )
 }

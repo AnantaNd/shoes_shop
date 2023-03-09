@@ -84,7 +84,8 @@
 @media only screen and (max-width: 768px) {
     .hero{
         text-align: center;
-        padding: 24px 0;
+        justify-content: center;
+        padding: 2rem 0;
     }
 
     .hero__headline{
@@ -101,4 +102,7 @@
     .banner{
         display: none;
     }
+}
+@media screen {
+    
 }

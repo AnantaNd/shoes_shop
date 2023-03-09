@@ -75,7 +75,7 @@
   height: 48px;
   border-radius: 100%;
   border: 2px solid var(--greyColor);
-  background-color: var(--whiteColor);
+  /* background-color: var(--whiteColor); */
   cursor: pointer;
 }
 

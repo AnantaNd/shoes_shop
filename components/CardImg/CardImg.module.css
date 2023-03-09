@@ -30,3 +30,17 @@
   background-position: center;
   background-size: cover;
 }
+@media screen and (max-width: 414px){
+  .container{
+    margin: auto;
+    padding: 10px;
+  }
+  .containerImg{
+    width: 300px;
+    height: 180px;
+  }
+  .containerSubImg{
+    width: 130px;
+    height: 80px;
+  }
+}
