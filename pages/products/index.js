@@ -11,12 +11,12 @@ import style from './Products.module.css'
 
 export default function index({product}) {
   const [data, setData] = useState(product)
-  const [dataFound, setDataFound] = useState('')
+  const [dataSearch, setDataSearch] = useState('')
   const [selected, setSelected] = useState('')
 
   const onChangeSearch = (e) => {
     // console.log(e.target.value);
-    setDataFound(e.target.value);
+    setDataSearch(e.target.value);
   }
   const onSelected = (e) => {
     setSelected(e.target.value);
@@ -24,14 +24,38 @@ export default function index({product}) {
   }
 
   useEffect(()=>{
-   if(dataFound){
-    const search = dataFound.toLowerCase()
+   if(dataSearch){
+    const search = dataSearch.toLowerCase()
     const temp = data.filter((data)=>data.name.toLowerCase().includes(search))
     setData(temp)
    }else{
     setData(product)
    }
-  })
+  }, [dataSearch])
+  useEffect(()=>{
+    if(!selected){
+      setData(product)
+    }else{
+      const temp = data.filter(({brand})=> (brand === selected))
+      setData(temp)
+    }
+  }, [selected])
+  // const handleSearch =()=>{
+  //   if(dataSearch){
+  //     const search = dataSearch.toLowerCase()
+  //     const temp = data.filter((data)=>data.name.toLowerCase().includes(search))
+  //     setData(temp)
+  //     console.log(dataSearch)
+  //   }else{
+  //     setData(product)
+  //   }
+  // }
+  const handleClearSearch =()=>{
+    if(dataSearch!= ''){
+      setDataSearch('')
+      setData(product)
+    }
+  }
 
   // useEffect(() => {
   //   if ((selected !== '') && (dataFound !== '')) {
@@ -66,8 +90,10 @@ export default function index({product}) {
           <div className={style.filter}>
             <Search
               onChangeInput={onChangeSearch}
-              value={dataFound}
-              />
+              value={dataSearch}
+              // onSearch={handleSearch}
+              onClear={handleClearSearch}
+            />
             <Select
               onChangeSelect={onSelected}
               value={selected}

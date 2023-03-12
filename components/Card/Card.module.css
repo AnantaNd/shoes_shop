@@ -20,9 +20,9 @@
 }
 .container:hover{
   transform: scale(1.05);
-  transition-delay: 8ms;
-  border: 2px solid var(--yellow-color);
-  box-shadow: 4px 4px 10px var(--yellow-color);
+  transition-delay: 100ms;
+  /* border: 2px solid var(--yellow-color); */
+  /* box-shadow: 4px 4px 10px var(--yellow-color); */
 }
 
 .title {
@@ -74,11 +74,13 @@
 }
 
 .btn_cart:hover{
-  background-color: var(--yellow-color);;
+  background-color: var(--yellow-color);
+  color: #fff;
 }
 
 .btn_buy:hover {
   background-color: var(--yellow-2-color);
+  color: #fff;
 }
 
 @media screen and (max-width: 768px) {

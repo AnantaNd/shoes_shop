@@ -3,8 +3,22 @@
   /* background-color: red; */
 }
 .inputStyle{
-  padding: 10px;
-  border-radius: 10px;
+  padding: 12px;
+  border-radius: 10px 0 0 10px;
   width: 350px;
   border: 1px solid black;
+}
+.inputStyle:focus{
+  outline: none;
+}
+.btn{
+  border-radius: 0 10px 10px 0;
+  padding: 12px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+@media screen and (max-width: 414px){
+  .inputStyle{
+    width: 250px;
+  }
 }

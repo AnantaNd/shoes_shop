@@ -39,7 +39,7 @@ export default function Detail({product}){
           {data?.map((data, i)=>(
             <div key={i} className={style.content}>
               <CardImg img={data.img}/>
-              <CardDetail image={data.img} title={data.name} price={data.price} rating={data.rating} desc={data.desc}/>
+              <CardDetail image={data.img} title={data.name} price={data.price} rating={data.rating} desc={data.desc} discount={data.discount}/>
               {/* <Payment price={data.price} discount={data.discount} total={(data.price-(data.price/data.discount))}/> */}
             </div>
           ))}

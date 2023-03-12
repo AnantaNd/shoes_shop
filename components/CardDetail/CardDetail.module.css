@@ -10,6 +10,9 @@
 .wrapper{
   display: flex;
   justify-content: space-between;
+  border-bottom:1px solid var(--gray-2-color);
+  box-shadow:0px 10px 10px -9px  var(--shadow-color);
+  padding: .7rem 0;
   /* background-color: blue; */
 }
 .content{
@@ -19,33 +22,65 @@
 .title{
   text-transform: capitalize;
   font-weight: 600;
+  font-size: 17px;
 }
-.price{
+.priceDiscount{
   font-weight: 500;
   color: var(--red-color);
+}
+.price{
+  color: var(--gray-2-color);
+  text-decoration: line-through;
 }
 .desc{
   text-align: justify;
 }
+.wrapper_discount{
+  display: flex;
+  gap: 30px;
+}
+.container_discount{
+  background-color: var(--red-color);
+  padding: 0 10px;
+  border-radius: 50px;
+  /* text-align: center; */
+  /* width: 40px; */
+}
+.discount{
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  /* align-items: center; */
+}
 .btn_buy{
-  padding: .4rem 2rem;
+  padding: .5rem 4rem;
   margin: 0 1rem 0 0;
   background-color: transparent;
-  border: 2px solid var(--green-2-color);
-  border-radius: 8px;
+  border: 2px solid var(--green-color);
+  background-color: var(--green-color);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 20px;
   font-weight: 700;
   cursor: pointer;
+  box-shadow: 4px 4px 10px var(--shadow-color);
+  transition: 100ms;
+  
 }
 .btn_buy:hover{
-  background-color: var(--green-color);
-  color: white;
+  /* background-color: var(--green-color); */
+  border: 2px solid var(--green-color);
+  color: var(--green-color);
+  background-color: #fff;
+  transition: 1000ms;
 }
 @media only screen and (max-width: 768px) {
   .container{
     padding: 0 1.8rem;
   }
   .desc{
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 @media screen and (max-width: 414px){
@@ -71,5 +106,21 @@
   .btn_buy{
     width: 200px;
   }
+  .wrapper_discount{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: blue;
+    /* gap: -200px; */
+  }
+  .container_discount{
+    /* padding: 2px 1px; */
+    text-align: center;
+    height: 30px;
+  }
+  .desc{
+    font-size: 12px;
+  }
+
 
 }

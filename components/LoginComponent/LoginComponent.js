@@ -22,10 +22,10 @@ function LoginComponent(){
         </div>
         <form>
           <Input 
-            label={'username'} 
-            name={'username'} 
-            placeholder={'username'} 
-            helper={'masukan username'}/>
+            label={'email'} 
+            name={'email'} 
+            placeholder={'email'} 
+            helper={'masukan email'}/>
           <Input 
             label={'password'} 
             name={'password'}

@@ -29,11 +29,9 @@ const Navbar = () => {
 					<li className={style.navbar__menu_closed} onClick={isMenuShownHandler}><XLg width="20" height="20" /></li>
 				</ul>
 				<div className={style.navbar__actions}>
-					{/* <Link href="/carts"><Cart className={style.navbar__action} width="24" height="24" /></Link> */}
-					{/* <div onClick={handleModal}><Cart className={style.navbar__action} width="24" height="24" /></div> */}
 					<ModalCart/>
-					{/* <Link href="/auth/login"><p className={style.register_menu}>Sign In</p></Link>
-					<Link href="/"><p className={style.register_menu}>Sign Up</p></Link> */}
+					<Link href="/auth/login"><p className={style.register_menu}>Sign In</p></Link>
+					<Link href="/"><p className={style.register_menu}>Sign Up</p></Link>
 					{
 							<ListNested onClick={isMenuShownHandler} className={style.navbar__toggel} width="24" height="24" style={{ marginTop: 2 + "px" }} />
 					}

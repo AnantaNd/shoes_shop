@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import Card from '../Card/Card';
-import Styles from './SwipperProduct.module.css';
+import Styles from './ContainerProduct.module.css';
 
 
 
@@ -14,7 +14,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-function SwipperProduct({ dataCard }) {
+function ContainerProduct({ dataCard, title, label, img, subLabel }) {
   const swiperRef = useRef();
 
   const handlePrev = useCallback(() => {
@@ -30,7 +30,7 @@ function SwipperProduct({ dataCard }) {
   return (
     <div className={Styles.container}>
       <div className={Styles.header}>
-        <h1 className={Styles.titleHeader}>Products</h1>
+        <h1 className={Styles.titleHeader}>{title}</h1>
         <div className={Styles.navigation}>
           <div className={Styles.container_arrow} onClick={() => swiperRef.current?.slidePrev()}>
             <MdNavigateBefore size={24} className={Styles.prev_arrow} >Prev</MdNavigateBefore>
@@ -41,8 +41,8 @@ function SwipperProduct({ dataCard }) {
         </div>
       </div>
       <div className={Styles.container_collection}>
-        <div className={Styles.background_collection} style={{ backgroundImage: `url('/ourcollection.jpg')` }} >
-          <h1 className={Styles.title}>Our <span><br></br>Collections</span></h1>
+        <div className={Styles.background_collection} style={{ backgroundImage: `url(${img})` }} >
+          <h1 className={Styles.title}>{label}<span><br></br>{subLabel}</span></h1>
           {/* <CountDown/> */}
         </div>
         <Swiper
@@ -92,4 +92,4 @@ function SwipperProduct({ dataCard }) {
   )
 }
 
-export default SwipperProduct
+export default ContainerProduct

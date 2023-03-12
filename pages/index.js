@@ -12,8 +12,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import FlashSale from '../components/FlashSale/FlashSale'
-import SwipperProduct from '../components/SwipperProduct/SwipperProduct'
+import ContainerProduct from '../components/ContainerProduct/ContainerProduct'
 
 export default function Home({product}) {
   const [data, setData] = useState()
@@ -63,11 +62,11 @@ export default function Home({product}) {
         </Section>
         {/* flashSale */}
         <Section>
-          <FlashSale dataCard={data}/>
+          <ContainerProduct dataCard={data} title={'Flash Sale'} label={'Flash Sale'} img={'/background.jpg'}/>
         </Section>
         
         <Section>
-          <SwipperProduct dataCard={product}/>
+          <ContainerProduct dataCard={product} title={'Product'} label={"Our"} subLabel={'Collection'} img={'/collection.jpg'}/>
         </Section>
         <div>
           <FooterBanner />

@@ -3,7 +3,7 @@ import { BiChevronDown } from 'react-icons/bi'
 import style from './CardDetail.module.css'
 
 
-export default function CardDetail({title, rating, price, desc}){
+export default function CardDetail({title, rating, price, discount, desc}){
 
   const [show, setShow] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
@@ -26,7 +26,17 @@ export default function CardDetail({title, rating, price, desc}){
         {/* <CardImg img={image}/> */}
         <div className={style.content}>
           <h1 className={style.title}>{title}</h1>
-          <h1 className={style.price}>Rp. {price}</h1>
+          {!discount? '':
+            <div className={style.wrapper_discount}>
+              <p className={style.price}>Rp. {price}</p>
+              <div className={style.container_discount}><p className={style.discount}>{discount} %</p></div>
+            </div>
+          }
+          {!discount? 
+            <h1 className={style.priceDiscount}>Rp. {price}</h1>
+            :
+            <h1 className={style.priceDiscount}>Rp. {price-(price/discount)}</h1>
+          }
           <p className={style.rating}>rating : {rating}</p>
           <div className={style.container_btn}>
             <button onClick={handleClick} className={style.btn_buy}>Buy</button>
@@ -34,23 +44,27 @@ export default function CardDetail({title, rating, price, desc}){
           </div>
           <div className={style.container_desc}>
             <div className={style.wrapper}>
-              <h1 className={style.title}>Detail</h1>
+              <h1 className={style.title}>Product Description</h1>
               <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowDetail} size={30}/>
             </div>
             {!showDetail? '':
-              <p className={style.desc}>{desc}</p>
+              <p className={style.desc}>{!desc? 'no description': `${desc}`}</p>
             }
             <div className={style.wrapper}>
-              <h1 className={style.title}>Shipping </h1>
+              <h1 className={style.title}>Delivery Details</h1>
               <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShow} size={30}/>
             </div>
             {!show? '':
               <>
                 <p className={style.desc}>
-                  Delivery will be made within 5 to 6 working days after the product is confirmed by the seller.
+                  Delivery will be made within 3 to 5 working days after the product is confirmed by the seller.
                 </p>
               </>
             }
+            <div className={style.wrapper}>
+              <h1 className={style.title}>Product Reviews </h1>
+              <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShow} size={30}/>
+            </div>
           </div>
         </div>
       </div>

@@ -25,4 +25,16 @@
   .products{
     gap: 8px;
   }
+  .filter{
+    padding-top: 5rem;
+    /* background-color: red; */
+  }
+}
+@media screen and (max-width: 414px){
+  .filter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
