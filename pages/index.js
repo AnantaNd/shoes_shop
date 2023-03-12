@@ -17,12 +17,11 @@ import ContainerProduct from '../components/ContainerProduct/ContainerProduct'
 export default function Home({product}) {
   const [data, setData] = useState()
 
+
   useEffect(()=>{
     const temp = product.filter((product)=> product.discount >= 0)
     setData(temp)
   },[])
-
-  
 
   return (
     <div className={style.container}>

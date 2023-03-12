@@ -14,6 +14,10 @@ export default function index({product}) {
   const [dataSearch, setDataSearch] = useState('')
   const [selected, setSelected] = useState('')
 
+  const dotPrice =(numb)=>{
+    return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+  }
+
   const onChangeSearch = (e) => {
     // console.log(e.target.value);
     setDataSearch(e.target.value);
@@ -111,8 +115,7 @@ export default function index({product}) {
                     img={shoes.img}
                     disc={shoes.discount}
                     name={shoes.name}
-                    // price={shoes.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-                    price={shoes.price}
+                    price={dotPrice(shoes.price)}
                     ratting={shoes.rating}
                     brand={shoes.brand}
                     colorA={shoes.colorA}

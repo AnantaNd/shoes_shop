@@ -3,7 +3,7 @@ import { BiChevronDown } from 'react-icons/bi'
 import style from './CardDetail.module.css'
 
 
-export default function CardDetail({title, rating, price, discount, desc}){
+export default function CardDetail({title, rating, price, priceAftDisc, discount, desc}){
 
   const [show, setShow] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
@@ -29,13 +29,14 @@ export default function CardDetail({title, rating, price, discount, desc}){
           {!discount? '':
             <div className={style.wrapper_discount}>
               <p className={style.price}>Rp. {price}</p>
-              <div className={style.container_discount}><p className={style.discount}>{discount} %</p></div>
+              <div className={style.container_discount}><p className={style.discount}>{discount} % OFF</p></div>
             </div>
           }
           {!discount? 
             <h1 className={style.priceDiscount}>Rp. {price}</h1>
             :
-            <h1 className={style.priceDiscount}>Rp. {price-(price/discount)}</h1>
+            // error reading string data discount price 
+            <h1 className={style.priceDiscount}>Rp. {priceAftDisc}</h1> 
           }
           <p className={style.rating}>rating : {rating}</p>
           <div className={style.container_btn}>

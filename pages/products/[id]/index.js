@@ -13,6 +13,15 @@ import style from './Detail.module.css';
 
 
 export default function Detail({product}){
+
+  const dotPrice =(numb)=>{
+    return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+  }
+  const priceDisc=(numb, disc)=>{
+    const temp = numb/disc
+    console.log(temp)
+    return parseInt(numb-temp)
+  }
   const [data, setData] = useState(product) 
   console.log(data)
   // const router = useRouter();
@@ -39,7 +48,15 @@ export default function Detail({product}){
           {data?.map((data, i)=>(
             <div key={i} className={style.content}>
               <CardImg img={data.img}/>
-              <CardDetail image={data.img} title={data.name} price={data.price} rating={data.rating} desc={data.desc} discount={data.discount}/>
+              <CardDetail 
+                image={data.img}
+                title={data.name} 
+                price={dotPrice(data.price)}
+                priceAftDisc={dotPrice(priceDisc(data.price, data.discount))}
+                rating={data.rating} 
+                desc={data.desc} 
+                discount={data.discount}
+              />
               {/* <Payment price={data.price} discount={data.discount} total={(data.price-(data.price/data.discount))}/> */}
             </div>
           ))}

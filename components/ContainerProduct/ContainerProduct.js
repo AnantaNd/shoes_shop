@@ -27,6 +27,15 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
     sliderRef.current.swiper.slideNext();
   }, []);
 
+  const dotPrice =(numb)=>{
+    return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+  }
+  const priceDisc=(numb, disc)=>{
+    const temp = numb/disc
+    console.log(temp)
+    return parseInt(numb-temp)
+  }
+
   return (
     <div className={Styles.container}>
       <div className={Styles.header}>
@@ -80,7 +89,8 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
                   disc={data.discount}
                   name={data.name}
                   img={data.img}
-                  price={data.price}
+                  price={dotPrice(data.price)}
+                  priceAftDisc={dotPrice(priceDisc(data.price, data.discount))}
                   ratting={data.rating}
                 />
               </SwiperSlide>
