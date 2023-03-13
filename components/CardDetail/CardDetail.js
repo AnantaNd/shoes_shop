@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { BiChevronDown } from 'react-icons/bi'
+import Modal from '../Modal/Modal'
 import style from './CardDetail.module.css'
 
 
@@ -7,6 +8,7 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
 
   const [show, setShow] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const handleClickShow =()=>{
     setShow(!show)
@@ -17,7 +19,8 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
   }
 
   const handleClick =()=>{
-    console.log('click')
+    setShowModal(!showModal)
+    // console.log(showModal)
   }
 
   return (
@@ -41,7 +44,7 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
           <p className={style.rating}>rating : {rating}</p>
           <div className={style.container_btn}>
             <button onClick={handleClick} className={style.btn_buy}>Buy</button>
-            {/* <button className={style.btn_cart}>Add to Cart</button> */}
+            {showModal && <Modal isOpen={setShowModal} name={title}/>}
           </div>
           <div className={style.container_desc}>
             <div className={style.wrapper}>

@@ -57,7 +57,6 @@ export default function Detail({product}){
                 desc={data.desc} 
                 discount={data.discount}
               />
-              {/* <Payment price={data.price} discount={data.discount} total={(data.price-(data.price/data.discount))}/> */}
             </div>
           ))}
         </div>

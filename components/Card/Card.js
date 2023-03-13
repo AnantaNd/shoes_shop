@@ -2,11 +2,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { StarFill } from 'react-bootstrap-icons'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import style from './Card.module.css'
 
 export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc }) {
+
+  const [showModal, setShowModal] = useState(false)
   const { pathname } = useRouter()
 
  
@@ -27,6 +30,11 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
     localStorage.setItem('cart', JSON.stringify(data))
     console.log(data);
     console.log(id);
+  }
+
+  const handleClick =()=>{
+    setShowModal(!showModal)
+    // console.log(showModal)
   }
 
   return (
@@ -50,6 +58,7 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
         <button onClick={() => handleToCart(idProduct)} className={style.btn_cart}>ADD TO CART</button>
         <button className={style.btn_buy}>BUY</button>
       </div>
+      {/* {showModal && <Modal isOpen={setShowModal} name={name}/>} */}
     </div>
   )
 }

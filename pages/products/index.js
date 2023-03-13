@@ -17,6 +17,11 @@ export default function index({product}) {
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
+  const priceDisc=(numb, disc)=>{
+    const temp = numb/disc
+    return parseInt(numb-temp)
+    // console.log(temp)
+  }
 
   const onChangeSearch = (e) => {
     // console.log(e.target.value);
@@ -24,7 +29,7 @@ export default function index({product}) {
   }
   const onSelected = (e) => {
     setSelected(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
 
   useEffect(()=>{
@@ -44,16 +49,16 @@ export default function index({product}) {
       setData(temp)
     }
   }, [selected])
-  // const handleSearch =()=>{
-  //   if(dataSearch){
-  //     const search = dataSearch.toLowerCase()
-  //     const temp = data.filter((data)=>data.name.toLowerCase().includes(search))
-  //     setData(temp)
-  //     console.log(dataSearch)
-  //   }else{
-  //     setData(product)
-  //   }
-  // }
+  const handleSearch =()=>{
+    if(dataSearch){
+      const search = dataSearch.toLowerCase()
+      const temp = data.filter((data)=>data.name.toLowerCase().includes(search))
+      setData(temp)
+      console.log(dataSearch)
+    }else{
+      setData(product)
+    }
+  }
   const handleClearSearch =()=>{
     if(dataSearch!= ''){
       setDataSearch('')
@@ -116,6 +121,7 @@ export default function index({product}) {
                     disc={shoes.discount}
                     name={shoes.name}
                     price={dotPrice(shoes.price)}
+                    priceAftDisc={dotPrice(priceDisc(shoes.price, shoes.discount))}
                     ratting={shoes.rating}
                     brand={shoes.brand}
                     colorA={shoes.colorA}
