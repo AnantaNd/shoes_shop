@@ -31,11 +31,6 @@ function LoginComponent(){
             name={'password'}
             placeholder={'password'}
             helper={'masukan password'}/>
-          <Input 
-            label={'password'} 
-            name={'password'}
-            placeholder={'password'}
-            helper={'masukan password'}/>
         </form>
         <hr></hr>
         <div className={Style.container_btn}>

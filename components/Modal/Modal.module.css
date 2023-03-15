@@ -33,6 +33,10 @@
   color: black;
   text-align: center;
 }
+.modalContent span{
+  font-weight: 700;
+  text-decoration: 1.8px underline;
+}
 .modalActions {
   position: absolute;
   bottom: 2px;
@@ -49,10 +53,11 @@
 .closeBtn {
   cursor: pointer;
   font-weight: 500;
-  padding: 4px 8px;
+  padding: 5px 10px;
   border-radius: 8px;
   border: none;
   font-size: 18px;
+  font-weight: 600;
   color: black;
   background: white;
   transition: all 0.25s ease;
@@ -73,7 +78,7 @@
 .buyBtn {
   margin-top: 10px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
   padding: 11px 28px;
   border-radius: 12px;
   font-size: 0.8rem;
@@ -92,7 +97,7 @@
 .cancelBtn {
   margin-top: 10px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
   padding: 11px 28px;
   border-radius: 12px;
   font-size: 0.8rem;

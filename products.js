@@ -38,6 +38,7 @@ export const products = [
     colorA: "#000",
     colorB: "#628E90",
     colorC: "#749F82",
+    desc: 'The Reebok NanoFlex TR is a type of training shoe designed for athletes and fitness enthusiasts. The shoe features a flexible and breathable upper made of synthetic materials and mesh, which allows for ventilation and flexibility during exercise. The shoe also has a low-cut design to enhance ankle mobility and a midsole cushioning system for shock absorption during high-impact movements.The outsole of the NanoFlex TR is made of a durable rubber material with a multidirectional tread pattern, providing excellent traction on a variety of surfaces. Additionally, the shoe includes a 360-degree TPU heel wrap for added stability during lateral movements, such as agility drills and side lunges.Overall, the Reebok NanoFlex TR is a versatile and durable training shoe suitable for a range of exercises, including weightlifting, CrossFit, and HIIT workouts.'
   },
   {
     id :4,

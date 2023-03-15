@@ -1,4 +1,5 @@
 
+import Link from 'next/link'
 import style from './Modal.module.css'
 
 const Modal =({name, isOpen})=>{
@@ -14,11 +15,11 @@ const Modal =({name, isOpen})=>{
           x
         </button>
         <div className={style.modalContent}>
-          Are you sure you want to buy {name} ?
+          Are you sure you want to buy <span>{name}</span>?
         </div>
         <div className={style.modalActions}>
           <div className={style.actionsContainer}>
-            <button className={style.buyBtn}>confirm</button>
+          <Link href={'/checkout'}><button className={style.buyBtn}>confirm</button></Link>
             <button className={style.cancelBtn} onClick={()=>isOpen(false)}>cancel</button>
           </div>
         </div>
