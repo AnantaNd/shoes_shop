@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
 
 :root{
-  --navy-color: #00203F;
+  /* --navy-color: #00203F;
   --yellow-color: #F8CF65;
   --red-color: #F54545;
   --red-2-color: #D2001A;
@@ -11,8 +11,18 @@
   --green-2-color: #367E18;
   --gray-color: #414141;
   --gray-2-color: #7D9D9C;
+  --orange-color: #DC5F00; */
+  
+  --blue-color: #3E6D9C;
+  --navy-color: #001253;
+  --red-color: #D2001A;
+  --orange-color: #E14D2A;
+  --orange-2-color: #FD841F;
+  --yellow-color: #F2A71B;
   --shadow-color: #0000001a;
-  --orange-color: #DC5F00;
+  --border-color: #20262E;
+  --gray-color: #7D9D9C;
+
 }
 
 *,

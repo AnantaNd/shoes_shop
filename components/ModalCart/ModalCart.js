@@ -72,9 +72,9 @@ export default function ModalCart(){
               <p className={style.product_name}>{shoes.name}</p> 
               <p className={style.product_price}>Rp. {priceDot(shoes.price)}</p> 
               <div className={style.count}>
-                <button onClick={increment} className={style.btn_incr}>+</button>
+                {/* <button onClick={increment} className={style.btn_incr}>+</button>
                 <p className={style.numb_count}>{count}</p>
-                <button onClick={decrement} className={style.btn_decr} >-</button>
+                <button onClick={decrement} className={style.btn_decr} >-</button> */}
                 <button onClick={()=>handleToRemoveFromCart(shoes.id)} className={style.btn_del}>
                   <Trash width="24" height="24" />
                 </button>

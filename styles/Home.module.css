@@ -31,12 +31,18 @@
     border-radius: 8px;
     border: 0;
     background-color: var(--yellow-color);
+    border: 2px solid var(--yellow-color);
     font-weight: 700;
     margin-top: 16px;
+    color: #fff;
 }
 
 .cta:hover{
-    background-color: var(--yellow-2-color);
+    cursor: pointer;
+    background-color: #fff;
+    border: 2px solid var(--yellow-color);
+    color: #000;
+    transition: 1000ms;
 }
 
 .banner{

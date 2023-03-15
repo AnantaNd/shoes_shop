@@ -21,8 +21,11 @@
   font-size: 18px;
 }
 .desc span{
-  color: var(--red-2-color);
+  color: var(--red-color);
   font-weight: 800;
   text-decoration: underline;
   text-decoration-thickness: 2px;
+}
+.desc span:hover{
+  cursor: pointer;
 }

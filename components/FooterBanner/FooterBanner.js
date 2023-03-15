@@ -7,7 +7,7 @@ function FooterBanner (){
         <h1 className={style.subtitle}>our long journey</h1>
         <p className={style.text}>we care about every step you start,<br/> and will continue to be praesent until finish line.</p>
         <div>
-          <button className={style.btn}>explore</button>
+          {/* <button className={style.btn}>explore</button> */}
           {/* <button className={style.btn}>shop now</button> */}
         </div>
       </div>

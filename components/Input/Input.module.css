@@ -11,13 +11,13 @@
 
 .input {
   padding: 16px;
-  border: var(--gray-color) solid 1px;
+  border: var(--border-color) solid 1px;
   border-radius: 8px;
   margin: 8px 0;
 }
 
 .helper {
-  font-weight: 300;
+  font-weight: 600;
   font-size: 12px;
-  color: red;
+  color: var(--orange-2-color);
 }

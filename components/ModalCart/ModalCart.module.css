@@ -4,7 +4,7 @@
   position: absolute;
   right: 1px;
   top: 90px;
-  box-shadow: -10px 8px 14px -8px rgba(0, 0, 0, 0.176);
+  box-shadow: -10px 8px 14px -8px var(--shadow-color);
   padding: 1rem;
   background-color: #fff;
   overflow-y: scroll;
@@ -21,24 +21,6 @@
   cursor: pointer;
   z-index: -1;
 }
-.length_cart{
-  background-color: red;
-  border: 2px solid white;
-  text-align: center;
-  padding: 1px;
-  width: 18px;
-  height: 18px;
-  border-radius: 100%;
-  font-size: 9px;
-  font-weight: 800;
-  color: white;
-  position: absolute;
-  top: 23px;
-}
-.length_cart_none{
-  display: none;
-}
-
 .title{
   font-weight: 600;
   font-size: 20px;
@@ -53,7 +35,7 @@
   margin: 10px auto;
   padding: 5px;
   border-radius: 5px;
-  box-shadow: -10px 8px 14px -8px rgba(0, 0, 0, 0.176);
+  box-shadow: -10px 8px 14px -8px var(--shadow-color);
   display: flex;
 }
 .img_cart{
@@ -64,7 +46,7 @@
   background-size: contain;
 }
 .btn_checkout{
-  border: 2px solid var(--green-2-color);
+  border: 2px solid var(--blue-color);
   background-color: #fff;
   padding: 10px;
   border-radius: 10px;
@@ -93,24 +75,6 @@
   text-align: center;
   width: 45px;
 }
-.btn_incr{
-  border: 2px solid var(--green-2-color);
-  width: 24px;
-  height: 24px;
-  background-color: #fff;
-  border-radius: 100%;
-  text-align: center;
-  font-weight: bold;
-}
-.btn_decr{
-  border: 2px solid var(--red-2-color);
-  width: 24px;
-  height: 24px;
-  background-color: #fff;
-  border-radius: 100%;
-  text-align: center;
-  font-weight: bold;
-}
 .btn_del{
   font-size: 24px;
   margin-left: 4rem;
@@ -118,7 +82,7 @@
   background-color: transparent;
 }
 .btn_checkout:hover{
-  background-color: var(--green-2-color);
+  background-color: var(--blue-color);
   color: #fff;
 }
 .alert{

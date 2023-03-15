@@ -7,7 +7,7 @@
 .containerImg{
   width: 350px;
   height: 220px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 10px var(--shadow-color);
   padding: 1rem;
   border-radius:10px ; 
   align-items: center;

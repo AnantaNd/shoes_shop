@@ -6,16 +6,18 @@ import style from './CardDetail.module.css'
 
 export default function CardDetail({title, rating, price, priceAftDisc, discount, desc}){
 
-  const [show, setShow] = useState(false)
+  const [showShipping, setShowShipping] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
-  const handleClickShow =()=>{
-    setShow(!show)
+  const handleClickShowShipping =()=>{
+    setShowShipping(!showShipping)
+    setShowDetail(false)
   }
 
   const handleClickShowDetail =()=>{
     setShowDetail(!showDetail)
+    setShowShipping(false)
   }
 
   const handleClick =()=>{
@@ -56,9 +58,9 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
             }
             <div className={style.wrapper}>
               <h1 className={style.title}>Delivery Details</h1>
-              <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShow} size={30}/>
+              <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowShipping} size={30}/>
             </div>
-            {!show? '':
+            {!showShipping? '':
               <>
                 <p className={style.desc}>
                   Delivery will be made within 3 to 5 working days after the product is confirmed by the seller.
@@ -67,7 +69,7 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
             }
             <div className={style.wrapper}>
               <h1 className={style.title}>Product Reviews </h1>
-              <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShow} size={30}/>
+              <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowShipping} size={30}/>
             </div>
           </div>
         </div>
