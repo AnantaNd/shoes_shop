@@ -1,3 +1,4 @@
+import { signIn } from 'next-auth/react';
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook } from "react-icons/fa";
@@ -6,6 +7,21 @@ import Input from '../Input/Input';
 import Style from './LoginComponent.module.css';
 
 function LoginComponent(){
+
+  const handleLoginFacebook = (e) => {
+    e.preventDefault();
+    signIn('facebook', {
+      callbackUrl: '/'
+    });
+  }
+  const handleLoginGoogle = (e) => {
+    e.preventDefault();
+    signIn('google', {
+      callbackUrl: '/'
+    });
+  }
+
+
   return(
     <>
   
@@ -34,10 +50,10 @@ function LoginComponent(){
         </form>
         <hr></hr>
         <div className={Style.container_btn}>
-          <button className={Style.btn}>
+          <button className={Style.btn} onClick={handleLoginGoogle}>
             <FcGoogle size={24} style={{ marginRight: "8px" }} />Masuk dengan Google
           </button>
-          <button className={Style.btn}>
+          <button className={Style.btn} onClick={handleLoginFacebook}>
             <FaFacebook color="DodgerBlue" size={24} style={{ marginRight: "8px" }} />Masuk dengan Facebook
           </button>
         </div>

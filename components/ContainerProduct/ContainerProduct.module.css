@@ -15,10 +15,10 @@
 
 .title {
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700;
 }
 .title span{
-  color: var(--red-color);
+  color: var(--red-2-color);
   text-decoration: underline;
 }
 
@@ -30,7 +30,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 250px;
+  width: 200px;
   border-radius: 24px 0 0 24px;
   display: flex;
   justify-content: center;
@@ -49,18 +49,10 @@
 
 .collections {
   padding: 32px;
-  background-color: var(--footerColor) !important;
   width: 100%;
+  height: 300px;
   border-radius: 0 16px 16px 0;
-}
-
-.btnMore_collection {
-  padding: 8px 16px;
-  background-color: white;
-  border: 0;
-  color: var(--accentColor);
-  border-radius: 8px;
-  cursor: pointer;
+  /* background-color: rgba(255, 0, 0, 0.389); */
 }
 
 .navigation {
@@ -75,14 +67,14 @@
 
 .container_arrow {
   display: flex;
-  position: relative;
+  /* position: relative; */
   align-items: center;
-  justify-content: center;
-  width: 48px;
+  /* justify-content: center; */
+  /* width: 48px; */
   height: 48px;
   border-radius: 100%;
   border: 2px solid var(--greyColor);
-  /* background-color: var(--whiteColor); */
+  /* background-color: red; */
   cursor: pointer;
 }
 

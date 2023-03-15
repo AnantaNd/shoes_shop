@@ -32,7 +32,7 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
   }
   const priceDisc=(numb, disc)=>{
     const temp = numb/disc
-    console.log(temp)
+    // console.log(temp)
     return parseInt(numb-temp)
   }
 
@@ -60,11 +60,12 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
             {
               1280: {
                 slidesPerView: 3,
-                width: 835,
+                width: 800,
               },
               768: {
                 slidesPerView: 2,
-                width: 700
+                width: 760,
+                spaceBetween: 50
               },
               414: {
                 slidesPerView: 1,

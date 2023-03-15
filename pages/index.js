@@ -1,26 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import ContainerProduct from '../components/ContainerProduct/ContainerProduct'
 import FooterBanner from '../components/FooterBanner/FooterBanner'
 import Layouts from '../components/Layouts/Layouts'
 import Section from '../components/Section/Section'
 import style from '../styles/Home.module.css'
 
+
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import ContainerProduct from '../components/ContainerProduct/ContainerProduct'
 
 export default function Home({product}) {
-  const [data, setData] = useState()
+
+  const {data: session} = useSession()
+  const [filterData, setFilterData] = useState()
 
 
   useEffect(()=>{
     const temp = product.filter((product)=> product.discount >= 0)
-    setData(temp)
+    setFilterData(temp)
   },[])
 
   return (
@@ -32,15 +36,12 @@ export default function Home({product}) {
       </Head>
 
       <Layouts>
-        
         <Section>
           <div className={style.hero}>
             <div className={style.hero__container}>
-              <h1 className={style.hero__headline}>Lets Make <br /> Your Day <span className={style.highlight}>Excited</span></h1>
+              <h1 className={style.hero__headline}>Hello {session?.user?.name}, Lets Make Your Day <span className={style.highlight}>Excited</span></h1>
               <p className={style.hero__headlinesupport}>
-              The series of shoe collections for men, women, teenagers and children, complete! If you are looking for the latest sports shoes, comfortable shoes for daily activities, even stylish shoes. <span className={style.highlight}>We have all collection for you. </span>Always put forward innovation, for example the newest materials, or the latest technology.
-
-              </p>
+              The series of shoe collections for men, women, teenagers and children, complete! If you are looking for the latest sports shoes, comfortable shoes for daily activities, even stylish shoes. <span className={style.highlight}>We have all collection for you. </span>Always put forward innovation, for example the newest materials, or the latest technology.</p>
               <Link href="/products"><button className={style.cta}> Get Started</button></Link>
             </div>
             <div className={style.banner}>
@@ -61,7 +62,7 @@ export default function Home({product}) {
         </Section>
         {/* flashSale */}
         <Section>
-          <ContainerProduct dataCard={data} title={'Flash Sale'} label={'Flash Sale'} img={'/background.jpg'}/>
+          <ContainerProduct dataCard={filterData} title={'Flash Sale'} label={'Flash Sale'} img={'/background.jpg'}/>
         </Section>
         
         <Section>
