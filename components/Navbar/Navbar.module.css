@@ -32,6 +32,7 @@
 
 .navbar__menu{
     text-decoration: none;
+    font-weight: 600;
     margin: 0 27px;
     cursor: pointer;
     padding: 32px 0;
@@ -55,19 +56,19 @@
     transition: all ease-in-out .3s;
 } */
 .navbar__menu:hover{
-    border-bottom: 3px solid var(--orange-color);
+    border-bottom: 3px solid var(--yellow-color);
     margin: 0 27px;
     cursor: pointer;
     padding: 32px 0;
-    border-bottom: 3px solid var(--orange-color);
+    border-bottom: 3px solid var(--yellow-color);
     transition: all ease-in-out .3s;
 }
 .register_menu:hover{
-    border-bottom: 3px solid var(--orange-color);
+    border-bottom: 3px solid var(--yellow-color);
     /* margin: 0 27px; */
     cursor: pointer;
     padding: 32px 0;
-    border-bottom: 3px solid var(--orange-color);
+    border-bottom: 3px solid var(--yellow-color);
     transition: all ease-in-out .3s;
 }
 
@@ -83,7 +84,7 @@
     width: 24px;
     height: 24px;
     border-radius: 100%;
-    border: 1px solid var(--navy-color);
+    border: 1px solid var(--yellow-color);
 }
 
 .navbar__toggel, .navbar__menu_closed{

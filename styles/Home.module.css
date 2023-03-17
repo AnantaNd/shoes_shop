@@ -28,8 +28,7 @@
 
 .cta{
     padding: 12px 24px;
-    border-radius: 8px;
-    border: 0;
+    border-radius: 20px;
     background-color: var(--yellow-color);
     border: 2px solid var(--yellow-color);
     font-weight: 700;
@@ -41,7 +40,7 @@
     cursor: pointer;
     background-color: #fff;
     border: 2px solid var(--yellow-color);
-    color: #000;
+    color: var(--yellow-color);
     transition: 1000ms;
 }
 

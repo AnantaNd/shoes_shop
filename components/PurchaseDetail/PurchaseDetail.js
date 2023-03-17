@@ -17,16 +17,16 @@ export default function PurchaseDetail({name, item, price, total, adr}) {
       </div>
       <div className={style.wrapper}>
         <h1 className={style.title}>Purchase Detail</h1>
-        <p className={style.subtitle}>Order ID: <span>13123123</span></p>
-        <p className={style.subtitle}>Item: <span>{item}</span></p>
-        <p className={style.subtitle}>Price: <span>Rp. {price}</span></p>
-        <p className={style.subtitle}>TAX: <span>Rp. 1000</span></p>
-        <p className={style.subtitle}>Total: <sapn>Rp. {total}</sapn></p>
+        <p className={style.subtitle}>Order ID<span>13123123</span></p>
+        <p className={style.subtitle}>Acount Name<span>{name}</span></p>
+        <p className={style.subtitle}>Address<span>{adr}</span></p>
+        <p className={style.subtitle}>Item<span>{item}</span></p>
+        <p className={style.subtitle}>Price<span>Rp. {price}</span></p>
+        <p className={style.subtitle}>TAX<span>Rp. 1000</span></p>
+        <p className={style.subtitle}>Total<sapn>Rp. {total}</sapn></p>
       </div>
       <div className={style.wrapper}>
-        <h1 className={style.title}>Payment Information</h1>
-        <p className={style.subtitle}>Acount Name: <span>{name}</span></p>
-        <p className={style.subtitle}>Address: <span>{adr}</span></p>
+        <h1 className={style.title}>Payment Method</h1>
       </div>
       <div className={style.containerBtn}>
         <button className={style.btnCheckout}>Checkout</button>

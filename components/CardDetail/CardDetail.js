@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BiChevronDown } from 'react-icons/bi'
+import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
 import Modal from '../Modal/Modal'
 import style from './CardDetail.module.css'
 
@@ -51,14 +51,22 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
           <div className={style.container_desc}>
             <div className={style.wrapper}>
               <h1 className={style.title}>Product Description</h1>
-              <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowDetail} size={30}/>
+              {!showDetail? 
+                <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowDetail} size={30}/>
+                :
+                <BiChevronUp style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowDetail} size={30}/>
+              }
             </div>
             {!showDetail? '':
               <p className={style.desc}>{!desc? 'no description': `${desc}`}</p>
             }
             <div className={style.wrapper}>
               <h1 className={style.title}>Delivery Details</h1>
-              <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowShipping} size={30}/>
+              {!showShipping? 
+                <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowShipping} size={30}/>
+                :
+                <BiChevronUp style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowShipping} size={30}/>
+              }
             </div>
             {!showShipping? '':
               <>

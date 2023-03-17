@@ -3,6 +3,7 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Card from '../../components/Card/Card'
+import Filter from '../../components/Filter/Filter'
 import Layouts from '../../components/Layouts/Layouts'
 import Search from '../../components/Search/Search'
 import Section from '../../components/Section/Section'
@@ -13,6 +14,7 @@ export default function index({product}) {
   const [data, setData] = useState(product)
   const [dataSearch, setDataSearch] = useState('')
   const [selected, setSelected] = useState('')
+  const [openFilter, setOpenFilter] = useState(false)
 
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
@@ -107,9 +109,13 @@ export default function index({product}) {
               onChangeSelect={onSelected}
               value={selected}
               />
-            {/* <BtnFilter/> */}
           </div>
+          <button className={style.btnFilter} onClick={()=>setOpenFilter(true)}>Filter</button>
           <p className={style.length_products}>{data.length} products</p>
+          {!openFilter? ''
+            :
+            <Filter handleCloseFilter={()=>setOpenFilter(false)}/>
+          }
         </Section>
         <Section>
             <div className={style.products}>

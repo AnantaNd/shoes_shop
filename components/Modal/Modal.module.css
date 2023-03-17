@@ -102,7 +102,7 @@
   border-radius: 20px;
   font-size: 0.8rem;
   border: none;
-  color: black;
+  color: var(--red-color);
   background: #fcfcfc;
   transition: all 0.25s ease;
 }

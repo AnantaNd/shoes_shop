@@ -31,23 +31,30 @@
   font-weight: 600;
 }
 .subtitle{
-  text-align: start;
-
-}
-.subtitle span{
-  /* color: var(--red-color); */
-  text-align: end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px 0;
+  /* text-align: justify; */
+  /* background-color: red; */
+  /* border-top: 1px solid var(--shadow-color); */
+  /* border-bottom: 1px solid var(--shadow-color); */
 }
 .btnCheckout, .btnBack{
   margin: 24px 20px 24px 0;
   padding: 8px 24px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-weight: 700;
 }
 .btnCheckout{
   border: 2px solid var(--blue-color);
+  color: white;
+  background-color: var(--blue-color);
+}
+.btnBack{
+  border: 2px solid var(--red-color);
   background-color: white;
-
+  color: var(--red-color);
 }
 .btnCheckout:hover{
   cursor: pointer;

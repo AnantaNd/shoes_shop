@@ -1,7 +1,6 @@
 // import Link from 'next/link'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { StarFill } from 'react-bootstrap-icons'
 import { BsThreeDotsVertical } from 'react-icons/bs'
@@ -10,7 +9,7 @@ import style from './Card.module.css'
 export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc }) {
 
   const [showModal, setShowModal] = useState(false)
-  const { pathname } = useRouter()
+  // const { pathname } = useRouter()
 
  
 

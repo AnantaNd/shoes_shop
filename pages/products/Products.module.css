@@ -20,7 +20,24 @@
   margin: 10px 0;
   font-weight: 500;
 }
-
+.btnFilter{
+  padding: 8px 15px;
+  text-align: center;
+  border-radius: 15px;
+  display: block;
+  margin: 0 auto;
+  font-weight: 680;
+  border: 2px solid var(--blue-color);
+  color: var(--blue-color);
+  background-color: white;
+  cursor: pointer;
+}
+.btnFilter:hover{
+  border: 2px solid var(--blue-color);
+  background-color: var(--blue-color);
+  color: white;
+  transition: 1000ms;
+}
 @media screen and (max-width: 768px){
   .products{
     gap: 8px;

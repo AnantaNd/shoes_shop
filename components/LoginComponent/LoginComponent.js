@@ -20,7 +20,12 @@ function LoginComponent(){
       callbackUrl: '/'
     });
   }
-
+  const handleLoginGithub = (e) => {
+    e.preventDefault();
+    signIn('github', {
+      callbackUrl: '/'
+    });
+  }
 
   return(
     <>
@@ -55,6 +60,9 @@ function LoginComponent(){
           </button>
           <button className={Style.btn} onClick={handleLoginFacebook}>
             <FaFacebook color="DodgerBlue" size={24} style={{ marginRight: "8px" }} />Masuk dengan Facebook
+          </button>
+          <button className={Style.btn} onClick={handleLoginGithub}>
+            <FaFacebook color="DodgerBlue" size={24} style={{ marginRight: "8px" }} />Masuk dengan GITHUB
           </button>
         </div>
         <div className={Style.container_helper}>

@@ -21,6 +21,9 @@ export default function Home({product}) {
   const {data: session} = useSession()
   const [filterData, setFilterData] = useState()
 
+  console.log('session')
+  console.log(session?.user?.email)
+
 
   useEffect(()=>{
     const temp = product.filter((product)=> product.discount >= 0)
@@ -39,7 +42,7 @@ export default function Home({product}) {
         <Section>
           <div className={style.hero}>
             <div className={style.hero__container}>
-              <h1 className={style.hero__headline}>Hello {session?.user?.name}, Lets Make Your Day <span className={style.highlight}>Excited</span></h1>
+              <h1 className={style.hero__headline}>Hello <span className={style.highlight}>{!session? 'World': session?.user?.name}</span>, <br/>Lets Make Your Day <span className={style.highlight}>Excited</span></h1>
               <p className={style.hero__headlinesupport}>
               The series of shoe collections for men, women, teenagers and children, complete! If you are looking for the latest sports shoes, comfortable shoes for daily activities, even stylish shoes. <span className={style.highlight}>We have all collection for you. </span>Always put forward innovation, for example the newest materials, or the latest technology.</p>
               <Link href="/products"><button className={style.cta}> Get Started</button></Link>
