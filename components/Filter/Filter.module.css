@@ -1,6 +1,6 @@
 .container{
   width: 250px;
-  height: 450px;
+  height: 400px;
   border-radius: 10px;
   /* border: 1px solid var(--border-color); */
   box-shadow: 4px 4px 10px var(--shadow-color);

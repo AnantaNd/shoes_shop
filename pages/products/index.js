@@ -8,18 +8,17 @@ import Filter from '../../components/Filter/Filter'
 import Layouts from '../../components/Layouts/Layouts'
 import Search from '../../components/Search/Search'
 import Section from '../../components/Section/Section'
-import Select from '../../components/Select/Select'
 import style from './Products.module.css'
 
 export default function index({product}) {
   const [data, setData] = useState(product)
   const [dataSearch, setDataSearch] = useState('')
-  const [selected, setSelected] = useState('')
+  const [sortShoes, setSortShoes] = useState('')
   const [openFilter, setOpenFilter] = useState(false)
   const [checkRating, setCheckRating] = useState('')
   const [hasDiscount, setHasDiscount] = useState(false)
+  const [brand, setBrand] = useState('')
 
-  // console.log([...data])
 
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
@@ -27,46 +26,45 @@ export default function index({product}) {
   const priceDisc=(numb, disc)=>{
     const temp = numb/disc
     return parseInt(numb-temp)
-    // console.log(temp)
   }
   
   // event handlers
+  const closeModal =()=>{
+    setOpenFilter(false)
+    setData(product)
+    setCheckRating('')
+    setHasDiscount('')
+    setBrand('')
+  }
+  const openModal =()=>{
+    setOpenFilter(true)
+  }
   const handleClearSearch =()=>{
     if(dataSearch!= ''){
       setDataSearch('')
       setData(product)
     }
   }
-  const clearFlter = () =>{
-    setCheckRating('')
-    setData(product)
-  }
   const handleRating = (e) =>{
     setCheckRating(e.target.value)
     console.log(e.target.value)
   }
   const onChangeSearch = (e) => {
-    // console.log(e.target.value);
     setDataSearch(e.target.value);
-  }
-  const onSelected = (e) => {
-    setSelected(e.target.value);
-    // console.log(e.target.value);
   }
   const handleDiscount = (e) => {
     setHasDiscount(e.target.checked);
     console.log(e.target.checked);
   }
-
-
-  // filter by brand
-  const filterBrand = (temp) =>{
-    if(!selected){
-      return temp
-    }
-    const filterShoes = temp.filter((shoes)=>(shoes.brand == selected))
-    return filterShoes
+  const handleBrand = (e) => {
+    setBrand(e.target.value);
+    console.log(e.target.value);
   }
+  const handleSort = (e) => {
+    setSortShoes(e.target.value)
+    console.log(e.target.value);
+  }
+  
   //search by name shoes
   const searchShoes = (temp) =>{
     if(!dataSearch){
@@ -84,7 +82,7 @@ export default function index({product}) {
     const shoesRating = temp.filter((data)=> data.rating == checkRating)
     return shoesRating
   }
-  // filter has discount --not displayed
+  // filter has discount 
   const filterDiscount = (temp) =>{
     if(!hasDiscount){
       return temp
@@ -93,14 +91,41 @@ export default function index({product}) {
     console.log(shoesDiscount)
     return (shoesDiscount)
   }
+   // filter by brand
+   const filterBrand = (temp) =>{
+    if(!brand){
+      return temp
+    }
+    const filterShoes = temp.filter((shoes)=>(shoes.brand == brand))
+    return filterShoes
+  }
+  // select sorting shoes not fix
+  // const sortingShoes = (temp) => {
+  //   if(!sortShoes){
+  //     return temp
+  //   }
+  //   const sortData = temp.sort((a, b)=> (b.price > a.price ? 1 : -1))
+  //   return sortData
+  //   // if(sortShoes === 'maxPrice'){
+  //   //   const sortData = temp.sort((a, b)=> (b.price > a.price ? 1 : -1))
+  //   //   return sortData
+  //   // }
+  //   // if(sortShoes === 'minPrice'){
+  //   //   const sortData = temp.sort((a, b)=> (a.price > b.price ? 1 : -1))
+  //   //   return sortData
+  //   // }
+  // }
 
+  // lifecycle filter data
   useEffect(()=>{
     let filterData = filterBrand(product)
     filterData = searchShoes(filterData)
     filterData = filterRating(filterData)
     filterData = filterDiscount(filterData)
+    // filterData = sortingShoes(filterData)
     setData(filterData)
-  }, [selected, dataSearch, checkRating, hasDiscount])
+  }, [dataSearch, checkRating, hasDiscount, brand])
+
 
 
   return (
@@ -119,27 +144,29 @@ export default function index({product}) {
               // onSearch={handleSearch}
               onClear={handleClearSearch}
             />
-            <Select
-              onChangeSelect={onSelected}
-              value={selected}
-              />
+            {/* <Select
+              onChangeSelect={handleSort}
+              value={sortShoes}
+            /> */}
           </div>
-          <button className={style.btnFilter} onClick={()=>setOpenFilter(true)}><FaFilter/> Filter</button>
-          <p className={style.length_products}>display <span>{data.length} products</span> from {product.length} products</p>
+          <div className={style.wrapperBtnFilter}>
+            <button className={style.btnFilter} onClick={openModal}><FaFilter/> Filter</button>
+            <button className={style.btnClear} onClick={closeModal}>Clear Filter</button>
+          </div>
+          <p className={style.length_products}>display <span>{data?.length} products</span> from {product?.length} products</p>
           {!openFilter? ''
             :
             <Filter 
               handleCloseFilter={()=>setOpenFilter(false)}
               onRating={handleRating}
-              handleClear={clearFlter}
               onDiscount={handleDiscount}
+              onBrand={handleBrand}
             />
           }
         </Section>
         <Section>
             <div className={style.products}>
-              {data.length != 0 && data.map((shoes, i) =>
-                // <Link href={`products/${shoes.id}`} key={i} style={{ textDecoration: 'none', color: 'inherit' }}>
+              {data?.length != 0 && data?.map((shoes, i) =>
                   <Card key={i}
                     idProduct={shoes.id}
                     img={shoes.img}
@@ -153,7 +180,6 @@ export default function index({product}) {
                     colorB={shoes.colorB}
                     colorC={shoes.colorC}
                   />
-                // </Link>
               )}
             </div>
         </Section>

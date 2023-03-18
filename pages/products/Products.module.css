@@ -29,13 +29,20 @@
   font-weight: 600;
   text-decoration: underline;
 }
+.wrapperBtnFilter{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 220px;
+  /* background-color: red; */
+  margin: 10px auto;
+
+}
 .btnFilter{
   padding: 8px 15px;
   text-align: center;
-  border-radius: 15px;
+  border-radius: 20px;
   display: block;
-  margin: 0 auto;
-  margin-top: 15px;
   font-weight: 680;
   border: 2px solid var(--blue-color);
   color: var(--blue-color);
@@ -47,6 +54,22 @@
   background-color: var(--blue-color);
   color: white;
   transition: 1000ms;
+}
+.btnClear{
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: 680;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  border: none;
+  color: var(--red-color);
+  background: #fcfcfc;
+  transition: 0.25s ;
+}
+.btnClear:hover{
+  box-shadow: none;
+  transform: none;
+  background: whitesmoke;
 }
 @media screen and (max-width: 768px){
   .products{

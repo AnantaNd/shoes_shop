@@ -2,7 +2,7 @@ import { MdClose } from 'react-icons/md'
 import style from './Filter.module.css'
 
 
-export default function Filter ({handleCloseFilter, handleClear, onPrice, onDiscount, onRating}){
+export default function Filter ({handleCloseFilter, onBrand, onDiscount, onRating}){
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
@@ -10,12 +10,14 @@ export default function Filter ({handleCloseFilter, handleClear, onPrice, onDisc
         <MdClose className={style.btnClose} onClick={handleCloseFilter}/>
       </div>
       <div className={style.wrapperInp}>
-        <h4 className={style.subTitle}>Price</h4>
-        <div onChange={onPrice}>
-          <input className={style.input} type="radio"name='price'value={''}/>
-          <label className={style.labelInp}>Highest</label><br/>
-          <input className={style.input} type="radio" name='price' value={''}/>
-          <label className={style.labelInp}>Lowest</label><br/>
+        <h4 className={style.subTitle}>Brand</h4>
+        <div onChange={onBrand}>
+          <input className={style.input} type="radio"name='brand'value={'nike'}/>
+          <label className={style.labelInp}>Nike</label><br/>
+          <input className={style.input} type="radio" name='brand' value={'addidas'}/>
+          <label className={style.labelInp}>Addidas</label><br/>
+          <input className={style.input} type="radio" name='brand' value={'reebok'}/>
+          <label className={style.labelInp}>Reebok</label><br/>
         </div>
       </div>
       <div className={style.wrapperInp}>
@@ -38,7 +40,7 @@ export default function Filter ({handleCloseFilter, handleClear, onPrice, onDisc
           <label className={style.labelInp}>2</label><br/>
         </div>
       </div>
-      <button className={style.btnClear} onClick={handleClear}>clear filter</button>
+      {/* <button className={style.btnClear} onClick={handleClear}>clear filter</button> */}
     </div>
   )
 }
