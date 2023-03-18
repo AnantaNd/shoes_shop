@@ -1,9 +1,8 @@
-import { GrClearOption } from 'react-icons/gr'
 import { MdClose } from 'react-icons/md'
 import style from './Filter.module.css'
 
 
-export default function Filter ({handleCloseFilter, handleClear}){
+export default function Filter ({handleCloseFilter, handleClear, onPrice, onDiscount, onRating}){
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
@@ -12,36 +11,34 @@ export default function Filter ({handleCloseFilter, handleClear}){
       </div>
       <div className={style.wrapperInp}>
         <h4 className={style.subTitle}>Price</h4>
-        <div>
+        <div onChange={onPrice}>
           <input className={style.input} type="radio"name='price'value={''}/>
-          <label className={style.labelInp}>Rp. 1000</label><br/>
+          <label className={style.labelInp}>Highest</label><br/>
           <input className={style.input} type="radio" name='price' value={''}/>
-          <label className={style.labelInp}>Rp. 1000</label><br/>
-          <input className={style.input} type="radio"name='price'value={''}/>
-          <label className={style.labelInp}>Rp. 1000</label><br/>
+          <label className={style.labelInp}>Lowest</label><br/>
         </div>
       </div>
       <div className={style.wrapperInp}>
         <h4 className={style.subTitle}>Discount</h4>
-        <div>
-          <input className={style.input} type="checkbox"name='discount'value={''}/>
+        <div onChange={onDiscount}>
+          <input className={style.input} type="checkbox"name='discount'value={true} onChange={onDiscount}/>
           <label className={style.labelInp}>have a discount</label><br/>
         </div>
       </div>
       <div className={style.wrapperInp}>
         <h4 className={style.subTitle}>Rating</h4>
-        <div>
-          <input className={style.input} type="radio"name='rating'value={''}/>
+        <div onChange={onRating}>
+          <input className={style.input} type="radio"name='rating'value={5}/>
           <label className={style.labelInp}>5</label><br/>
-          <input className={style.input} type="radio"name='rating'value={''}/>
+          <input className={style.input} type="radio"name='rating'value={4}/>
           <label className={style.labelInp}>4</label><br/>
-          <input className={style.input} type="radio"name='rating'value={''}/> 
+          <input className={style.input} type="radio"name='rating'value={3}/> 
           <label className={style.labelInp}>3</label><br/>
-          <input className={style.input} type="radio"name='rating'value={''}/> 
+          <input className={style.input} type="radio"name='rating'value={2}/> 
           <label className={style.labelInp}>2</label><br/>
         </div>
       </div>
-      <button className={style.btnClear} onClick={handleClear}><GrClearOption size={15} className={style.icon}/> clear filter</button>
+      <button className={style.btnClear} onClick={handleClear}>clear filter</button>
     </div>
   )
 }

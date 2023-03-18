@@ -1,6 +1,6 @@
 .container{
   width: 250px;
-  height: 500px;
+  height: 450px;
   border-radius: 10px;
   /* border: 1px solid var(--border-color); */
   box-shadow: 4px 4px 10px var(--shadow-color);
@@ -17,6 +17,17 @@
 }
 .btnClose{
   cursor: pointer;
+  padding: 3px;
+  width: 25px;
+  height: 25px;
+  box-shadow: 4px 4px 10px var(--shadow-color);
+  border-radius: 25px;
+  
+}
+.btnClose:hover{
+  background-color: whitesmoke;
+  color: var(--red-color);
+  transition: 100ms;
 }
 .title{
   font-size: 20px;
@@ -42,13 +53,19 @@
   border-top: 1px solid var(--border-color);
 }
 .btnClear{
-  padding: 4px 45px;
-  border: 2px solid var(--border-color);
+  padding: 4px 55px;
+  border: 2px solid var(--red-color);
+  background-color: var(--red-color);
+  color: white;
   border-radius: 20px;
-  background-color: white;
   text-transform: capitalize;
   text-align: center;
   font-size: 15px;
   cursor: pointer;
+}
+.btnClear:hover{
+  background-color: whitesmoke;
+  color: var(--red-color);
+  transition: 1000ms;
 }
 

@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import { FaFilter } from 'react-icons/fa'
 import Card from '../../components/Card/Card'
 import Filter from '../../components/Filter/Filter'
 import Layouts from '../../components/Layouts/Layouts'
@@ -15,6 +16,10 @@ export default function index({product}) {
   const [dataSearch, setDataSearch] = useState('')
   const [selected, setSelected] = useState('')
   const [openFilter, setOpenFilter] = useState(false)
+  const [checkRating, setCheckRating] = useState('')
+  const [hasDiscount, setHasDiscount] = useState(false)
+
+  // console.log([...data])
 
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
@@ -24,7 +29,22 @@ export default function index({product}) {
     return parseInt(numb-temp)
     // console.log(temp)
   }
-
+  
+  // event handlers
+  const handleClearSearch =()=>{
+    if(dataSearch!= ''){
+      setDataSearch('')
+      setData(product)
+    }
+  }
+  const clearFlter = () =>{
+    setCheckRating('')
+    setData(product)
+  }
+  const handleRating = (e) =>{
+    setCheckRating(e.target.value)
+    console.log(e.target.value)
+  }
   const onChangeSearch = (e) => {
     // console.log(e.target.value);
     setDataSearch(e.target.value);
@@ -33,61 +53,55 @@ export default function index({product}) {
     setSelected(e.target.value);
     // console.log(e.target.value);
   }
+  const handleDiscount = (e) => {
+    setHasDiscount(e.target.checked);
+    console.log(e.target.checked);
+  }
 
-  useEffect(()=>{
-   if(dataSearch){
-    const search = dataSearch.toLowerCase()
-    const temp = data.filter((data)=>data.name.toLowerCase().includes(search))
-    setData(temp)
-   }else{
-    setData(product)
-   }
-  }, [dataSearch])
-  useEffect(()=>{
+
+  // filter by brand
+  const filterBrand = (temp) =>{
     if(!selected){
-      setData(product)
-    }else{
-      const temp = data.filter(({brand})=> (brand === selected))
-      setData(temp)
+      return temp
     }
-  }, [selected])
-  const handleSearch =()=>{
-    if(dataSearch){
-      const search = dataSearch.toLowerCase()
-      const temp = data.filter((data)=>data.name.toLowerCase().includes(search))
-      setData(temp)
-      console.log(dataSearch)
-    }else{
-      setData(product)
-    }
+    const filterShoes = temp.filter((shoes)=>(shoes.brand == selected))
+    return filterShoes
   }
-  const handleClearSearch =()=>{
-    if(dataSearch!= ''){
-      setDataSearch('')
-      setData(product)
+  //search by name shoes
+  const searchShoes = (temp) =>{
+    if(!dataSearch){
+      return temp
     }
+    const searchShoes = dataSearch.toLowerCase()
+    const foundShoes = temp.filter((shoes)=>shoes.name.toLowerCase().includes(searchShoes))
+    return foundShoes
+  }
+  // filter by rating
+  const filterRating = (temp) => {
+    if(!checkRating){
+      return temp
+    }
+    const shoesRating = temp.filter((data)=> data.rating == checkRating)
+    return shoesRating
+  }
+  // filter has discount --not displayed
+  const filterDiscount = (temp) =>{
+    if(!hasDiscount){
+      return temp
+    }
+    const shoesDiscount = temp.filter((data)=>data.discount)
+    console.log(shoesDiscount)
+    return (shoesDiscount)
   }
 
-  // useEffect(() => {
-  //   if ((selected !== '') && (dataFound !== '')) {
-  //     const dataFilter = data
-  //       .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
-  //       .filter(({ brand }) => selected ? (brand === selected) : true)
-  //     setData(dataFilter)
-  //     return
-  //   } else if ((selected === '') && (dataFound !== '')) {
-  //     const dataFilter = data
-  //       .filter(({ name }) => dataFound ? (name.toLowerCase().includes(dataFound.toLowerCase())) : true)
-  //     setData(dataFilter)
-  //     return
-  //   } else if ((selected !== '') && (dataFound === '')) {
-  //     const dataFilter = data
-  //       .filter(({ brand }) => selected ? (brand === selected) : true)
-  //     setData(dataFilter)
-  //   }else{
-  //     fetchApiAsyncAwait();
-  //   }
-  // }, [selected, dataFound])
+  useEffect(()=>{
+    let filterData = filterBrand(product)
+    filterData = searchShoes(filterData)
+    filterData = filterRating(filterData)
+    filterData = filterDiscount(filterData)
+    setData(filterData)
+  }, [selected, dataSearch, checkRating, hasDiscount])
+
 
   return (
     <Layouts>
@@ -110,11 +124,16 @@ export default function index({product}) {
               value={selected}
               />
           </div>
-          <button className={style.btnFilter} onClick={()=>setOpenFilter(true)}>Filter</button>
-          <p className={style.length_products}>{data.length} products</p>
+          <button className={style.btnFilter} onClick={()=>setOpenFilter(true)}><FaFilter/> Filter</button>
+          <p className={style.length_products}>display <span>{data.length} products</span> from {product.length} products</p>
           {!openFilter? ''
             :
-            <Filter handleCloseFilter={()=>setOpenFilter(false)}/>
+            <Filter 
+              handleCloseFilter={()=>setOpenFilter(false)}
+              onRating={handleRating}
+              handleClear={clearFlter}
+              onDiscount={handleDiscount}
+            />
           }
         </Section>
         <Section>

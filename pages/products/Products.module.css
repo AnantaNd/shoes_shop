@@ -8,6 +8,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
+  /* padding: 0; */
 }
 .filter{
   display: flex;
@@ -17,8 +18,16 @@
 }
 .length_products{
   text-align: center;
-  margin: 10px 0;
+  margin: 20px 0;
   font-weight: 500;
+  font-size: 15px;
+  color: var(--gray-color);
+  text-transform: capitalize;
+}
+.length_products span{
+  color: var(--orange-color);
+  font-weight: 600;
+  text-decoration: underline;
 }
 .btnFilter{
   padding: 8px 15px;
@@ -26,6 +35,7 @@
   border-radius: 15px;
   display: block;
   margin: 0 auto;
+  margin-top: 15px;
   font-weight: 680;
   border: 2px solid var(--blue-color);
   color: var(--blue-color);

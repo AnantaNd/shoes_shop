@@ -16,7 +16,7 @@ export default function ModalCart(){
   const getItemFromLocal = () => {
     const dataLocal = localStorage.getItem('cart')
     setData(JSON.parse(dataLocal))
-    console.log(dataLocal);
+    // console.log(dataLocal);
   }
 
     useEffect(() => {
