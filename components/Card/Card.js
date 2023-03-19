@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import { Cart3, StarFill } from 'react-bootstrap-icons'
+import { StarFill } from 'react-bootstrap-icons'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import style from './Card.module.css'
 
@@ -54,7 +54,7 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
         <h2 className={style.disc}>Rp. {priceAftDisc}</h2>
       }
       <div className={style.container_btn}>
-        <button onClick={() => handleToCart(idProduct)} className={style.btn_cart}><Cart3 size={18}/></button>
+        {/* <button onClick={() => handleToCart(idProduct)} className={style.btn_cart}><Cart3 size={18}/></button> */}
         <button className={style.btn_buy}>BUY</button>
       </div>
       {/* {showModal && <Modal isOpen={setShowModal} name={name}/>} */}

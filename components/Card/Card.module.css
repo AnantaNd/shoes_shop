@@ -1,10 +1,11 @@
 .container{
-  width: 250px;
-  height: 265px;
+  width: 235px;
+  /* height: 260px; */
   padding: 18px;
   box-shadow: 4px 4px 10px var(--shadow-color);
   border-radius: 8px;
   line-height: 1.3rem;
+  background-color: white;
 }
 .container_btn{
   display: flex;
@@ -56,6 +57,7 @@
 .btn_buy {
   border: none;
   margin-top: 8px;
+  width: 100%;
   padding: 4px 30px;
   font-size: 12px;
   font-weight: 700;

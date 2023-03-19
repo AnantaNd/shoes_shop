@@ -84,7 +84,7 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
         >
           {dataCard?.map((data, idx) => {
             return (
-              <SwiperSlide key={idx}>
+              <SwiperSlide key={idx} className={Styles.product}>
                 <Card
                   idProduct={data.id}
                   disc={data.discount}

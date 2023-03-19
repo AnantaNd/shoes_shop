@@ -2,7 +2,6 @@ import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { ListNested, XLg } from 'react-bootstrap-icons'
-import ModalCart from '../ModalCart/ModalCart'
 import style from './Navbar.module.css'
 
 
@@ -36,7 +35,7 @@ const Navbar = () => {
 				<li className={style.navbar__menu_closed} onClick={isMenuShownHandler}><XLg width="20" height="20" /></li>
 			</ul>
 			<div className={style.navbar__actions}>
-				<ModalCart/>
+				{/* <ModalCart/> */}
 				{!session &&(
 					<Link href="/auth/login"><p className={style.register_menu}>Sign In</p></Link>
 					)}
