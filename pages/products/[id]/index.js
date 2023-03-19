@@ -7,23 +7,27 @@ import Head from "next/head";
 import { useState } from "react";
 import CardDetail from "../../../components/CardDetail/CardDetail";
 import CardImg from "../../../components/CardImg/CardImg";
+import CardReview from "../../../components/CardReview/CardReview";
 import Layouts from "../../../components/Layouts/Layouts";
 import Section from '../../../components/Section/Section';
 import style from './Detail.module.css';
 
 
 export default function Detail({product}){
-
+  const [data, setData] = useState(product) 
+  
+  // console.log(data.review[0])
+  
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
   const priceDisc=(numb, disc)=>{
     const temp = numb/disc
-    console.log(temp)
+    // console.log(temp)
     return parseInt(numb-temp)
   }
-  const [data, setData] = useState(product) 
-  console.log(data)
+
+
   // const router = useRouter();
   // const { shoesId } = router.query;
   
@@ -45,20 +49,29 @@ export default function Detail({product}){
       </Head>
       <Section>
         <div className={style.container}>
-          {data?.map((data, i)=>(
-            <div key={i} className={style.content}>
-              <CardImg img={data.img}/>
-              <CardDetail 
-                image={data.img}
-                title={data.name} 
-                price={dotPrice(data.price)}
-                priceAftDisc={dotPrice(priceDisc(data.price, data.discount))}
-                rating={data.rating} 
-                desc={data.desc} 
-                discount={data.discount}
+          <div className={style.content}>
+            <CardImg img={data.img}/>
+            <CardDetail 
+              image={data.img}
+              title={data.name} 
+              price={dotPrice(data.price)}
+              priceAftDisc={dotPrice(priceDisc(data.price, data.discount))}
+              rating={data.rating} 
+              desc={data.desc} 
+              discount={data.discount}
+            />
+          </div>
+        </div>
+        <div className={style.containerReview}>
+          <h1 className={style.title}>Review Products</h1>
+          {data.review?.map((review, i)=>
+            <div key={i} className={style.wrapperReview}>
+              <CardReview
+                name={review.userName}
+                review={review.comment}
               />
             </div>
-          ))}
+          )}
         </div>
       </Section>
     </Layouts>

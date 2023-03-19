@@ -23,6 +23,9 @@
   padding: 2px 5px;
   border-radius: 8px;
 }
+.iconRating{
+  color: var(--yellow-color);
+}
 .container:hover{
   transform: scale(1.05);
   transition-delay: 100ms;
@@ -46,6 +49,9 @@
 }
 .btn_detail{
   cursor: pointer;
+}
+.btn_detail:hover{
+  color: var(--red-color);
 }
 .btn_buy {
   border: none;

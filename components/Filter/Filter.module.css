@@ -68,4 +68,7 @@
   color: var(--red-color);
   transition: 1000ms;
 }
-
+.iconStar{
+  color: var(--yellow-color);
+  margin-left: 10px;
+}

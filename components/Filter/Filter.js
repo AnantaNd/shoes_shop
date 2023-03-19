@@ -1,3 +1,4 @@
+import { FaStar } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
 import style from './Filter.module.css'
 
@@ -31,13 +32,13 @@ export default function Filter ({handleCloseFilter, onBrand, onDiscount, onRatin
         <h4 className={style.subTitle}>Rating</h4>
         <div onChange={onRating}>
           <input className={style.input} type="radio"name='rating'value={5}/>
-          <label className={style.labelInp}>5</label><br/>
+          <label className={style.labelInp}>5<span><FaStar className={style.iconStar} size={12}/></span></label><br/>
           <input className={style.input} type="radio"name='rating'value={4}/>
-          <label className={style.labelInp}>4</label><br/>
+          <label className={style.labelInp}>4<span><FaStar className={style.iconStar} size={12}/></span></label><br/>
           <input className={style.input} type="radio"name='rating'value={3}/> 
-          <label className={style.labelInp}>3</label><br/>
+          <label className={style.labelInp}>3<span><FaStar className={style.iconStar} size={12}/></span></label><br/>
           <input className={style.input} type="radio"name='rating'value={2}/> 
-          <label className={style.labelInp}>2</label><br/>
+          <label className={style.labelInp}>2<span><FaStar className={style.iconStar} size={12}/></span></label><br/>
         </div>
       </div>
       {/* <button className={style.btnClear} onClick={handleClear}>clear filter</button> */}

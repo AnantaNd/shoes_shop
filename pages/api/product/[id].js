@@ -7,7 +7,8 @@ export default function userHandler(req, res) {
     const filtered = products.filter((product) => id == product.id)
     switch (method) {
         case 'GET':
-            if (filtered.length > 0) res.status(200).json(filtered)
+            // if (filtered.length > 0) res.status(200).json(filtered)
+            if (filtered.length > 0) res.status(200).json(filtered[0])
             else res.status(404).json({ message: "Products Not Found" })
             break
         case 'PUT':

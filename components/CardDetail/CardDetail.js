@@ -8,18 +8,21 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
 
   const [showShipping, setShowShipping] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
+  // const [showReview, setShowReview] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
-  const handleClickShowShipping =()=>{
+  const handleShowShipping =()=>{
     setShowShipping(!showShipping)
     setShowDetail(false)
   }
 
-  const handleClickShowDetail =()=>{
+  const handleShowDetail =()=>{
     setShowDetail(!showDetail)
     setShowShipping(false)
   }
-
+  // const handleShowReview =()=>{
+  //   setShowReview(!showReview)
+  // }
   const handleClick =()=>{
     setShowModal(!showModal)
     // console.log(showModal)
@@ -52,9 +55,9 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
             <div className={style.wrapper}>
               <h1 className={style.title}>Product Description</h1>
               {!showDetail? 
-                <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowDetail} size={30}/>
+                <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleShowDetail} size={30}/>
                 :
-                <BiChevronUp style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowDetail} size={30}/>
+                <BiChevronUp style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleShowDetail} size={30}/>
               }
             </div>
             {!showDetail? '':
@@ -63,9 +66,9 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
             <div className={style.wrapper}>
               <h1 className={style.title}>Delivery Details</h1>
               {!showShipping? 
-                <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowShipping} size={30}/>
+                <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleShowShipping} size={30}/>
                 :
-                <BiChevronUp style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowShipping} size={30}/>
+                <BiChevronUp style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleShowShipping} size={30}/>
               }
             </div>
             {!showShipping? '':
@@ -75,10 +78,15 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
                 </p>
               </>
             }
-            <div className={style.wrapper}>
+            {/* <div className={style.wrapper}>
               <h1 className={style.title}>Product Reviews </h1>
-              <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleClickShowShipping} size={30}/>
-            </div>
+              {dataShoes.map((review)=>{
+                <>
+                  <h1>{review.userName}</h1>
+                </>
+              })}
+              <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleShowReview} size={30}/>
+            </div> */}
           </div>
         </div>
       </div>

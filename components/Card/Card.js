@@ -39,7 +39,7 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
   return (
     <div className={style.container}>
       <div className={style.tag}>
-        <p>{ratting} <StarFill size={13+'px'}/></p>
+        <p>{ratting} <StarFill className={style.iconRating} size={13+'px'}/></p>
         {disc? 
           <p className={style.tagDisc}>{disc} %</p>:
           <br></br>

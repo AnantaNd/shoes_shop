@@ -12,9 +12,9 @@ import style from './Products.module.css'
 
 export default function index({product}) {
   const [data, setData] = useState(product)
+  const [openFilter, setOpenFilter] = useState(false)
   const [dataSearch, setDataSearch] = useState('')
   const [sortShoes, setSortShoes] = useState('')
-  const [openFilter, setOpenFilter] = useState(false)
   const [checkRating, setCheckRating] = useState('')
   const [hasDiscount, setHasDiscount] = useState(false)
   const [brand, setBrand] = useState('')
@@ -122,10 +122,20 @@ export default function index({product}) {
     filterData = searchShoes(filterData)
     filterData = filterRating(filterData)
     filterData = filterDiscount(filterData)
-    // filterData = sortingShoes(filterData)
     setData(filterData)
+
+   
   }, [dataSearch, checkRating, hasDiscount, brand])
 
+  // useEffect(()=>{
+  //   if(!sortShoes){
+  //     setData(product)
+  //   }else if(sortShoes === 'maxPrice'){
+  //     const sorting = data.filter((shoes)=> )
+  //     setData(sorting)
+  //   }
+  //   console.log(data)
+  // },[])
 
 
   return (
@@ -141,7 +151,6 @@ export default function index({product}) {
             <Search
               onChangeInput={onChangeSearch}
               value={dataSearch}
-              // onSearch={handleSearch}
               onClear={handleClearSearch}
             />
             {/* <Select

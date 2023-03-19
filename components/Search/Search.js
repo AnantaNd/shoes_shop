@@ -13,7 +13,7 @@ export default function Search ({onChangeInput, value, onSearch, onClear}){
         onChange={onChangeInput}
         value={value}
         type="text"
-        placeholder="Search"
+        placeholder="Search ..."
       />
       {
         !value? 
