@@ -1,5 +1,4 @@
 // import Link from 'next/link'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { StarFill } from 'react-bootstrap-icons'
@@ -12,7 +11,6 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
   // const { pathname } = useRouter()
 
  
-
   const handleToCart = async (id) => {
     const dataFetch = []
     const dataLocal = localStorage.getItem('cart')
@@ -45,7 +43,8 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
           <br></br>
         }
       </div>
-      <Image src={img} width={200 + 'px'} height={100 + 'px'} alt={'img'} objectFit={'cover'}/>
+      <div className={style.img} style={{backgroundImage: `url(${img})`}}></div>
+      {/* <Image src={img} width={200 + 'px'} height={100 + 'px'} alt={'img'} objectFit={'cover'}/> */}
       <h1 className={style.title}>{name}<span><Link href={`products/${idProduct}`}><BsThreeDotsVertical className={style.btn_detail} /></Link></span></h1>
       <p className={style.brand}>{brand}</p>
       {!disc? 
@@ -54,7 +53,6 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
         <h2 className={style.disc}>Rp. {priceAftDisc}</h2>
       }
       <div className={style.container_btn}>
-        {/* <button onClick={() => handleToCart(idProduct)} className={style.btn_cart}><Cart3 size={18}/></button> */}
         <button className={style.btn_buy}>BUY</button>
       </div>
       {/* {showModal && <Modal isOpen={setShowModal} name={name}/>} */}
