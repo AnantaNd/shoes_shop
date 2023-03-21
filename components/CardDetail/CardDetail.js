@@ -1,10 +1,11 @@
+import Link from 'next/link'
 import { useState } from 'react'
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
 import Modal from '../Modal/Modal'
 import style from './CardDetail.module.css'
 
 
-export default function CardDetail({title, rating, price, priceAftDisc, discount, desc}){
+export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct}){
 
   const [showShipping, setShowShipping] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
@@ -48,7 +49,9 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
           }
           <p className={style.rating}>rating : {rating}</p>
           <div className={style.container_btn}>
-            <button onClick={handleClick} className={style.btn_buy}>Buy</button>
+            <Link href={`/checkout/${idProduct}`}>
+              <button className={style.btn_buy}>Buy</button>
+            </Link>
             {showModal && <Modal isOpen={setShowModal} name={title}/>}
           </div>
           <div className={style.container_desc}>

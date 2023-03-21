@@ -52,8 +52,8 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
       <div className={Styles.container_collection}>
         <div className={Styles.background_collection} style={{ backgroundImage: `url(${img})` }} >
           <h1 className={Styles.title}>{label}<span><br></br>{subLabel}</span></h1>
-          {/* <CountDown/> */}
         </div>
+          {/* <CountDown/> */}
         <Swiper
           className={Styles.collections}
           breakpoints={

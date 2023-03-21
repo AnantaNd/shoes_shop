@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import style from './Modal.module.css'
 
-const Modal =({name, isOpen})=>{
+const Modal =({name, isOpen, idProduct})=>{
 
 
   return (
@@ -19,7 +19,7 @@ const Modal =({name, isOpen})=>{
         </div>
         <div className={style.modalActions}>
           <div className={style.actionsContainer}>
-          <Link href={'/checkout'}><button className={style.buyBtn}>confirm</button></Link>
+          <Link href={`/checkout/${idProduct}`}><button className={style.buyBtn}>confirm</button></Link>
             <button className={style.cancelBtn} onClick={()=>isOpen(false)}>cancel</button>
           </div>
         </div>

@@ -25,6 +25,10 @@
   border-right: 1px solid;
   border-left: none ; */
 }
+.iconSearch{
+  font-weight: 700;
+  font-size: 12px;
+}
 @media screen and (max-width: 414px){
   .inputStyle{
     width: 250px;

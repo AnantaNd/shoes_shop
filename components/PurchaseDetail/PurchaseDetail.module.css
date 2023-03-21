@@ -56,9 +56,15 @@
   background-color: white;
   color: var(--red-color);
 }
+.wrapperBtnExpand{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+
+}
 .btnCheckout:hover{
   cursor: pointer;
 }
 .btnBack:hover{
-
+  cursor: pointer;
 }

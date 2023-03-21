@@ -16,7 +16,7 @@ import style from './Detail.module.css';
 export default function Detail({product}){
   const [data, setData] = useState(product) 
   
-  // console.log(data.review[0])
+  console.log(data.id)
   
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
@@ -52,6 +52,7 @@ export default function Detail({product}){
           <div className={style.content}>
             <CardImg img={data.img}/>
             <CardDetail 
+              idProduct={data.id}
               image={data.img}
               title={data.name} 
               price={dotPrice(data.price)}
