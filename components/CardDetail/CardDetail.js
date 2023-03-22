@@ -5,11 +5,11 @@ import Modal from '../Modal/Modal'
 import style from './CardDetail.module.css'
 
 
-export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct}){
+export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, dataShoes}){
 
   const [showShipping, setShowShipping] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
-  // const [showReview, setShowReview] = useState(false)
+  const [showReview, setShowReview] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
   const handleShowShipping =()=>{
@@ -21,9 +21,9 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
     setShowDetail(!showDetail)
     setShowShipping(false)
   }
-  // const handleShowReview =()=>{
-  //   setShowReview(!showReview)
-  // }
+  const handleShowReview =()=>{
+    setShowReview(!showReview)
+  }
   const handleClick =()=>{
     setShowModal(!showModal)
     // console.log(showModal)
@@ -51,6 +51,9 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
           <div className={style.container_btn}>
             <Link href={`/checkout/${idProduct}`}>
               <button className={style.btn_buy}>Buy</button>
+            </Link>
+            <Link href={`/products/`}>
+              <button className={style.btn_back}>Back</button>
             </Link>
             {showModal && <Modal isOpen={setShowModal} name={title}/>}
           </div>
@@ -81,15 +84,6 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
                 </p>
               </>
             }
-            {/* <div className={style.wrapper}>
-              <h1 className={style.title}>Product Reviews </h1>
-              {dataShoes.map((review)=>{
-                <>
-                  <h1>{review.userName}</h1>
-                </>
-              })}
-              <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleShowReview} size={30}/>
-            </div> */}
           </div>
         </div>
       </div>

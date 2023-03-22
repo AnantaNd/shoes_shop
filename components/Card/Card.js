@@ -53,7 +53,9 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
         <h2 className={style.disc}>Rp. {priceAftDisc}</h2>
       }
       <div className={style.container_btn}>
-        <button className={style.btn_buy}>BUY</button>
+        <Link href={`/checkout/${idProduct}`}>
+          <button className={style.btn_buy}>BUY</button>
+        </Link>
       </div>
       {/* {showModal && <Modal isOpen={setShowModal} name={name}/>} */}
     </div>

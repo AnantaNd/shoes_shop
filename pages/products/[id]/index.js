@@ -7,7 +7,6 @@ import Head from "next/head";
 import { useState } from "react";
 import CardDetail from "../../../components/CardDetail/CardDetail";
 import CardImg from "../../../components/CardImg/CardImg";
-import CardReview from "../../../components/CardReview/CardReview";
 import Layouts from "../../../components/Layouts/Layouts";
 import Section from '../../../components/Section/Section';
 import style from './Detail.module.css';
@@ -16,7 +15,7 @@ import style from './Detail.module.css';
 export default function Detail({product}){
   const [data, setData] = useState(product) 
   
-  console.log(data.id)
+  // console.log(data.review[1].userName)
   
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
@@ -60,10 +59,11 @@ export default function Detail({product}){
               rating={data.rating} 
               desc={data.desc} 
               discount={data.discount}
+              // dataShoes={data.review}
             />
           </div>
         </div>
-        <div className={style.containerReview}>
+        {/* <div className={style.containerReview}>
           <h1 className={style.title}>Review Products</h1>
           {data.review?.map((review, i)=>
             <div key={i} className={style.wrapperReview}>
@@ -73,7 +73,7 @@ export default function Detail({product}){
               />
             </div>
           )}
-        </div>
+        </div> */}
       </Section>
     </Layouts>
   )

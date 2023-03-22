@@ -1,0 +1,19 @@
+.container{
+  box-shadow: 0px 11px 22px -3px var(--shadow-color);
+  border-radius: 10px;
+  padding: 24px ;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+.img{
+  width: 120px;
+  height: 80px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+}
+.container:hover, .inp:hover{
+  cursor: pointer;
+}

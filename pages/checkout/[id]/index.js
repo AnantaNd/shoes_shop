@@ -1,3 +1,4 @@
+import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import React, { useState } from 'react'
 import Layouts from '../../../components/Layouts/Layouts'
@@ -7,7 +8,29 @@ import style from './Checkout.module.css'
 
 export default function index({product}) {
   
+  const {data: session} = useSession()
   const [data, setData] = useState(product)
+
+  const dotPrice =(numb)=>{
+    return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+  }
+  const priceDisc=(numb, disc)=>{
+    let temp = numb/disc
+    if(disc == null){
+      temp=1
+      return 0
+    }
+    return parseInt(numb-temp)
+  }
+  const pricePpn = (numb) =>{
+    const temp = numb*10
+    return parseInt(temp/100)
+  }
+
+  // handle options payment
+  const handlePayment =()=>{
+    console.log('handle click')
+  }
 
   return (
     <div>
@@ -20,15 +43,20 @@ export default function index({product}) {
         <Section>
           <div className={style.container}>
             <PurchaseDetail
-              orderId={'SSHP'+Math.floor(Math.random() * 3000)}
+              orderId={'SSHPHARCODE'}
+              idProduct={data.id}
+              name={session?.user?.name}
               item={data.name}
-              price={data.price}
               brand={data.brand}
-              tax={10000}
-              total={data.price+10000}
-              name={'nant'}
-              adr={'bandung'}
+              adr={'bandung --hardcode'}
               img={data.img}
+              tax={dotPrice(pricePpn(data.price))}
+              price={dotPrice(data.price)}
+              // output nan dikarenakan data.discount tidak ada dibeberapa product
+              total={dotPrice(priceDisc(data.price, data?.discount)+pricePpn(data.price))}
+              discount={dotPrice(priceDisc(data.price, data?.discount))}
+              tagDisc={data.discount}
+              onOptPayment={handlePayment}
             />
           </div>
         </Section>

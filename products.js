@@ -5,7 +5,7 @@ export const products = [
     name : "Nike AJ 12 retro",
     img:'/sepatu.png',
     rating: 4.5,
-    price: 100000,
+    price: 10000000,
     discount: 10,
     brand: "nike",
     colorA: "#000",

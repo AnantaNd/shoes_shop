@@ -1,23 +1,23 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useState } from 'react'
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
+import OptPayment from '../OptPayment/OptPayment'
 import style from './PurchaseDetail.module.css'
 
 
-export default function PurchaseDetail({orderId, name, item, price, total, adr, brand, tax, img}) {
+export default function PurchaseDetail({orderId, name, item, brand, adr, img, tax, price, total, discount, idProduct, tagDisc, onOptPayment}) {
 
-  const [showPurcase, setShowPurcase] = useState(false)
+  // const [showPurcase, setShowPurcase] = useState(false)
   const [showPayment, setShowPayment] = useState(false)
   // const [showReview, setShowReview] = useState(false)
 
-  const handleShowPurcase =()=>{
-    setShowPurcase(!showPurcase)
-    setShowPayment(false)
-  }
+  // const handleShowPurcase =()=>{
+  //   setShowPurcase(!showPurcase)
+  // }
 
   const handleShowPayment =()=>{
     setShowPayment(!showPayment)
-    setShowPurcase(false)
   }
 
   return (
@@ -30,40 +30,62 @@ export default function PurchaseDetail({orderId, name, item, price, total, adr, 
           <Image src={img} width={300+'px'} height={150+'px'} alt='img' objectFit='contain'/>
         </div>
         <div className={style.wrapperContent}>
-          <h1>{item}</h1>
-          <p>Brand: {brand}</p>
+          <h1 className={style.titleItem}>{item}</h1>
+          <p className={style.subTitleItem}>Brand: {brand}</p>
+          <p className={style.subTitleItem}>Rp. {price}</p>
+          {!tagDisc? '':<div className={style.tagDisc}>{tagDisc}%</div>}
         </div>
       </div>
       <div className={style.wrapper}>
-        <div className={style.wrapperBtnExpand}>
-          <h1 className={style.title}>Purchase Detail</h1>
+        <h1 className={style.title}>Purchase Detail</h1>
+          <p className={style.subtitle}>Order ID<span>{orderId}</span></p>
+          <p className={style.subtitle}>Item<span>{item}</span></p>
+          <p className={style.subtitle}>Acount Name<span>{name}</span></p>
+          <p className={style.subtitle}>Address<span>{adr}</span></p>
+          <p className={style.subtitle}>Price<span>Rp. {price}</span></p>
+          <p className={style.subtitle}>TAX (10%)<span>Rp. {tax} </span></p>
+          <p className={style.subtitle}>Discount {!tagDisc?'': `(${tagDisc}%)`}<span>Rp. {discount}</span></p>
+          <p className={style.total}>Total<span>Rp. {total}</span></p>
+      </div>
+      <div className={style.wrapper}>
+        <div className={style.wrapperBtnShow}>
+          <h1 className={style.title}>Payment Method</h1>
           {!showPayment? 
-             <BiChevronDown style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleShowPayment} size={30}/>
+            <BiChevronDown onClick={handleShowPayment} style={{cursor: 'pointer', marginTop: '3px'}} size={30}/>
             :
-             <BiChevronUp style={{cursor: 'pointer', marginTop: '10px'}} onClick={handleShowPayment} size={30}/>
-          }
+            <BiChevronUp onClick={handleShowPayment} style={{cursor: 'pointer', marginTop: '3px'}} size={30}/>}
         </div>
-        {!showPayment ?
-          '':
-          <>
-            <p className={style.subtitle}>Order ID<span>{orderId}</span></p>
-            <p className={style.subtitle}>Item<span>{item}</span></p>
-            <p className={style.subtitle}>Acount Name<span>{name}</span></p>
-            <p className={style.subtitle}>Address<span>{adr}</span></p>
-            <p className={style.subtitle}>Price<span>Rp. {price}</span></p>
-            <p className={style.subtitle}>TAX<span>Rp. {tax}</span></p>
-            <p className={style.subtitle}>Total<sapn>Rp. {total}</sapn></p>
-          </>
+        {!showPayment? '':
+          <div className={style.containerPayemnt}>
+            <OptPayment
+              name={'Bank Mandiri'}
+              code={'007 000 000 0000'}
+              img={'/mandiri.svg'}
+              value={'opsi'}
+              handleOpt={onOptPayment}
+              />
+            <OptPayment
+              name={'Bank BCA'}
+              code={'007 000 000 0000'}
+              img={'/bca.svg'}
+              value={'opsi'}
+              handleOpt={onOptPayment}
+              />
+            <OptPayment
+              name={'Bank BRI'}
+              code={'007 000 000 0000'}
+              img={'/bri.svg'}
+              value={'opsi'}
+              handleOpt={onOptPayment}
+            />
+          </div>
         }
-      </div>
-      <div className={style.wrapper}>
-        <h1 className={style.title}>Payment Method</h1>
       </div>
       <div className={style.containerBtn}>
         <button className={style.btnCheckout}>Checkout</button>
-        {/* <Link href={`/products/`}> must be route to product with id */}
-        <button className={style.btnBack}>Back</button>
-        {/* </Link> */}
+        <Link href={`/products/${idProduct}`}> 
+          <button className={style.btnBack}>Back</button>
+        </Link>
       </div>
     </div>
   )
