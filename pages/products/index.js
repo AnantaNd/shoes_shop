@@ -20,6 +20,7 @@ export default function index({product}) {
   const [brand, setBrand] = useState('')
 
 
+
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
@@ -175,20 +176,19 @@ export default function index({product}) {
         </Section>
         <Section>
             <div className={style.products}>
+              {/* <ReactPaginate
+              /> */}
               {data?.length != 0 && data?.map((shoes, i) =>
-                  <Card key={i}
-                    idProduct={shoes.id}
-                    img={shoes.img}
-                    disc={shoes.discount}
-                    name={shoes.name}
-                    price={dotPrice(shoes.price)}
-                    priceAftDisc={dotPrice(priceDisc(shoes.price, shoes.discount))}
-                    ratting={shoes.rating}
-                    brand={shoes.brand}
-                    colorA={shoes.colorA}
-                    colorB={shoes.colorB}
-                    colorC={shoes.colorC}
-                  />
+                <Card key={i}
+                  idProduct={shoes.id}
+                  img={shoes.img}
+                  disc={shoes.discount}
+                  name={shoes.name}
+                  price={dotPrice(shoes.price)}
+                  priceAftDisc={dotPrice(priceDisc(shoes.price, shoes.discount))}
+                  ratting={shoes.rating}
+                  brand={shoes.brand}
+                />
               )}
             </div>
         </Section>
@@ -198,7 +198,7 @@ export default function index({product}) {
 }
 export async function getStaticProps(){
   try{
-    const res = await fetch('http://localhost:3000/api/products')
+    const res = await fetch('http://localhost:3000/api/product')
     const product = await res.json()
     return {
       props:{

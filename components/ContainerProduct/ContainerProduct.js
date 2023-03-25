@@ -65,7 +65,7 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
               768: {
                 slidesPerView: 2,
                 width: 760,
-                spaceBetween: 50
+                spaceBetween: 10
               },
               414: {
                 slidesPerView: 1,

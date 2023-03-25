@@ -1,6 +1,5 @@
 .container{
   width: 230px;
-  /* height: 260px; */
   padding: 18px;
   box-shadow: 4px 4px 10px var(--shadow-color);
   border-radius: 8px;
@@ -30,8 +29,7 @@
 .container:hover{
   transform: scale(1.05);
   transition-delay: 100ms;
-  /* border: 2px solid var(--yellow-color); */
-  /* box-shadow: 4px 4px 10px var(--yellow-color); */
+
 }
 .title {
   font-size: 15px;
@@ -41,11 +39,11 @@
 .price, .disc{
   font-weight: 600;
   font-size: 15px;
-  /* color: var(--gray-color); */
 }
 .brand{
   color: var(--red-color);
   font-size: 14px;
+  font-weight: 550;
 }
 .btn_detail{
   cursor: pointer;
@@ -111,7 +109,6 @@
     margin: .5rem auto;
     width: 200px;
     max-height: 320px;
-    /* background-color: blue; */
   }
 
   .title {

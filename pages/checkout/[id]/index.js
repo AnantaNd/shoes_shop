@@ -17,8 +17,7 @@ export default function index({product}) {
   const priceDisc=(numb, disc)=>{
     let temp = numb/disc
     if(disc == null){
-      temp=1
-      return 0
+      return numb
     }
     return parseInt(numb-temp)
   }
