@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Card from "../../components/Card/Card";
 
 describe("card", ()=>{
@@ -6,6 +6,11 @@ describe("card", ()=>{
     const {container} = render(
       <Card/>
     )
-    expect(container).toBeTruthy();
+    expect(container).toBeInTheDocument();
+  })
+  it('should card have btn buy', ()=>{
+    render(<Card/>)
+    const btnBuyElement = screen.getByRole('button', {name: 'BUY'})
+    expect(btnBuyElement).toBeInTheDocument();
   })
 })

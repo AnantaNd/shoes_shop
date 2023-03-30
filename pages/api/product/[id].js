@@ -3,7 +3,7 @@ import { products } from "../../../products";
 export default function userHandler(req, res) {
     const id = req.query.id
     const method = req.method
-    let { name, rating, price, brand, colorA, colorB, colorC, desc } = req.body
+    let { name, rating, price, brand, desc } = req.body
     const filtered = products.filter((product) => id == product.id)
     switch (method) {
         case 'GET':
@@ -14,7 +14,7 @@ export default function userHandler(req, res) {
         case 'PUT':
             if (filtered.length > 0) {
                 res.status(200).json({
-                    id: filtered.id, name, rating, price, brand, colorA, colorB, colorC, desc
+                    id: filtered.id, name, rating, price, brand, desc
                 })
             } else {
                 res.status(404).json({

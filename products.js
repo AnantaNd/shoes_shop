@@ -11,6 +11,7 @@ export const products = [
     colorA: "#000",
     colorB: "#BCCEF8",
     colorC: "#749F82",
+    tag: 'new',
     desc: "Available 7/24 at 10:00 AM The OG Air Jordan 12 was a first for Jordan Brand, even if what MJ did wearing them wasn't a first for him. Lacing up in the first official Jordan Brand model throughout the 1996 - 97 season, MJ won another title in the Air Jordan 12, often rocking the OG Cherry colourway. Nearly 25 years later, the beloved Cherry is receiving a classic twist with this new Air Jordan 12 colourway. Instead of University Red dominating the makeup of the outside upper, midsole and sole, the Red Metallic colourway reverses the Cherry original, with a clean white leather covering the upper instead. To top it all off, University Red accents on the midfoot and eyestays complete the full twist.",
     review: [
       {
@@ -36,6 +37,7 @@ export const products = [
     colorA: "#000",
     colorB: "#2192FF",
     colorC: "#749F82",
+    tag: 'new',
     desc: 'a supernova is the explosion of a star in space. It happens when a star has reached the end of its life and dies in a brilliant explosion — the biggest explosion that humans have ever seen. Since most stars can live for billions of years, it’s perhaps not surprising that when adidas launched their new running model in 2013 after 30 years of research, testing and reviewing, they dubbed it the Supernova because it was built for long-distance running and comfort.'
 
   },
@@ -75,6 +77,8 @@ export const products = [
     colorA: "#000",
     colorB: "#BCCEF8",
     colorC: "#1746A2",
+    tag: 'new',
+
   },
   {
     id :6,
@@ -97,6 +101,7 @@ export const products = [
     colorA: "#000",
     colorB: "#2192FF",
     colorC: "#DD5353",
+    tag: 'new',
   },
   {
     id :8,

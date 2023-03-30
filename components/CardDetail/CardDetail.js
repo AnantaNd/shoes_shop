@@ -5,7 +5,7 @@ import Modal from '../Modal/Modal'
 import style from './CardDetail.module.css'
 
 
-export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, dataShoes}){
+export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct}){
 
   const [showShipping, setShowShipping] = useState(false)
   const [showDetail, setShowDetail] = useState(false)

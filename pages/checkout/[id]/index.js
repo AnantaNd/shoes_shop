@@ -7,6 +7,7 @@ import Section from '../../../components/Section/Section'
 import style from './Checkout.module.css'
 
 export default function index({product}) {
+  console.log(product)
   
   const {data: session} = useSession()
   const [data, setData] = useState(product)
@@ -51,7 +52,6 @@ export default function index({product}) {
               img={data.img}
               tax={dotPrice(pricePpn(data.price))}
               price={dotPrice(data.price)}
-              // output nan dikarenakan data.discount tidak ada dibeberapa product
               total={dotPrice(priceDisc(data.price, data?.discount)+pricePpn(data.price))}
               discount={dotPrice(priceDisc(data.price, data?.discount))}
               tagDisc={data.discount}

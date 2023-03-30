@@ -19,7 +19,8 @@ import 'swiper/css/scrollbar'
 export default function Home({product}) {
 
   const {data: session} = useSession()
-  const [filterData, setFilterData] = useState()
+  const [flashSale, setFlashSale] = useState()
+  const [newCollection, setNewCollection] = useState()
 
   console.log('session')
   console.log(session?.user?.email)
@@ -27,8 +28,12 @@ export default function Home({product}) {
 
   useEffect(()=>{
     const temp = product.filter((product)=> product.discount >= 0)
-    setFilterData(temp)
-  },[])
+    setFlashSale(temp)
+  },[flashSale])
+  useEffect(()=>{
+    const temp = product.filter((product)=> product.tag === 'new')
+    setNewCollection(temp)
+  },[newCollection])
 
   return (
     <div className={style.container}>
@@ -63,14 +68,15 @@ export default function Home({product}) {
             </div>
           </div>
         </Section>
-        {/* flashSale */}
+
         <Section>
-          <ContainerProduct dataCard={filterData} title={'Flash Sale'} label={'Flash Sale'} img={'/background.jpg'}/>
+          <ContainerProduct dataCard={newCollection} title={'New Collections'} label={"New"} subLabel={'Collections'} img={'/collection.jpg'}/>
+        </Section>
+
+        <Section>
+          <ContainerProduct dataCard={flashSale} title={'Flash Sale'} label={'Flash Sale'} img={'/background.jpg'}/>
         </Section>
         
-        <Section>
-          <ContainerProduct dataCard={product} title={'Product'} label={"Our"} subLabel={'Collection'} img={'/collection.jpg'}/>
-        </Section>
         <div>
           <FooterBanner />
         </div>
