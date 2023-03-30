@@ -87,6 +87,7 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
               <SwiperSlide key={idx} className={Styles.product}>
                 <Card
                   idProduct={data.id}
+                  tagNew={data.tag}
                   disc={data.discount}
                   name={data.name}
                   img={data.img}

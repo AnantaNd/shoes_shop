@@ -3,7 +3,7 @@ import { MdClose } from 'react-icons/md'
 import style from './Filter.module.css'
 
 
-export default function Filter ({handleCloseFilter, onBrand, onDiscount, onRating}){
+export default function Filter ({handleCloseFilter, onBrand, onDiscount, onRating, onLastest}){
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
@@ -26,6 +26,13 @@ export default function Filter ({handleCloseFilter, onBrand, onDiscount, onRatin
         <div onChange={onDiscount}>
           <input className={style.input} type="checkbox"name='discount'value={true} onChange={onDiscount}/>
           <label className={style.labelInp}>have a discount</label><br/>
+        </div>
+      </div>
+      <div className={style.wrapperInp}>
+        <h4 className={style.subTitle}>Lastest</h4>
+        <div onChange={onLastest}>
+          <input className={style.input} type="checkbox" name='lastest' value={true} onChange={onLastest}/>
+          <label className={style.labelInp}>New Collection</label><br/>
         </div>
       </div>
       <div className={style.wrapperInp}>

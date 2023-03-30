@@ -17,6 +17,7 @@ export default function index({product}) {
   const [sortShoes, setSortShoes] = useState('')
   const [checkRating, setCheckRating] = useState('')
   const [hasDiscount, setHasDiscount] = useState(false)
+  const [lastestShoes, setLastestShoes] = useState(false)
   const [brand, setBrand] = useState('')
 
 
@@ -48,22 +49,25 @@ export default function index({product}) {
   }
   const handleRating = (e) =>{
     setCheckRating(e.target.value)
-    console.log(e.target.value)
+    // console.log(e.target.value)
   }
   const onChangeSearch = (e) => {
     setDataSearch(e.target.value);
   }
   const handleDiscount = (e) => {
     setHasDiscount(e.target.checked);
-    console.log(e.target.checked);
+    // console.log(e.target.checked);
+  }
+  const handleLastest = (e) => {
+    setLastestShoes(e.target.checked);
   }
   const handleBrand = (e) => {
     setBrand(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
   const handleSort = (e) => {
     setSortShoes(e.target.value)
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
   
   //search by name shoes
@@ -89,8 +93,16 @@ export default function index({product}) {
       return temp
     }
     const shoesDiscount = temp.filter((data)=>data.discount)
-    console.log(shoesDiscount)
+    // console.log(shoesDiscount)
     return (shoesDiscount)
+  }
+  // filter has new collection
+  const filterCollection = (temp) =>{
+    if(!lastestShoes){
+      return temp
+    }
+    const newCollection = temp.filter((data)=>data.tag)
+    return (newCollection)
   }
    // filter by brand
    const filterBrand = (temp) =>{
@@ -123,10 +135,11 @@ export default function index({product}) {
     filterData = searchShoes(filterData)
     filterData = filterRating(filterData)
     filterData = filterDiscount(filterData)
+    filterData = filterCollection(filterData)
     setData(filterData)
 
    
-  }, [dataSearch, checkRating, hasDiscount, brand])
+  }, [dataSearch, checkRating, hasDiscount, brand, lastestShoes])
 
   // useEffect(()=>{
   //   if(!sortShoes){
@@ -171,6 +184,7 @@ export default function index({product}) {
               onRating={handleRating}
               onDiscount={handleDiscount}
               onBrand={handleBrand}
+              onLastest={handleLastest}
             />
           }
         </Section>
@@ -181,6 +195,7 @@ export default function index({product}) {
               {data?.length != 0 && data?.map((shoes, i) =>
                 <Card key={i}
                   idProduct={shoes.id}
+                  tagNew={shoes.tag}
                   img={shoes.img}
                   disc={shoes.discount}
                   name={shoes.name}

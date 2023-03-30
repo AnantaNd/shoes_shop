@@ -63,20 +63,23 @@ export default function PurchaseDetail({orderId, name, item, brand, adr, img, ta
               img={'/mandiri.svg'}
               value={'opsi'}
               handleOpt={onOptPayment}
-              />
+              tag={'mandiri'}
+            />
             <OptPayment
               name={'Bank BCA'}
-              code={'007 000 000 0000'}
+              code={'008 000 000 0000'}
               img={'/bca.svg'}
               value={'opsi'}
               handleOpt={onOptPayment}
-              />
+              tag={'bca'}
+            />
             <OptPayment
               name={'Bank BRI'}
-              code={'007 000 000 0000'}
+              code={'009 000 000 0000'}
               img={'/bri.svg'}
               value={'opsi'}
               handleOpt={onOptPayment}
+              tag={'bri'}
             />
           </div>
         }

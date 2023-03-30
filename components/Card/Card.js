@@ -4,7 +4,7 @@ import { StarFill } from 'react-bootstrap-icons'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import style from './Card.module.css'
 
-export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc }) {
+export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc, tagNew }) {
 
   // const [showModal, setShowModal] = useState(false)
   // const { pathname } = useRouter()
@@ -32,7 +32,7 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
   return (
     <div className={style.container}>
       <div className={style.tag}>
-        <p data-testid='rating'>{ratting} <StarFill className={style.iconRating} size={13+'px'}/></p>
+        {tagNew? <div className={style.tagNew}>{tagNew}</div>: <br />}
         {disc? 
           <p className={style.tagDisc}>{disc} %</p>:
           <br></br>
@@ -42,6 +42,7 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
       {/* <Image src={img} width={200 + 'px'} height={100 + 'px'} alt={'img'} objectFit={'cover'}/> */}
       <h1 data-testid='title' className={style.title}>{name}<span><Link href={`products/${idProduct}`}><BsThreeDotsVertical className={style.btn_detail} /></Link></span></h1>
       <p className={style.brand}>{brand}</p>
+      <p data-testid='rating'>{ratting} <StarFill className={style.iconRating} size={13+'px'}/></p>
       {!disc? 
         <h2 className={style.price}>Rp. {price}</h2>
         :

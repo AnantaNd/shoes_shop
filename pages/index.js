@@ -22,18 +22,16 @@ export default function Home({product}) {
   const [flashSale, setFlashSale] = useState()
   const [newCollection, setNewCollection] = useState()
 
-  console.log('session')
-  console.log(session?.user?.email)
+  // console.log('session')
+  // console.log(session?.user?.email)
 
 
   useEffect(()=>{
-    const temp = product.filter((product)=> product.discount >= 0)
-    setFlashSale(temp)
-  },[flashSale])
-  useEffect(()=>{
-    const temp = product.filter((product)=> product.tag === 'new')
-    setNewCollection(temp)
-  },[newCollection])
+    const discountFilter = product.filter((product)=> product.discount >= 0)
+    setFlashSale(discountFilter)
+    const collectFilter = product.filter((product)=> product.tag === 'new')
+    setNewCollection(collectFilter)
+  },[])
 
   return (
     <div className={style.container}>
