@@ -1,0 +1,46 @@
+.containerShow{
+  width: 300px;
+  position: absolute;
+  right: 1px;
+  top: 90px;
+  box-shadow: -10px 8px 14px -8px var(--shadow-color);
+  padding: 1rem;
+  background-color: white;
+  transition: 1000s ease-in;
+  cursor: default;
+  border-radius: 0 0 20px 20px;
+}
+.containerHide{
+  display: none;
+  transition: 1000s ease-out;
+}
+.containerContent{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.img{
+  margin: 16px 0;
+  border-radius: 100px;
+}
+.menu{
+  list-style: none;
+}
+.sparator{
+  border-top: 1px solid black;
+  margin: 2px 0;
+}
+.userName, .email{
+  margin: 10px;
+  font-weight: 500;
+}
+.email{
+  font-size: 14px;
+  color: var(--gray-color);
+}
+.listMenu{
+  text-decoration: none;
+  font-weight: 600;
+  margin: 10px;
+  cursor: pointer;
+}
