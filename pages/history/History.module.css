@@ -1,0 +1,11 @@
+.container{
+  margin: 5rem auto;
+}
+.wrapperTable{
+  margin: 20px auto;
+}
+.title{
+  text-align: center;
+  color: var(--navy-color);
+  margin: 10px 0;
+}

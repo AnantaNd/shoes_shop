@@ -25,11 +25,10 @@
 }
 .tagNew{
   text-align: center;
-  color: white;
-  background-color: var(--yellow-color);
-  border-radius: 8px;
+  color: var(--orange-2-color);
   padding: 2px 5px;
   font-weight: 600;
+  /* rotate: -45deg; */
 }
 .iconRating{
   color: var(--yellow-color);

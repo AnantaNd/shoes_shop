@@ -58,7 +58,7 @@
 }
 .product{
   margin: auto;
-  padding: 23px ;
+  padding: 21px ;
   /* background-color: blue; */
 }
 .navigation {
@@ -84,6 +84,10 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .container{
+    /* background-color: red; */
+    margin: 25px auto;
+  }
   .background_collection {
     display: none;
     

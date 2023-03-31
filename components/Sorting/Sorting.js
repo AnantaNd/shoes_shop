@@ -1,6 +1,6 @@
-import styles from './Select.module.css'
+import styles from './Sorting.module.css'
 
-export default function Select({onChangeSelect, value}){
+export default function Sorting({onChangeSelect, value}){
 
   return (
     <div className={styles.container}>

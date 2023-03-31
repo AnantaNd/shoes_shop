@@ -37,6 +37,7 @@ export default function index({product}) {
     setCheckRating('')
     setHasDiscount('')
     setBrand('')
+    setLastestShoes('')
   }
   const openModal =()=>{
     setOpenFilter(true)
