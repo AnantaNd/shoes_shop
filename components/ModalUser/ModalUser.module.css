@@ -1,5 +1,5 @@
 .containerShow{
-  width: 300px;
+  width: 280px;
   position: absolute;
   right: 1px;
   top: 90px;
@@ -9,6 +9,18 @@
   transition: 1000s ease-in;
   cursor: default;
   border-radius: 0 0 20px 20px;
+}
+.wrapperIcon{
+  border-bottom: 2px solid white;
+  border-radius: 100%;
+  padding: 8px 10px;
+  transition: all ease-in-out .3s;
+}
+.wrapperIcon:hover{
+  border-bottom: 2px solid var(--yellow-color);
+  border-radius: 100%;
+  padding: 8px 10px;
+  transition: all ease-in-out .3s;
 }
 .containerHide{
   display: none;
@@ -27,7 +39,7 @@
   list-style: none;
 }
 .sparator{
-  border-top: 1px solid black;
+  border-top: 1px solid var(--gray-color);
   margin: 2px 0;
 }
 .userName, .email{
@@ -43,4 +55,13 @@
   font-weight: 600;
   margin: 10px;
   cursor: pointer;
+  transition: all ease-in-out .3s;
+}
+.listMenu:hover{
+    border-bottom: 3px solid var(--yellow-color);
+    /* border-radius: 8px; */
+    margin: 10px;
+    cursor: pointer;
+    padding: 10px 0;
+    transition: all ease-in-out .3s;
 }

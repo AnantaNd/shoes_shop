@@ -2,6 +2,9 @@ import React from 'react'
 import style from './TableHistory.module.css'
 
 export const TableHistory = ({dataHistory}) => {
+  const dotPrice =(numb)=>{
+    return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+  }
   return (
     <div className={style.container}>
       <table className={style.table}>
@@ -17,9 +20,9 @@ export const TableHistory = ({dataHistory}) => {
           {dataHistory.map((data, idx)=>{
             return(
               <tr key={idx}>
-                <td className={style.rowId}>{idx}</td>
+                <td className={style.rowId}>{idx+1}</td>
                 <td>{data.name}</td>
-                <td className={style.rowPrice}>Rp. {data.price}</td>
+                <td className={style.rowPrice}>Rp. {dotPrice(data.price)}</td>
                 <td className={style.rowStatus}>pending</td>
               </tr>
             )

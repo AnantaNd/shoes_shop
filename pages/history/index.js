@@ -6,7 +6,8 @@ import { TableHistory } from '../../components/TableHistory/TableHistory'
 import style from './History.module.css'
 
 export default function index({product}) {
-  console.log(product)
+  // console.log(product)
+  
   return (
     <>
       <Head>

@@ -18,15 +18,18 @@ export const ModalUser = () => {
 
   return (
     <>
-      <div onClick={handleModal}>
+      <div className={style.wrapperIcon} onClick={handleModal}>
         <FaUser size={20}/>
       </div>
       <div className={isShow? `${style.containerShow}`:`${style.containerHide}`}>
         <div className={style.containerContent}>
-          <img className={style.img} src={session?.user?.image} width={40} height={40}/>
+          {session?
+            <img className={style.img} src={session?.user?.image} width={40} height={40}/>:
+            <FaUser className={style.img} size={30}/>
+          }
           <div className={style.wrapper}>
             <p className={style.userName}>{session? `${session?.user?.name}`: 'hello world'}</p>
-            <p className={style.email}>{session?.user?.email}</p>
+            <p className={style.email}>{session? `${session?.user?.email}`: 'helloworld@mail.com'}</p>
           </div>
         </div>
         <div className={style.sparator}></div>

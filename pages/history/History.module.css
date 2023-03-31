@@ -9,3 +9,8 @@
   color: var(--navy-color);
   margin: 10px 0;
 }
+@media screen and (max-width: 768px) {
+  .container{
+    margin: 8rem auto;
+  }
+}
