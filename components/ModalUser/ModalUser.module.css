@@ -1,5 +1,5 @@
 .containerShow{
-  width: 280px;
+  width: 300px;
   position: absolute;
   right: 1px;
   top: 90px;
@@ -22,6 +22,10 @@
   padding: 8px 10px;
   transition: all ease-in-out .3s;
 }
+.wrapper{
+  text-align: justify;
+  /* margin-left: 10px; */
+}
 .containerHide{
   display: none;
   transition: 1000s ease-out;
@@ -32,7 +36,7 @@
   justify-content: space-evenly;
 }
 .img{
-  margin: 16px 0;
+  margin: 30px 0;
   border-radius: 100px;
 }
 .menu{
@@ -42,13 +46,20 @@
   border-top: 1px solid var(--gray-color);
   margin: 2px 0;
 }
-.userName, .email{
+.userName, .email, .membership{
   margin: 10px;
   font-weight: 500;
 }
 .email{
   font-size: 14px;
   color: var(--gray-color);
+}
+.membership{
+  font-size: 14px;
+}
+.membership span{
+  color: var(--red-color);
+  font-weight: 600;
 }
 .listMenu{
   text-decoration: none;

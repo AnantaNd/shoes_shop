@@ -4,8 +4,21 @@
 .wrapperTable{
   margin: 20px auto;
 }
+.wrapperContent{
+  margin: auto 100px ;
+  /* background-color: red; */
+}
+.img{
+  border-radius: 100%;
+  display: block;
+  margin: 20px auto;
+}
 .title{
   text-align: center;
+  color: var(--navy-color);
+  margin: 10px 0;
+}
+.subtitle{
   color: var(--navy-color);
   margin: 10px 0;
 }

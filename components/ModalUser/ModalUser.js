@@ -30,6 +30,10 @@ export const ModalUser = () => {
           <div className={style.wrapper}>
             <p className={style.userName}>{session? `${session?.user?.name}`: 'hello world'}</p>
             <p className={style.email}>{session? `${session?.user?.email}`: 'helloworld@mail.com'}</p>
+            {session? 
+              <p className={style.membership}>Membership: <span>hardcode</span></p>:
+              ''
+            }
           </div>
         </div>
         <div className={style.sparator}></div>
