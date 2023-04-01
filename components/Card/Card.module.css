@@ -80,6 +80,28 @@
   background-color: #fff;
   transition: 1000ms;
 }
+.btn_buyDisable {
+  border: none;
+  margin-top: 8px;
+  width: 100%;
+  padding: 4px 30px;
+  font-size: 12px;
+  font-weight: 700;
+  position: relative;
+  border: 2px solid var(--gray-color);
+  background-color: var(--gray-color);
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.btn_buyDisable:hover {
+  border: 2px solid var(--gray-color);
+  color: var(--gray-color);
+  background-color: #fff;
+  transition: 1000ms;
+}
 
 .btn_cart {
   border: none;

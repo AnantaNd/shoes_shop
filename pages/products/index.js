@@ -77,7 +77,7 @@ export default function index({product}) {
       return temp
     }
     const searchShoes = dataSearch.toLowerCase()
-    const foundShoes = temp.filter((shoes)=>shoes.name.toLowerCase().includes(searchShoes))
+    const foundShoes = temp.filter((shoes)=>shoes.name.toLowerCase().includes(searchShoes) || shoes.brand.toLowerCase().includes(searchShoes))
     return foundShoes
   }
   // filter by rating

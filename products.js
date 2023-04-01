@@ -43,7 +43,7 @@ export const products = [
   },
   {
     id :3,
-    name : "Reebok Nanofles TR ",
+    name : "Nanofles TR ",
     img:'/sepatu.png',
     rating: 5,
     price: 100000,

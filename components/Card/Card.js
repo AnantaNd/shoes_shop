@@ -1,10 +1,13 @@
 // import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { StarFill } from 'react-bootstrap-icons'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import style from './Card.module.css'
 
 export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc, tagNew }) {
+
+  const {data : session} = useSession()
 
   // const [showModal, setShowModal] = useState(false)
   // const { pathname } = useRouter()
@@ -50,7 +53,10 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
       }
       <div className={style.container_btn}>
         <Link href={`/checkout/${idProduct}`}>
-          <button className={style.btn_buy}>BUY</button>
+          {session?
+            <button className={style.btn_buy}>BUY</button>:
+            <button disabled className={style.btn_buyDisable}>BUY</button>
+          }
         </Link>
       </div>
       {/* {showModal && <Modal isOpen={setShowModal} name={name}/>} */}

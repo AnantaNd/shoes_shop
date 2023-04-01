@@ -34,9 +34,9 @@ export default function index({product}) {
             }
             <div className={style.wrapperContent}>
               <h4 className={style.subtitle}>Summarize</h4>
-              <p>User Name: {session? `${session?.user?.name}`: 'hello world'}</p>
-              <p>Emai: {session? `${session?.user?.email}`: 'helloworld@mail.com'}</p>
-              <p>Total Spent: Rp. {sumPrice(product)}</p>
+              <p className={style.text}>User Name: <span> {session? `${session?.user?.name}`: 'hello world'}</span></p>
+              <p className={style.text}>Emai: <span> {session? `${session?.user?.email}`: 'helloworld@mail.com'}</span></p>
+              <p className={style.text}>Total Spent: <span> Rp. {sumPrice(product)}</span></p>
             </div>
             <div className={style.wrapperTable}>
               <TableHistory dataHistory={product}/>
