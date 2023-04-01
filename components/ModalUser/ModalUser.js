@@ -14,6 +14,11 @@ export const ModalUser = () => {
       setShow(!isShow)
       // console.log('click')
   }
+  const handleSigOut =()=>{
+    signOut({
+      callbackUrl: '/'
+    })
+  }
 
 
   return (
@@ -50,7 +55,7 @@ export const ModalUser = () => {
               <Link href='/history'>
                 <li className={style.listMenu}>History Payment</li>
               </Link>
-              <li className={style.listMenu} onClick={()=>signOut()}>Sign Out</li>
+              <li className={style.listMenu} onClick={handleSigOut}>Sign Out</li>
             </>
           )}
         </ul>
