@@ -7,6 +7,39 @@ import Section from '../../components/Section/Section'
 import { TableHistory } from '../../components/TableHistory/TableHistory'
 import style from './History.module.css'
 
+export const historyData = [
+  {
+    id: 1,
+    name: 'nike aj 1',
+    price: 10000,
+    status: 'pending'
+  },
+  {
+    id: 2,
+    name: 'nike aj 1',
+    price: 10000,
+    status: 'pending'
+  },
+  {
+    id: 3,
+    name: 'nike aj 1',
+    price: 10000,
+    status: 'pending'
+  },
+  {
+    id: 4,
+    name: 'nike aj 1',
+    price: 10000,
+    status: 'success'
+  },
+  {
+    id: 5,
+    name: 'nike aj 1',
+    price: 10000,
+    status: 'failed'
+  },
+]
+
 export default function index({product}) {
   // console.log(product)
   const {data : session} = useSession()
@@ -39,7 +72,7 @@ export default function index({product}) {
               <p className={style.text}>Total Spent: <span> Rp. {sumPrice(product)}</span></p>
             </div>
             <div className={style.wrapperTable}>
-              <TableHistory dataHistory={product}/>
+              <TableHistory dataHistory={historyData}/>
             </div>
           </Section>
         </div>

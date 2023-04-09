@@ -4,7 +4,6 @@
   justify-content: center;
 }
 .table{
-  border-collapse: collapse;
   width: 80%;
 }
 .table tr:nth-child(even){
@@ -18,11 +17,17 @@
   background-color: var(--blue-color);
   color: white;
 }
-.rowId, .rowStatus{
+.rowName{
+  text-align: center;
+}
+.rowPrice{
+  text-align: end;
+}
+.rowStatus{
   text-align: center;
 }
 .rowStatus{
   font-weight: 600;
-  color: var(--yellow-color);
+  color: white;
   text-transform: capitalize;
 }

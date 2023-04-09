@@ -53,10 +53,10 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
       }
       <div className={style.container_btn}>
         <Link href={`/checkout/${idProduct}`}>
-          {session?
-            <button className={style.btn_buy}>BUY</button>:
+          <button className={style.btn_buy}>BUY</button>
+          {/* {session?
             <button disabled className={style.btn_buyDisable}>BUY</button>
-          }
+          } */}
         </Link>
       </div>
       {/* {showModal && <Modal isOpen={setShowModal} name={name}/>} */}
