@@ -12,6 +12,8 @@ import Section from '../../../components/Section/Section';
 import style from './Detail.module.css';
 
 
+const size =['s', 'm', 'l', 'xl']
+
 export default function Detail({product}){
   const [data, setData] = useState(product) 
   
@@ -59,6 +61,7 @@ export default function Detail({product}){
               rating={data.rating} 
               desc={data.desc} 
               discount={data.discount}
+              sizeData={data.size}
               // dataShoes={data.review}
             />
           </div>

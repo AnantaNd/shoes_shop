@@ -5,9 +5,10 @@
   margin: 20px auto;
 }
 .wrapperContent{
-  margin: auto 100px ;
+  /* margin: auto 100px ; */
+  text-align: center;
   /* background-color: red; */
-  width: 400px;
+  /* width: 400px; */
 }
 .img{
   border-radius: 100%;

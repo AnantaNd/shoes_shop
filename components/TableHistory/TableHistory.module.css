@@ -21,7 +21,7 @@
   text-align: center;
 }
 .rowPrice{
-  text-align: end;
+  text-align: center;
 }
 .rowStatus{
   text-align: center;
@@ -30,4 +30,7 @@
   font-weight: 600;
   color: white;
   text-transform: capitalize;
+}
+@media screen and (max-width: 414x) {
+  
 }

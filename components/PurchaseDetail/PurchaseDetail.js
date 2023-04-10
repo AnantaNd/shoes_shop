@@ -37,11 +37,14 @@ export default function PurchaseDetail({orderId, name, item, brand, adr, img, ta
         </div>
       </div>
       <div className={style.wrapper}>
-        <h1 className={style.title}>Purchase Detail</h1>
+        <h1 className={style.title}>Address</h1>
+        <textarea className={style.inpAddr} placeholder='input your address for shipping'></textarea>
+      </div>
+      <div className={style.wrapper}>
+          <h1 className={style.title}>Purchase Detail</h1>
           <p className={style.subtitle}>Order ID<span>{orderId}</span></p>
           <p className={style.subtitle}>Item<span>{item}</span></p>
           <p className={style.subtitle}>Acount Name<span>{name}</span></p>
-          <p className={style.subtitle}>Address<span>{adr}</span></p>
           <p className={style.subtitle}>Price<span>Rp. {price}</span></p>
           <p className={style.subtitle}>TAX (10%)<span>Rp. {tax} </span></p>
           <p className={style.subtitle}>Discount {!tagDisc?'': `(${tagDisc}%)`}<span>Rp. {discount}</span></p>

@@ -5,7 +5,7 @@ import Modal from '../Modal/Modal'
 import style from './CardDetail.module.css'
 
 
-export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct}){
+export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, sizeData}){
 
   const [showShipping, setShowShipping] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
@@ -48,6 +48,14 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
             <h1 className={style.priceDiscount}>Rp. {priceAftDisc}</h1> 
           }
           <p className={style.rating}>rating : {rating}</p>
+          <h1 className={style.title}>Available Size</h1>
+          <div  className={style.sizeWrapper}>
+            {sizeData?.map((size)=>{
+              return (
+                  <div className={style.sizeContainer}>{size}</div>
+                  )
+                })}
+          </div>
           <div className={style.container_btn}>
             <Link href={`/checkout/${idProduct}`}>
               <button className={style.btn_buy}>Buy</button>
