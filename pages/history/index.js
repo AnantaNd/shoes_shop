@@ -38,6 +38,12 @@ export const historyData = [
     price: 10000,
     status: 'failed'
   },
+  {
+    id: 6,
+    name: 'nike aj 1',
+    price: 10000,
+    status: 'failed'
+  },
 ]
 
 export default function index({product}) {

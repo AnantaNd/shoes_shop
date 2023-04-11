@@ -1,5 +1,40 @@
 import React from 'react'
-import style from './TableHistory.module.css'
+import { DataGrid } from '@mui/x-data-grid'
+import { Box, Container, Grid } from '@mui/material'
+
+
+
+
+// data grid
+const columns = [
+  {
+    field: 'id',
+    headerName: 'ID',
+    minWidth: 90,
+    align: 'center',
+    headerAlign: 'center'
+  },
+  {
+    field: 'name',
+    headerName: 'ITEM',
+    minWidth: 80,
+  },
+  {
+    field: 'price',
+    headerName: 'PRICE (Rp)',
+    minWidth: 180,
+    type: 'number',
+    align: 'rightm mm',
+    headerAlign: 'right'
+  },
+  {
+    field: 'status',
+    headerName: 'Status',
+    minWidth: 100,
+    align: 'center',
+    headerAlign: 'center'
+  }
+]
 
 
 export const TableHistory = ({dataHistory}) => {
@@ -18,27 +53,22 @@ export const TableHistory = ({dataHistory}) => {
   }
 
   return (
-    <div className={style.container}>
-      <table className={style.table}>
-        <thead className={style.thead}>
-          <tr>
-            <th>Item</th>
-            <th>Total Payment</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {dataHistory.map((data, idx)=>{
-            return(
-              <tr key={idx}>
-                <td className={style.rowName}>{data.name}</td>
-                <td className={style.rowPrice}>Rp. {dotPrice(data.price)}</td>
-                <td className={style.rowStatus} style={{color: styleStatus(data.status)}}>{data.status}</td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-    </div>
+    <Container maxWidth='sm'>
+      <Box sx={{ height: '380px'}}>
+        <DataGrid
+          rows={dataHistory}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 5,
+              },
+            },
+          }}
+          pageSizeOptions={[5]}
+          disableRowSelectionOnClick
+        />
+      </Box>
+    </Container>
   )
 }
