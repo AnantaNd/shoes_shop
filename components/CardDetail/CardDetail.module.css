@@ -131,6 +131,7 @@
 
 @media only screen and (max-width: 768px) {
   .container {
+    margin-bottom: 2rem;
     padding: 0 1.8rem;
   }
 
@@ -145,7 +146,7 @@
   }
 }
 
-@media screen and (max-width: 414px) {
+@media (max-width: 767px) and (min-width: 414px){
   .container {
     width: 400px;
     text-align: center;

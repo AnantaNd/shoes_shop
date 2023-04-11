@@ -27,11 +27,21 @@
   margin: 4px 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .content{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background-color: blue; */
+  }
+}
+@media screen and (min-width: 414px) {
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
   }
 }

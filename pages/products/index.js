@@ -9,6 +9,9 @@ import Layouts from '../../components/Layouts/Layouts'
 import Search from '../../components/Search/Search'
 import Section from '../../components/Section/Section'
 import style from './Products.module.css'
+import { Box, Grid, Pagination } from '@mui/material'
+import usePagination from './Pagination'
+
 
 export default function index({product}) {
   const [data, setData] = useState(product)
@@ -19,6 +22,17 @@ export default function index({product}) {
   const [hasDiscount, setHasDiscount] = useState(false)
   const [lastestShoes, setLastestShoes] = useState(false)
   const [brand, setBrand] = useState('')
+  const [page, setPage] = useState(1)
+
+
+  // pagination
+  const PER_PAGE = 12
+  const count = Math.ceil(data.length/PER_PAGE)
+  const _DATA = usePagination(data, PER_PAGE)
+  const handleChange =(e, p)=>{
+    setPage(p)
+    _DATA.jump(p)
+  }
 
 
 
@@ -191,9 +205,7 @@ export default function index({product}) {
         </Section>
         <Section>
             <div className={style.products}>
-              {/* <ReactPaginate
-              /> */}
-              {data?.length != 0 && data?.map((shoes, i) =>
+              {data?.length != 0 && _DATA.currentData().map((shoes, i) =>
                 <Card key={i}
                   idProduct={shoes.id}
                   tagNew={shoes.tag}
@@ -208,6 +220,24 @@ export default function index({product}) {
               )}
             </div>
         </Section>
+        <Grid 
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center">
+          <Grid item xs={3}>
+            <Pagination
+              count={count}
+              size='large'
+              page={page}
+              variant='outlined'
+              shape='rounded'
+              onChange={handleChange}
+              color='primary'
+            />
+          </Grid>
+        </Grid>
         </div>
     </Layouts>
   )

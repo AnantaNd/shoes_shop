@@ -1,5 +1,5 @@
 .container{
-  margin-top: 5rem;
+  margin: 2rem 0 5rem 0;
 }
 
 .products{
@@ -71,9 +71,9 @@
   transform: none;
   background: whitesmoke;
 }
-@media screen and (max-width: 768px){
+@media screen and (min-width: 768px){
   .products{
-    gap: 8px;
+    gap: 50px;
     margin-bottom: 2rem ;
   }
   .filter{
@@ -81,7 +81,10 @@
     /* background-color: red; */
   }
 }
-@media screen and (max-width: 414px){
+@media (max-width: 767px) and (min-width: 414px){
+  .container{
+    margin: 7rem 0 2rem 0;
+  }
   .filter{
     display: flex;
     flex-direction: column;

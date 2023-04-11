@@ -53,7 +53,7 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
             {sizeData?.map((size)=>{
               return (
                 <div onChange={onSize} className={style.sizeContainer}>
-                      <input id={size} type='radio' name='size' value={size}/>
+                      <input className={style.input} id={size} type='radio' name='size' value={size}/>
                       <label htmlFor={size}>{size}</label>
                   </div>
                   )

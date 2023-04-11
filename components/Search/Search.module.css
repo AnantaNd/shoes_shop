@@ -29,8 +29,9 @@
   font-weight: 700;
   font-size: 12px;
 }
-@media screen and (max-width: 414px){
+@media screen and (min-width: 414px){
   .inputStyle{
-    width: 250px;
+    width: 280px;
+    /* background-color: blue; */
   }
 }

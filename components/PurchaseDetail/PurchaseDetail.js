@@ -21,8 +21,6 @@ export default function PurchaseDetail({orderId, name, item, brand, adr, img, ta
   }
 
   return (
-
-    
     <div className={style.container}>
       <h1 className={style.textCheckout}>Checkout</h1>
       <div className={style.containerHeader}>
