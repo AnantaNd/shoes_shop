@@ -5,7 +5,7 @@ import Modal from '../Modal/Modal'
 import style from './CardDetail.module.css'
 
 
-export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, sizeData}){
+export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, sizeData, onSize}){
 
   const [showShipping, setShowShipping] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
@@ -52,7 +52,10 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
           <div  className={style.sizeWrapper}>
             {sizeData?.map((size)=>{
               return (
-                  <div className={style.sizeContainer}>{size}</div>
+                <div onChange={onSize} className={style.sizeContainer}>
+                      <input id={size} type='radio' name='size' value={size}/>
+                      <label htmlFor={size}>{size}</label>
+                  </div>
                   )
                 })}
           </div>
@@ -88,7 +91,7 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
             {!showShipping? '':
               <>
                 <p className={style.desc}>
-                  Delivery will be made within 3 to 5 working days after the product is confirmed by the seller.
+                  Delivery will be made within 3 to 7 working days after the product is confirmed by the seller.
                 </p>
               </>
             }

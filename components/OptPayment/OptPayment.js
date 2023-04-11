@@ -6,7 +6,7 @@ export default function OptPayment({name, code, img, handleOpt, value, tag}) {
     <div className={style.container} onChange={handleOpt}>
         <label htmlFor={tag} className={style.label}>
           <div className={style.img} style={{backgroundImage: `url(${img})`}}>
-            <input className={style.inp} type={'radio'} value={value} name='opsiPaymen' id={tag}/>
+            <input className={style.inp} type={'radio'} value={value} name='opsiPayment' id={tag}/>
           </div>
         </label>
         <div className={style.wrapper}>

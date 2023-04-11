@@ -16,6 +16,7 @@ const size =['s', 'm', 'l', 'xl']
 
 export default function Detail({product}){
   const [data, setData] = useState(product) 
+  const [size, setSize] = useState()
   
   // console.log(data.review[1].userName)
   
@@ -27,7 +28,10 @@ export default function Detail({product}){
     // console.log(temp)
     return parseInt(numb-temp)
   }
-
+  const handleSize =(e)=>{
+    setSize(e.target.value)
+    console.log(e.target.value)
+  }
 
   // const router = useRouter();
   // const { shoesId } = router.query;
@@ -62,6 +66,7 @@ export default function Detail({product}){
               desc={data.desc} 
               discount={data.discount}
               sizeData={data.size}
+              onSize={handleSize}
               // dataShoes={data.review}
             />
           </div>

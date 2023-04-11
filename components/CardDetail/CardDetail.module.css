@@ -90,14 +90,12 @@
 }
 .sizeContainer{
   /* background-color: red; */
-  border: 3px solid var(--border-color);
-  border-radius: 8px;
   width: 40px;
   height: 35px;
   text-align: center;
   text-transform: uppercase;
   font-weight: 600;
-  cursor: pointer;
+  font-size: 18px;
 }
 .btn_buy:hover {
   /* background-color: var(--green-color); */
@@ -194,5 +192,8 @@
 
   .desc {
     font-size: 12px;
+  }
+  .sizeWrapper{
+    justify-content: center;
   }
 }
