@@ -26,8 +26,18 @@
 }
 .length_products span{
   color: var(--orange-color);
-  font-weight: 600;
+  font-weight: 650;
   text-decoration: underline;
+}
+.infoPage{
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--gray-color);
+}
+.infoPage span{
+  color: var(--orange-color);
+  font-weight: 650;
 }
 .wrapperBtnFilter{
   display: flex;
@@ -74,7 +84,7 @@
 @media screen and (min-width: 768px){
   .products{
     gap: 50px;
-    margin-bottom: 2rem ;
+    margin: 2rem auto;
   }
   .filter{
     padding-top: 5rem;

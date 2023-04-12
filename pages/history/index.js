@@ -18,7 +18,7 @@ export const historyData = [
     id: 2,
     name: 'nike aj 1',
     price: 10000,
-    status: 'pending'
+    status: 'process'
   },
   {
     id: 3,

@@ -9,7 +9,7 @@ import Layouts from '../../components/Layouts/Layouts'
 import Search from '../../components/Search/Search'
 import Section from '../../components/Section/Section'
 import style from './Products.module.css'
-import { Box, Grid, Pagination } from '@mui/material'
+import { Box, Grid, Pagination, Typography } from '@mui/material'
 import usePagination from './Pagination'
 
 
@@ -26,7 +26,7 @@ export default function index({product}) {
 
 
   // pagination
-  const PER_PAGE = 12
+  const PER_PAGE = 8
   const count = Math.ceil(data.length/PER_PAGE)
   const _DATA = usePagination(data, PER_PAGE)
   const handleChange =(e, p)=>{
@@ -191,7 +191,8 @@ export default function index({product}) {
             <button className={style.btnFilter} onClick={openModal}><FaFilter/> Filter</button>
             <button className={style.btnClear} onClick={closeModal}>Clear Filter</button>
           </div>
-          <p className={style.length_products}>display <span>{data?.length} products</span> from {product?.length} products</p>
+          <p className={style.length_products}>display <span>{data?.length} products</span> of {product?.length} products</p>
+          <p className={style.infoPage}>Page: <span>{page}</span> of {count}</p>
           {!openFilter? ''
             :
             <Filter 
@@ -222,19 +223,19 @@ export default function index({product}) {
         </Section>
         <Grid 
           container
-          spacing={0}
           direction="column"
           alignItems="center"
-          justifyContent="center">
+          justifyContent="center"
+          spacing={2}>
           <Grid item xs={3}>
             <Pagination
               count={count}
-              size='large'
               page={page}
               variant='outlined'
               shape='rounded'
               onChange={handleChange}
               color='primary'
+              boundaryCount={2}
             />
           </Grid>
         </Grid>
