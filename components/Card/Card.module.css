@@ -1,5 +1,6 @@
 .container{
   width: 230px;
+  height: 295px;
   padding: 18px;
   box-shadow: 4px 4px 10px var(--shadow-color);
   border-radius: 8px;
@@ -145,6 +146,12 @@
   top: 110px;
   right: 22px;
   z-index: 9999;
+}
+.wrapperSize{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 14px;
 }
 @media screen and (min-width: 768px) {
   /* .container{

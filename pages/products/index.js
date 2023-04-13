@@ -217,6 +217,7 @@ export default function index({product}) {
                   priceAftDisc={dotPrice(priceDisc(shoes.price, shoes.discount))}
                   ratting={shoes.rating}
                   brand={shoes.brand}
+                  dataSize={shoes.size}
                 />
               )}
             </div>

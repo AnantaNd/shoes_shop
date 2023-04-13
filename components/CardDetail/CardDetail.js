@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
+import {FaCheck} from 'react-icons/fa'
 import Modal from '../Modal/Modal'
 import style from './CardDetail.module.css'
 
 
-export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, sizeData, onSize}){
+export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, sizeData, onSize, btnDisable, helper}){
 
   const [showShipping, setShowShipping] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
@@ -49,19 +50,21 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
           }
           <p className={style.rating}>rating : {rating}</p>
           <h1 className={style.title}>Available Size</h1>
+          {!helper? <small className={style.helper}>*choose your size first</small>:''}
           <div  className={style.sizeWrapper}>
             {sizeData?.map((size)=>{
               return (
-                <div onChange={onSize} className={style.sizeContainer}>
-                      <input className={style.input} id={size} type='radio' name='size' value={size}/>
-                      <label htmlFor={size}>{size}</label>
-                  </div>
+                    <label htmlFor={size}>
+                      <div onChange={onSize} className={style.sizeContainer}>
+                          <input className={style.input} id={size} type='radio' name='size' value={size}/>{size}
+                      </div>
+                    </label>
                   )
                 })}
           </div>
           <div className={style.container_btn}>
             <Link href={`/checkout/${idProduct}`}>
-              <button className={style.btn_buy}>Buy</button>
+              <button disabled={btnDisable} className={helper? `${style.btn_buy}`:`${style.btn_buyDisable}`}>Buy</button>
             </Link>
             <Link href={`/products/`}>
               <button className={style.btn_back}>Back</button>

@@ -79,23 +79,22 @@
   cursor: pointer;
   box-shadow: 4px 4px 10px var(--shadow-color);
   transition: 100ms;
-
+  width: 200px;
 }
-.sizeWrapper{
-  /* color: red; */
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  margin: 10px 0;
-}
-.sizeContainer{
-  /* background-color: red; */
-  width: 40px;
-  height: 35px;
-  text-align: center;
+.btn_buyDisable{
+  padding: .5rem 4rem;
+  margin: 0 1rem 0 0;
+  border: 2px solid var(--disable-color);
+  background-color: var(--disable-color);
+  color: white;
   text-transform: uppercase;
-  font-weight: 600;
-  font-size: 18px;
+  letter-spacing: 2px;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 4px 4px 10px var(--shadow-color);
+  transition: 100ms;
+  width: 200px;
 }
 .btn_buy:hover {
   /* background-color: var(--green-color); */
@@ -119,8 +118,9 @@
   cursor: pointer;
   box-shadow: 4px 4px 10px var(--shadow-color);
   transition: 100ms;
-}
+  width: 200px;
 
+}
 .btn_back:hover {
   /* background-color: var(--green-color); */
   border: 2px solid whitesmoke;
@@ -128,7 +128,31 @@
   background-color: whitesmoke;
   transition: 1000ms;
 }
-
+.sizeWrapper{
+  /* color: red; */
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 10px 0;
+}
+.sizeContainer{
+  border: 2.4px solid var(--navy-color);
+  border-radius: 20px;
+  width: 80px;
+  height: 35px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+}
+.sizeContainer:hover{
+  cursor: pointer;
+  background-color: var(--disable-color);
+}
+.helper{
+  color: var(--red-color);
+  font-weight: 600;
+}
 @media only screen and (max-width: 768px) {
   .container {
     margin-bottom: 2rem;
@@ -152,10 +176,7 @@
     text-align: center;
     margin: 2rem 0;
   }
-
-  .title,
-  .price,
-  .rating {
+  .title, .price, .rating, .helper {
     /* background-color: aqua; */
     margin: .5rem auto;
     text-align: center;
@@ -172,11 +193,6 @@
     width: 350px;
     align-items: center;
   }
-
-  .btn_buy {
-    width: 200px;
-  }
-
   .wrapper_discount {
     display: flex;
     flex-direction: column;

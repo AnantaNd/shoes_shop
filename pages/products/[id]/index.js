@@ -67,6 +67,8 @@ export default function Detail({product}){
               discount={data.discount}
               sizeData={data.size}
               onSize={handleSize}
+              btnDisable={!size? true:false}
+              helper={size}
               // dataShoes={data.review}
             />
           </div>

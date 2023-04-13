@@ -6,7 +6,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import style from './Card.module.css'
 import { useState } from 'react'
 
-export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc, tagNew }) {
+export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc, tagNew, dataSize }) {
 
   const {data : session} = useSession()
   const [isShown, setIsShown] = useState(false)
@@ -58,6 +58,11 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
         {isShown&&(<div className={style.helperHover}>detail</div>)}
         <p className={style.brand}>{brand}</p>
         <p data-testid='rating'>{ratting} <StarFill className={style.iconRating} size={13+'px'}/></p>
+        <div className={style.wrapperSize}>
+          {dataSize?.map((size)=>
+              <smal>{size}</smal>
+          )}
+        </div>
         {!disc? 
           <h2 className={style.price}>Rp. {price}</h2>
           :

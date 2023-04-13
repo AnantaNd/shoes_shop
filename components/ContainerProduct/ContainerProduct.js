@@ -90,10 +90,12 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
                   tagNew={data.tag}
                   disc={data.discount}
                   name={data.name}
+                  brand={data.brand}
                   img={data.img}
                   price={dotPrice(data.price)}
                   priceAftDisc={dotPrice(priceDisc(data.price, data.discount))}
                   ratting={data.rating}
+                  dataSize={data.size}
                 />
               </SwiperSlide>
             )

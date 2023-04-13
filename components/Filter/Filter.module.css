@@ -1,15 +1,16 @@
 .container{
   width: 250px;
-  height: 500px;
+  height: 350px;
   border-radius: 10px;
   /* border: 1px solid var(--border-color); */
   box-shadow: 4px 4px 10px var(--shadow-color);
   background-color: white;
   position: fixed;
-  top: 150px;
+  top: 120px;
   right: 0;
   padding: 24px;
   z-index: 1;
+  overflow-y: auto;
 }
 .wrapper{
   display: flex;

@@ -6,16 +6,19 @@ import OptPayment from '../OptPayment/OptPayment'
 import style from './PurchaseDetail.module.css'
 
 
-export default function PurchaseDetail({orderId, name, item, brand, adr, img, tax, price, total, discount, idProduct, tagDisc, onOptPayment}) {
+export default function PurchaseDetail({orderId, name, item, brand, img, tax, price, total, discount, idProduct, tagDisc, onOptPayment}) {
 
   // const [showPurcase, setShowPurcase] = useState(false)
   const [showPayment, setShowPayment] = useState(false)
+  const [addr, setAddr] = useState()
   // const [showReview, setShowReview] = useState(false)
 
   // const handleShowPurcase =()=>{
   //   setShowPurcase(!showPurcase)
   // }
-
+  const handleAddr =(e)=>{
+    setAddr(e.target.value)
+  }
   const handleShowPayment =()=>{
     setShowPayment(!showPayment)
   }
@@ -25,7 +28,7 @@ export default function PurchaseDetail({orderId, name, item, brand, adr, img, ta
       <h1 className={style.textCheckout}>Checkout</h1>
       <div className={style.containerHeader}>
         <div className={style.containerImg}>
-          <Image src={img} width={300+'px'} height={150+'px'} alt='img' objectFit='contain'/>
+          <Image src={img} width={300+'px'} height={150+'px'} alt={name} objectFit='contain'/>
         </div>
         <div className={style.wrapperContent}>
           <h1 className={style.titleItem}>{item}</h1>
@@ -36,7 +39,10 @@ export default function PurchaseDetail({orderId, name, item, brand, adr, img, ta
       </div>
       <div className={style.wrapper}>
         <h1 className={style.title}>Address</h1>
-        <textarea className={style.inpAddr} placeholder='input your address for shipping'></textarea>
+        <textarea className={style.inpAddr} placeholder='input your address for shipping' onChange={handleAddr}></textarea>
+        {addr? 
+          '':<small className={style.helper}>input your address</small>
+        }
       </div>
       <div className={style.wrapper}>
           <h1 className={style.title}>Purchase Detail</h1>
@@ -86,7 +92,9 @@ export default function PurchaseDetail({orderId, name, item, brand, adr, img, ta
         }
       </div>
       <div className={style.containerBtn}>
-        <button className={style.btnCheckout}>Checkout</button>
+        <Link href={`/`}> 
+          <button disabled={!addr? true: false} className={addr?`${style.btnCheckout}`:`${style.btnCheckoutDisable}`}>Checkout</button>
+        </Link>
         <Link href={`/products/${idProduct}`}> 
           <button className={style.btnBack}>Back</button>
         </Link>
