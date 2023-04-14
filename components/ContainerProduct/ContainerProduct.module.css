@@ -52,13 +52,13 @@
 
 .collections {
   padding: 5px 10px;
-  height: 350px;
+  height: 325px;
   border-radius: 0 16px 16px 0;
-  background-color: whitesmoke;
+  background-color: rgba(245, 245, 245, 0.152);
 }
 .product{
   margin: auto;
-  padding: 21.5px ;
+  padding: 40px 22px ;
   height: 600px;
   /* background-color: blue; */
 }
@@ -101,9 +101,9 @@
     background-color: white;
   }
   .product{
-    padding: 28px 5px;
+    padding: 28px auto;
   }
-  @media screen and (max-width: 414px) {
+  @media (max-width: 767px) and (min-width: 414px) {
     .container{
       padding: 20px 25px;
     }
@@ -114,6 +114,7 @@
     }
     .product{
       margin: 0 auto;
+      padding: 5px 20px;
       justify-content: center;
     }
     .navigation {

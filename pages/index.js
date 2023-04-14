@@ -53,7 +53,6 @@ export default function Home({product}) {
             <div className={style.banner}>
               <Image src="/hero_banner.png" width="500" height="470" style={{ marginLeft: 8 + "px" }} alt='img'/>
             </div>
-
           </div>
         </Section>
         <Section>

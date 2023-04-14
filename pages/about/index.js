@@ -17,7 +17,7 @@ export default function index(){
   
   const onSubmit =(data)=> {
     setIsData(data)
-    console.log(isData)
+    // console.log(isData)
   };
 
 

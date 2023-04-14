@@ -36,45 +36,38 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
 
   return (
     <>
-      <div className={style.container}>
-        <div className={style.tag}>
-          {tagNew? <div className={style.tagNew}>{tagNew}</div>: <br />}
-          {disc? 
-            <p className={style.tagDisc}>{disc} %</p>:
-            <br></br>
-          }
+      <div className={style.myCard}>
+        <div className={style.innerCard}>
+          {/* frontside */}
+          <div className={style.frontSide}>
+            <div className={style.tag}>
+              {tagNew? <div className={style.tagNew}>{tagNew}</div>: <br />}
+              {disc? 
+                <p className={style.tagDisc}>{disc} %</p>:
+                <br></br>
+              }
+            </div>
+            <div className={style.img} style={{backgroundImage: `url(${img})`}}></div>
+            <h1 data-testid='title' className={style.title}>{name}</h1>
+            <p className={style.brand}>{brand}</p>
+            <p data-testid='rating'>{ratting} <StarFill className={style.iconRating} size={13+'px'}/></p>
+            {!disc? 
+              <h2 className={style.price}>Rp. {price}</h2>
+              :
+              <h2 className={style.disc}>Rp. {priceAftDisc}</h2>
+            }
+          </div>
+          {/* frontside */}
+          {/* backside */}
+          <div className={style.backSide}>
+            <Link href={`/products/${idProduct}`}>
+              <h1 className={style.linkDetail}>Detail</h1>
+            </Link>
+          </div>
+          {/* backside */}
         </div>
-        <div className={style.img} style={{backgroundImage: `url(${img})`}}></div>
-        {/* <Image src={img} width={200 + 'px'} height={100 + 'px'} alt={'img'} objectFit={'cover'}/> */}
-        <h1 data-testid='title' className={style.title}>{name}<span>
-          <Link href={`products/${idProduct}`}>
-            <BsThreeDotsVertical 
-              className={style.btn_detail}
-              onMouseEnter={()=>setIsShown(true)}
-              onMouseLeave={()=>setIsShown(false)}
-            />
-          </Link></span>
-        </h1>
-        {isShown&&(<div className={style.helperHover}>detail</div>)}
-        <p className={style.brand}>{brand}</p>
-        <p data-testid='rating'>{ratting} <StarFill className={style.iconRating} size={13+'px'}/></p>
-        <div className={style.wrapperSize}>
-          {dataSize?.map((size)=>
-              <smal>{size}</smal>
-          )}
-        </div>
-        {!disc? 
-          <h2 className={style.price}>Rp. {price}</h2>
-          :
-          <h2 className={style.disc}>Rp. {priceAftDisc}</h2>
-        }
-        <div className={style.container_btn}>
-          <Link href={`/checkout/${idProduct}`}>
-            <button className={style.btn_buy}>BUY</button>
-          </Link>
-        </div>
-        {/* {showModal && <Modal isOpen={setShowModal} name={name}/>} */}
       </div>
     </>
   )
 }
+

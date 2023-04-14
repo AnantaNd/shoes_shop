@@ -9,8 +9,8 @@ import Layouts from '../../components/Layouts/Layouts'
 import Search from '../../components/Search/Search'
 import Section from '../../components/Section/Section'
 import style from './Products.module.css'
-import { Box, Grid, Pagination, Typography } from '@mui/material'
-import usePagination from './Pagination'
+import { Grid, Pagination} from '@mui/material'
+import usePagination from './usePagination'
 
 
 export default function index({product}) {
@@ -26,7 +26,7 @@ export default function index({product}) {
 
 
   // pagination
-  const PER_PAGE = 8
+  const PER_PAGE = 10
   const count = Math.ceil(data.length/PER_PAGE)
   const _DATA = usePagination(data, PER_PAGE)
   const handleChange =(e, p)=>{
