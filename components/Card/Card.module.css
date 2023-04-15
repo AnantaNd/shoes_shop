@@ -51,7 +51,7 @@
 
 .backSide,
 .backSide::before {
-  background-image: linear-gradient(160deg, var(--blue-color) 0%, var(--navy-color) 100%);
+  background-image: linear-gradient(150deg, var(--blue-color) 0%, var(--navy-color) 90%);
 }
 
 .backSide {
@@ -118,6 +118,7 @@
 .linkDetail:hover{
   text-decoration: underline;
   cursor: pointer;
+  color: var(--yellow-color);
 }
 .btn_buy {
   border: none;

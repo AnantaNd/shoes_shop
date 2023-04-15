@@ -61,7 +61,7 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
           {/* backside */}
           <div className={style.backSide}>
             <Link href={`/products/${idProduct}`}>
-              <h1 className={style.linkDetail}>Detail</h1>
+              <h1 className={style.linkDetail}>Details</h1>
             </Link>
           </div>
           {/* backside */}

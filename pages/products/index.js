@@ -3,21 +3,28 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { FaFilter } from 'react-icons/fa'
-import Card from '../../components/Card/Card'
 import Filter from '../../components/Filter/Filter'
 import Layouts from '../../components/Layouts/Layouts'
 import Search from '../../components/Search/Search'
 import Section from '../../components/Section/Section'
-import style from './Products.module.css'
 import { Grid, Pagination} from '@mui/material'
 import usePagination from './usePagination'
+import dynamic from 'next/dynamic'
+import style from './Products.module.css'
+// import Card from '../../components/Card/Card'
+
+// lazy load 
+const DynamicCard = dynamic(()=>import('../../components/Card/Card'),{
+  loading: () => <p>loading....</p>,
+  ssr: false,
+})
 
 
 export default function index({product}) {
   const [data, setData] = useState(product)
   const [openFilter, setOpenFilter] = useState(false)
   const [dataSearch, setDataSearch] = useState('')
-  const [sortShoes, setSortShoes] = useState('')
+  // const [sortShoes, setSortShoes] = useState('')
   const [checkRating, setCheckRating] = useState('')
   const [hasDiscount, setHasDiscount] = useState(false)
   const [lastestShoes, setLastestShoes] = useState(false)
@@ -192,7 +199,6 @@ export default function index({product}) {
             <button className={style.btnClear} onClick={closeModal}>Clear Filter</button>
           </div>
           <p className={style.length_products}>display <span>{data?.length} products</span> of {product?.length} products</p>
-          <p className={style.infoPage}>Page: <span>{page}</span> of {count}</p>
           {!openFilter? ''
             :
             <Filter 
@@ -207,7 +213,7 @@ export default function index({product}) {
         <Section>
             <div className={style.products}>
               {data?.length != 0 && _DATA.currentData().map((shoes, i) =>
-                <Card key={i}
+                <DynamicCard key={i}
                   idProduct={shoes.id}
                   tagNew={shoes.tag}
                   img={shoes.img}
@@ -228,6 +234,9 @@ export default function index({product}) {
           alignItems="center"
           justifyContent="center"
           spacing={2}>
+          <Grid item>
+            <p className={style.infoPage}>Page: <span>{page}</span> of {count}</p>
+          </Grid>
           <Grid item xs={3}>
             <Pagination
               count={count}
