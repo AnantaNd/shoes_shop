@@ -6,6 +6,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import style from './Card.module.css'
 import { useState } from 'react'
 
+
 export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc, tagNew, dataSize }) {
 
   const {data : session} = useSession()

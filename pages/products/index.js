@@ -12,12 +12,14 @@ import usePagination from './usePagination'
 import dynamic from 'next/dynamic'
 import style from './Products.module.css'
 // import Card from '../../components/Card/Card'
+import { lazy, Suspense } from 'react'
 
 // lazy load 
 const DynamicCard = dynamic(()=>import('../../components/Card/Card'),{
   loading: () => <p>loading....</p>,
   ssr: false,
 })
+const CardComponent = lazy(()=>import('../../components/Card/Card'))
 
 
 export default function index({product}) {
@@ -85,7 +87,7 @@ export default function index({product}) {
   }
   const handleBrand = (e) => {
     setBrand(e.target.value);
-    // console.log(e.target.value);
+    console.log(e.target.value);
   }
   const handleSort = (e) => {
     setSortShoes(e.target.value)
@@ -212,20 +214,22 @@ export default function index({product}) {
         </Section>
         <Section>
             <div className={style.products}>
-              {data?.length != 0 && _DATA.currentData().map((shoes, i) =>
-                <DynamicCard key={i}
-                  idProduct={shoes.id}
-                  tagNew={shoes.tag}
-                  img={shoes.img}
-                  disc={shoes.discount}
-                  name={shoes.name}
-                  price={dotPrice(shoes.price)}
-                  priceAftDisc={dotPrice(priceDisc(shoes.price, shoes.discount))}
-                  ratting={shoes.rating}
-                  brand={shoes.brand}
-                  dataSize={shoes.size}
-                />
-              )}
+              <Suspense fallback={<h1>loading...</h1>}>
+                {data?.length != 0 && _DATA.currentData().map((shoes, i) =>
+                  <CardComponent key={i}
+                    idProduct={shoes.id}
+                    tagNew={shoes.tag}
+                    img={shoes.img}
+                    disc={shoes.discount}
+                    name={shoes.name}
+                    price={dotPrice(shoes.price)}
+                    priceAftDisc={dotPrice(priceDisc(shoes.price, shoes.discount))}
+                    ratting={shoes.rating}
+                    brand={shoes.brand}
+                    dataSize={shoes.size}
+                  />
+                )}
+              </Suspense>
             </div>
         </Section>
         <Grid 
