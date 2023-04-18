@@ -5,6 +5,7 @@ import { StarFill } from 'react-bootstrap-icons'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import style from './Card.module.css'
 import { useState } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 
 export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc, tagNew, dataSize }) {
@@ -48,7 +49,8 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
                 <br></br>
               }
             </div>
-            <div className={style.img} style={{backgroundImage: `url(${img})`}}></div>
+            {/* <div className={style.img} style={{backgroundImage: `url(${img})`}}></div> */}
+            <LazyLoadImage src={img} className={style.img} effect='blur' alt={name}/>
             <h1 data-testid='title' className={style.title}>{name}</h1>
             <p className={style.brand}>{brand}</p>
             <p data-testid='rating'>{ratting} <StarFill className={style.iconRating} size={13+'px'}/></p>

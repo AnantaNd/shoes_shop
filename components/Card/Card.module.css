@@ -6,7 +6,7 @@
 }
 .myCard {
   background-color: transparent;
-  width: 190px;
+  width: 220px;
   height: 254px;
   perspective: 1000px;
 }
@@ -188,11 +188,11 @@
 }
 .img{
   border-radius: 20px;
-  height: 100px;
-  width: 120px;
-  margin: 0 auto;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* height: 100px; */
+  width: 180px;
+  /* margin: ; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
   background-size: cover;
 }
 .helperHover{
