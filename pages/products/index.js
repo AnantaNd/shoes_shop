@@ -214,22 +214,22 @@ export default function index({product}) {
         </Section>
         <Section>
             <div className={style.products}>
-              <Suspense fallback={<h1>loading...</h1>}>
                 {data?.length != 0 && _DATA.currentData().map((shoes, i) =>
-                  <CardComponent key={i}
-                    idProduct={shoes.id}
-                    tagNew={shoes.tag}
-                    img={shoes.img}
-                    disc={shoes.discount}
-                    name={shoes.name}
-                    price={dotPrice(shoes.price)}
-                    priceAftDisc={dotPrice(priceDisc(shoes.price, shoes.discount))}
-                    ratting={shoes.rating}
-                    brand={shoes.brand}
-                    dataSize={shoes.size}
-                  />
+                  <Suspense key={i} fallback={<h1>loading...</h1>}>
+                    <CardComponent
+                      idProduct={shoes.id}
+                      tagNew={shoes.tag}
+                      img={shoes.img}
+                      disc={shoes.discount}
+                      name={shoes.name}
+                      price={dotPrice(shoes.price)}
+                      priceAftDisc={dotPrice(priceDisc(shoes.price, shoes.discount))}
+                      ratting={shoes.rating}
+                      brand={shoes.brand}
+                      dataSize={shoes.size}
+                    />
+                  </Suspense>
                 )}
-              </Suspense>
             </div>
         </Section>
         <Grid 
