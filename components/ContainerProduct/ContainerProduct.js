@@ -1,7 +1,13 @@
 import React, { useCallback, useRef } from 'react';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
-import Card from '../Card/Card';
+import dynamic from 'next/dynamic';
 import Styles from './ContainerProduct.module.css';
+// import Card from '../Card/Card';
+
+// lazy load 
+const DynamicCard = dynamic(()=>import('../Card/Card'),{
+  loading: ()=><p>loading....</p>
+})
 
 
 
@@ -85,7 +91,7 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
           {dataCard?.map((data, idx) => {
             return (
               <SwiperSlide key={idx} className={Styles.product}>
-                <Card
+                <DynamicCard
                   idProduct={data.id}
                   tagNew={data.tag}
                   disc={data.discount}
