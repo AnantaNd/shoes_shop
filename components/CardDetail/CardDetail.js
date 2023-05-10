@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
-import {FaCheck} from 'react-icons/fa'
 import Modal from '../Modal/Modal'
 import style from './CardDetail.module.css'
 
@@ -50,11 +49,16 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
           }
           <p className={style.rating}>rating : {rating}</p>
           <h1 className={style.title}>Available Size</h1>
+          <Link href={'/size-chart'} passHref>
+            <a target='_blank' style={{textDecoration: 'none'}}>
+              <p className={style.linkSize}>&#40;click for size guide&#41;</p>
+            </a>
+          </Link>
           {!helper? <small className={style.helper}>*choose your size first</small>:''}
           <div  className={style.sizeWrapper}>
-            {sizeData?.map((size)=>{
+            {sizeData?.map((size, i)=>{
               return (
-                    <label htmlFor={size}>
+                    <label htmlFor={size} key={i}>
                       <div onChange={onSize} className={style.sizeContainer}>
                           <input className={style.input} id={size} type='radio' name='size' value={size}/>{size}
                       </div>
