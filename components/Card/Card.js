@@ -1,14 +1,13 @@
 // import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { StarFill } from 'react-bootstrap-icons'
-import { BsThreeDotsVertical } from 'react-icons/bs'
-import style from './Card.module.css'
 import { useState } from 'react'
+import { StarFill } from 'react-bootstrap-icons'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import style from './Card.module.css'
 
 
-export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc, tagNew, dataSize }) {
+export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc, tagNew }) {
 
   const {data : session} = useSession()
   const [isShown, setIsShown] = useState(false)
@@ -64,7 +63,7 @@ export default function Card({ img, name, price, priceAftDisc, ratting, idProduc
           {/* backside */}
           <div className={style.backSide}>
             <Link href={`/products/${idProduct}`}>
-              <h1 className={style.linkDetail}>Details</h1>
+              <h1 className={style.linkDetail}>Check Product</h1>
             </Link>
           </div>
           {/* backside */}
