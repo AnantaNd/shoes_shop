@@ -2,7 +2,7 @@ import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import CardCart from '../../components/CardCart/CardCart'
 import Layouts from '../../components/Layouts/Layouts'
-import Payment from '../../components/Payment/Payment'
+// import Payment from '../../components/Payment/Payment'
 import Section from '../../components/Section/Section'
 import styles from './Carts.module.css'
 
@@ -29,7 +29,6 @@ const Index = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layouts>
-                
                 <Section>
                     <h1 className={styles.title}>cart</h1>
                     <div className={styles.container}>
@@ -48,11 +47,11 @@ const Index = () => {
                                 : <h1>Maaf Tidak Ada Produk di keranjang</h1>
                             }
                         </div>
-                        <div className={styles.filter}>
+                        {/* <div className={styles.filter}>
                             <Payment
                                 price={0}
                             />
-                        </div>
+                        </div> */}
 
                     </div>
                 </Section>
