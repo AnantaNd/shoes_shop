@@ -1,7 +1,9 @@
 .container{
   margin: 2rem 0 5rem 0;
 }
-
+.wrapperProduct{
+  margin: 0 10rem;
+}
 .products{
   display: flex;
   flex-direction: row;
@@ -80,6 +82,29 @@
   box-shadow: none;
   transform: none;
   background: whitesmoke;
+}
+.wrapperDisplayFilter{
+  text-align: center;
+}
+.titleDisplayFilter{
+  font-size: 12px;
+  color: var(--gray-color);
+}
+.wrapperFilter{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  justify-content: center;
+  margin-top: 10px;
+  /* padding: 0 10px; */
+}
+.textFilter{
+  color: var(--border-color);
+  font-size: 12px;
+  font-weight: 550;
+  text-transform: capitalize;
+  text-align: center;
 }
 @media screen and (min-width: 768px){
   .products{

@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
+import { Grid, Pagination } from '@mui/material'
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { FaFilter } from 'react-icons/fa'
@@ -7,10 +9,8 @@ import Filter from '../../components/Filter/Filter'
 import Layouts from '../../components/Layouts/Layouts'
 import Search from '../../components/Search/Search'
 import Section from '../../components/Section/Section'
-import { Grid, Pagination} from '@mui/material'
-import usePagination from './usePagination'
-import dynamic from 'next/dynamic'
 import style from './Products.module.css'
+import usePagination from './usePagination'
 // import Card from '../../components/Card/Card'
 
 // lazy load 
@@ -41,8 +41,6 @@ export default function index({product}) {
     _DATA.jump(p)
   }
 
-
-
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
@@ -50,7 +48,7 @@ export default function index({product}) {
     const temp = numb/disc
     return parseInt(numb-temp)
   }
-  
+
   // event handlers
   const closeModal =()=>{
     setOpenFilter(false)
@@ -78,7 +76,7 @@ export default function index({product}) {
   }
   const handleDiscount = (e) => {
     setHasDiscount(e.target.checked);
-    // console.log(e.target.checked);
+    console.log(e.target.checked);
   }
   const handleLastest = (e) => {
     setLastestShoes(e.target.checked);
@@ -199,6 +197,17 @@ export default function index({product}) {
             <button className={style.btnClear} onClick={closeModal}>Clear Filter</button>
           </div>
           <p className={style.length_products}>display <span>{data?.length} products</span> of {product?.length} products</p>
+          {brand||hasDiscount||lastestShoes||checkRating ?
+            <div className={style.wrapperDisplayFilter}>
+              <h1 className={style.titleDisplayFilter}>Aplied Filter :</h1>
+              <div className={style.wrapperFilter}>
+                <p className={style.textFilter}>{brand}</p>
+                <p className={style.textFilter}>{hasDiscount==true? 'Discount': ''}</p>
+                <p className={style.textFilter}>{lastestShoes==true? 'New Collection': ''}</p>
+                <p className={style.textFilter}>{checkRating}</p>
+              </div>
+            </div>:''
+          }
           {!openFilter? ''
             :
             <Filter 
@@ -210,10 +219,10 @@ export default function index({product}) {
             />
           }
         </Section>
-        <Section>
+        <div className={style.wrapperProduct}>
             <div className={style.products}>
                 {data?.length != 0 && _DATA.currentData().map((shoes, i) =>
-                  <DynamicCard
+                  <DynamicCard key={i}
                     idProduct={shoes.id}
                     tagNew={shoes.tag}
                     img={shoes.img}
@@ -227,7 +236,7 @@ export default function index({product}) {
                   />
                 )}
             </div>
-        </Section>
+        </div>
         <Grid 
           container
           direction="column"
