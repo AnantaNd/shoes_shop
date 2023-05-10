@@ -35,7 +35,9 @@
     margin-top: 16px;
     color: #fff;
 }
-
+.containerFooter{
+    margin-top: 2rem;
+}
 .cta:hover{
     cursor: pointer;
     background-color: #fff;
