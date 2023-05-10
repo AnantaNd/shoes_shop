@@ -11,7 +11,7 @@
   border-radius: 0 0 20px 20px;
 }
 .wrapperIcon{
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid transparent;
   border-radius: 100%;
   padding: 8px 10px;
   transition: all ease-in-out .3s;
