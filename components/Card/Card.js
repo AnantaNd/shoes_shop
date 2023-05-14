@@ -1,5 +1,4 @@
 // import Link from 'next/link'
-import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { StarFill } from 'react-bootstrap-icons'
@@ -9,7 +8,7 @@ import style from './Card.module.css'
 
 export default function Card({ img, name, price, priceAftDisc, ratting, idProduct, brand, disc, tagNew }) {
 
-  const {data : session} = useSession()
+  // const {data : session} = useSession()
   const [isShown, setIsShown] = useState(false)
 
   // const [showModal, setShowModal] = useState(false)

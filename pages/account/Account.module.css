@@ -1,0 +1,75 @@
+.container{
+  /* background-color: var(--border-color); */
+  height: 100%;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 50px;
+}
+.wrapper{
+  background-color: blue;
+  width: 50%;
+}
+.card{
+  /* padding: 5rem 0; */
+  margin-right: 1rem;
+  width: 50%;
+  padding: 2rem;
+  border-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 9px 0px var(--shadow-color);
+  /* background-color: red; */
+}
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding-top: 1rem; */
+  /* background-color: red; */
+}
+.title{
+  margin-top: 1rem;
+}
+.formGroup{
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+.inpForm{
+  padding: .5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+.btn{
+  width: 100%;
+  font-weight: 650;
+  background-color: transparent;
+  padding: 10px;
+  border: 2px solid var(--blue-color);
+  color: var(--blue-color);
+  border-radius: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.helper span{
+  color: var(--red-color);
+  font-weight: 680;
+  cursor: pointer;
+  text-decoration: none;
+}
+.errorMsg{
+  color: var(--red-color);
+}
+@media screen and (max-width: 414px) {
+  .card{
+    width: 100%;
+    box-shadow: none;
+  }
+  .wrapper{
+    display: none;
+  }
+}

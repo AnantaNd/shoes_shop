@@ -1,0 +1,20 @@
+[
+    {
+        "firstName": "Ananta",
+        "lastName": "Novi",
+        "username": "novi",
+        "hash": "$2a$10$hJrnrS2W0hIi4fCU0dt63.XJoX4a9e7h0PgFU8HIwLwIpTKKi18jO",
+        "id": 1,
+        "dateCreated": "2023-05-13T03:22:48.928Z",
+        "dateUpdated": "2023-05-13T03:22:48.928Z"
+    },
+    {
+        "firstName": "haha",
+        "lastName": "hihi",
+        "username": "hahi",
+        "hash": "$2a$10$H9L7dpXaWAunCMuXjDqdvOx.voyVIZZX6fZcIvl7kdeA//R4OH30S",
+        "id": 2,
+        "dateCreated": "2023-05-13T04:45:11.180Z",
+        "dateUpdated": "2023-05-13T04:45:11.180Z"
+    }
+]

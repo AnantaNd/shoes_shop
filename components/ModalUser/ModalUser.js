@@ -1,6 +1,6 @@
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FaUser } from 'react-icons/fa'
 import style from './ModalUser.module.css'
 

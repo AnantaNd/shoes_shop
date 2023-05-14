@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import { signIn } from 'next-auth/react';
 import Image from "next/image";
 import Link from "next/link";
@@ -52,7 +53,8 @@ function LoginComponent(){
             name={'password'}
             placeholder={'password'}
             helper={'masukan password'}/>
-        </form>
+          <Button variant="contained">Login</Button>
+        </form><br/>
         <hr></hr>
         <div className={Style.container_btn}>
           <button className={Style.btn} onClick={handleLoginGoogle}>
@@ -60,9 +62,6 @@ function LoginComponent(){
           </button>
           <button className={Style.btn} onClick={handleLoginFacebook}>
             <FaFacebook color="DodgerBlue" size={24} style={{ marginRight: "8px" }} />Masuk dengan Facebook
-          </button>
-          <button className={Style.btn} onClick={handleLoginGithub}>
-            <FaFacebook color="DodgerBlue" size={24} style={{ marginRight: "8px" }} />Masuk dengan GITHUB
           </button>
         </div>
         <div className={Style.container_helper}>
