@@ -1,6 +1,6 @@
-import { useSession } from 'next-auth/react'
 import Head from 'next/head'
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { userService } from 'services'
 import Layouts from '../../../components/Layouts/Layouts'
 import PurchaseDetail from '../../../components/PurchaseDetail/PurchaseDetail'
 import Section from '../../../components/Section/Section'
@@ -9,7 +9,7 @@ import style from './Checkout.module.css'
 export default function index({product}) {
   console.log(product)
   
-  const {data: session} = useSession()
+  // const {data: session} = useSession()
   const [data, setData] = useState(product)
 
   const dotPrice =(numb)=>{
@@ -45,7 +45,7 @@ export default function index({product}) {
             <PurchaseDetail
               orderId={'SSHPHARCODE'}
               idProduct={data.id}
-              name={session?.user?.name}
+              name={userService?.userValue.firstName.concat(' ',userService?.userValue.lastName)}
               item={data.name}
               brand={data.brand}
               adr={'bandung --hardcode'}

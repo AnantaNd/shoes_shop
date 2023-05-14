@@ -47,7 +47,7 @@ export default function Home({product}) {
             <div className={style.hero}>
               <div className={style.hero__container}>
                 <h1 className={style.hero__headline}>Hello 
-                  <span className={style.highlight}> {!userService? 'World': `${userService?.userValue.firstName} ${userService?.userValue.lastName}`}</span>, 
+                  <span className={style.highlight}> {!userService? 'World': userService?.userValue.firstName.concat(' ',userService?.userValue.lastName)}</span>, 
                   <br/>Lets Make Your Day 
                   <span className={style.highlight}> Excited</span>
                 </h1>
@@ -56,7 +56,7 @@ export default function Home({product}) {
                 <Link href="/products"><button className={style.cta}> Get Started</button></Link>
               </div>
               <div className={style.banner}>
-                <Image src="/hero_banner.png" width="500" height="470" style={{ marginLeft: 8 + "px" }} alt='img'/>
+                <Image src="/hero_banner.png" width="650px" height="450px" objectFit='contain' style={{ marginLeft: 8 + "px"}} alt='img'/>
               </div>
             </div>
           <Section>
