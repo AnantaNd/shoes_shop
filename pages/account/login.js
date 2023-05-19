@@ -16,6 +16,7 @@ import style from './Account.module.css';
 export default function login(){
   const router = useRouter()
 
+  // console.log(userService)
 
   // validation
   const validationSchema = Yup.object().shape({
@@ -48,8 +49,10 @@ export default function login(){
       </Head>
       
       <div className={style.container}>
+        {/* <div className={style.background}></div> */}
         <div className={style.wrapper}>
-          <h1 style={{textAlign: 'center'}}>Shoes Shop</h1>
+          {/* <h1 style={{textAlign: 'center'}}>Shoes Shop</h1> */}
+          <Image className={style.img} src={'/login.svg'} width={500} height={500} objectFit='contain'/>
         </div>
         <div className={style.card}>
           <div className={style.header}>
@@ -71,13 +74,15 @@ export default function login(){
                 <input className={style.inpForm} name="password" type="password" {...register('password')}/>
                 <small className={style.errorMsg}>{errors.password?.message}</small>
               </div>
-              <button className={style.btn} disabled={formState.isSubmitting}>Sign In</button>
               <div className={style.container_helper}>
                 <p className={style.helper}>Don&#39;t have an account yet ?
                 <Link href={'/account/register'}>
                   <span> Register</span>
                 </Link></p>
               </div>
+              <button className={style.btn} disabled={formState.isSubmitting}>
+                {formState.isSubmitting && <span className='spinner-border spinner-border-sm float-right '></span>}Sign In 
+              </button>
             </form>
           </div>
         </div>

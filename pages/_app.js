@@ -1,3 +1,4 @@
+import { Alert } from 'components/Alert/Alert'
 import Layouts from 'components/Layouts/Layouts'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -39,13 +40,19 @@ function MyApp({ Component, pageProps:{session, ...pageProps} }) {
   }
 
   return (
-    <div>
-      <Layouts>
-        {authorized && 
-          <Component {...pageProps}/>
-        }
-      </Layouts>
-    </div>
+    <>
+      {/* <Head>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+      </Head> */}
+      <div>
+        <Layouts>
+          <Alert/>
+          {authorized && 
+            <Component {...pageProps}/>
+          }
+        </Layouts>
+      </div>
+    </>
   )
 }
 

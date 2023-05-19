@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
 import OptPayment from '../OptPayment/OptPayment'
 import style from './PurchaseDetail.module.css'
@@ -37,13 +37,13 @@ export default function PurchaseDetail({orderId, name, item, brand, img, tax, pr
           {!tagDisc? '':<div className={style.tagDisc}>{tagDisc}%</div>}
         </div>
       </div>
-      <div className={style.wrapper}>
+      {/* <div className={style.wrapper}>
         <h1 className={style.title}>Address</h1>
         <textarea className={style.inpAddr} placeholder='input your address for shipping' onChange={handleAddr}></textarea>
         {addr? 
           '':<small className={style.helper}>input your address</small>
         }
-      </div>
+      </div> */}
       <div className={style.wrapper}>
           <h1 className={style.title}>Purchase Detail</h1>
           <p className={style.subtitle}>Order ID<span>{orderId}</span></p>

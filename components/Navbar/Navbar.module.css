@@ -136,11 +136,28 @@
         transition: all ease-in-out 0.5s;
         z-index: 999;
     }
-
     .navbar__menus_active{
         top: 0;
+        background-color: transparent;
     }
-
+    .navbar__menus_active::before {
+        /* background-color:  #eaf0f0; */
+        box-shadow: inset 0 0 0 3000px var(--blur-color);
+        backdrop-filter: blur(1px);
+      }
+    .navbar__menus_active::before,
+    .navbar__menus_active::before {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      /* border-radius: 1em; */
+      filter: blur(20px);
+    }
     .navbar__menu{
         padding: 16px 24px;
         font-size: 14px;

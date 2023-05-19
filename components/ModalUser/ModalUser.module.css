@@ -67,6 +67,11 @@
   margin: 10px;
   cursor: pointer;
   transition: all ease-in-out .3s;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 30px;
+  /* font-size: 18px; */
 }
 .listMenu:hover{
     border-bottom: 3px solid var(--yellow-color);
@@ -75,4 +80,8 @@
     cursor: pointer;
     padding: 10px 0;
     transition: all ease-in-out .3s;
+}
+.iconLogout{
+  align-items: center;
+
 }

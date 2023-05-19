@@ -23,6 +23,7 @@ export default function Home({product}) {
 
   // console.log('session')
   // console.log(session?.user?.email)
+  console.log(userService?.userValue)
 
 
   useEffect(()=>{
@@ -84,7 +85,7 @@ export default function Home({product}) {
     </>
   )
 }
-export async function getStaticProps(){
+export async function getServerSideProps(){
   try{
     const res = await fetch('http://localhost:3000/api/product')
     const product = await res.json()

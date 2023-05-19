@@ -13,7 +13,10 @@ import style from './Account.module.css';
 export default function Register(){
   const router = useRouter();
 
+  // console.log(userService?.userValue)
+
   const validationSchema = Yup.object().shape({
+    email: Yup.string().required('email is required'),
     firstName: Yup.string().required('firstname is required'),
     lastName: Yup.string().required('lastname is required'),
     username: Yup.string().required('username is required'),
@@ -47,7 +50,7 @@ export default function Register(){
         
         <div className={style.container}>
           <div className={style.wrapper}>
-            <h1>Shoes Shop</h1>
+            <Image src={'/signup.svg'} width={500} height={500} objectFit='contain'/>
           </div>
           <div className={style.card}>
             <div className={style.header}>
@@ -59,6 +62,11 @@ export default function Register(){
             </div>
           <div>
             <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+              <div className={style.formGroup}>
+                <label>Email</label>
+                <input className={style.inpForm} name='email' type='text' {...register('email')}/>
+                <small className={style.errorMsg}>{errors.email?.message}</small>
+              </div>
               <div className={style.formGroup}>
                 <label>First Name</label>
                 <input className={style.inpForm} name='firstName' type='text' {...register('firstName')}/>
@@ -79,15 +87,15 @@ export default function Register(){
                 <input className={style.inpForm} name='password' type='password' {...register('password')}/>
                 <small className={style.errorMsg}>{errors.password?.message}</small>
               </div>
-              <button className={style.btn} disabled={formState.isSubmitting}>
-                Sign Up
-              </button>
               <div className={style.container_helper}>
                 <p className={style.helper}>Have an account yet ?
                 <Link href={'/account/login'}>
                   <span> Log In</span>
                 </Link></p>
               </div>
+              <button className={style.btn} disabled={formState.isSubmitting}>
+                Sign Up
+              </button>
             </form>
           </div>
         </div>

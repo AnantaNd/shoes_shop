@@ -1,20 +1,22 @@
 [
     {
-        "firstName": "Ananta",
-        "lastName": "Novi",
-        "username": "novi",
-        "hash": "$2a$10$hJrnrS2W0hIi4fCU0dt63.XJoX4a9e7h0PgFU8HIwLwIpTKKi18jO",
+        "email": "ananta@gmail.com",
+        "firstName": "ananta",
+        "lastName": "noviandanu",
+        "username": "nan",
+        "hash": "$2a$10$X.Zsl3zDeH.zu0lVMg3Xq.VYHOebcFN2BbU6XERAMkwHy/Pt..e9u",
         "id": 1,
-        "dateCreated": "2023-05-13T03:22:48.928Z",
-        "dateUpdated": "2023-05-13T03:22:48.928Z"
+        "dateCreated": "2023-05-18T06:27:59.791Z",
+        "dateUpdated": "2023-05-18T06:27:59.791Z"
     },
     {
-        "firstName": "haha",
-        "lastName": "hihi",
-        "username": "hahi",
-        "hash": "$2a$10$H9L7dpXaWAunCMuXjDqdvOx.voyVIZZX6fZcIvl7kdeA//R4OH30S",
+        "email": "noviandanu@gmail.com",
+        "firstName": "noviandanu",
+        "lastName": "ananta",
+        "username": "novian",
+        "hash": "$2a$10$etyDrxufad4V1dJDiDc3LufwxgVjyCubAAfMf7MhfMHuCd6mjbtFi",
         "id": 2,
-        "dateCreated": "2023-05-13T04:45:11.180Z",
-        "dateUpdated": "2023-05-13T04:45:11.180Z"
+        "dateCreated": "2023-05-18T07:31:19.815Z",
+        "dateUpdated": "2023-05-18T07:31:19.815Z"
     }
 ]

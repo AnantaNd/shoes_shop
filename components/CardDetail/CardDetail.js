@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
-import Modal from '../Modal/Modal'
 import style from './CardDetail.module.css'
 
 
-export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, sizeData, onSize, btnDisable, helper}){
+export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, sizeData, onSize, btnDisable, helper, onInputAddr, helperAddr}){
 
   const [showShipping, setShowShipping] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
@@ -54,26 +53,35 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
               <p className={style.linkSize}>&#40;click for size guide&#41;</p>
             </a>
           </Link>
-          {!helper? <small className={style.helper}>*choose your size first</small>:''}
           <div  className={style.sizeWrapper}>
             {sizeData?.map((size, i)=>{
               return (
-                    <label htmlFor={size} key={i}>
-                      <div onChange={onSize} className={style.sizeContainer}>
-                          <input className={style.input} id={size} type='radio' name='size' value={size}/>{size}
-                      </div>
-                    </label>
-                  )
-                })}
+                <label htmlFor={size} key={i}>
+                    <div onChange={onSize} className={style.sizeContainer}>
+                        <input className={style.input} id={size} type='radio' name='size' value={size}/>{size}
+                    </div>
+                  </label>
+                )
+              })}
           </div>
+          {!helper? <small className={style.helper}>*choose your size first</small>:''}
+          {/* addres form */}
+          <div>
+            <form>
+              <h1 className={style.title}>Address</h1>
+              <textarea className={style.inpAddr} placeholder='input your address for shipping' onChange={onInputAddr}/>
+              {!helperAddr?<small className={style.helper}>*input your address</small>:''}
+            </form>
+          </div>
+          {/* button */}
           <div className={style.container_btn}>
             <Link href={`/checkout/${idProduct}`}>
-              <button disabled={btnDisable} className={helper? `${style.btn_buy}`:`${style.btn_buyDisable}`}>Buy</button>
+              <button disabled={btnDisable} className={helper && helperAddr? `${style.btn_buy}`:`${style.btn_buyDisable}`}>Buy</button>
             </Link>
             <Link href={`/products/`}>
               <button className={style.btn_back}>Back</button>
             </Link>
-            {showModal && <Modal isOpen={setShowModal} name={title}/>}
+            {/* {showModal && <Modal isOpen={setShowModal} name={title}/>} */}
           </div>
           <div className={style.container_desc}>
             <div className={style.wrapper}>

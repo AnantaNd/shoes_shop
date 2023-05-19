@@ -1,3 +1,4 @@
+import { ModalUser } from 'components/ModalUser/ModalUser'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { ListNested, XLg } from 'react-bootstrap-icons'
@@ -44,9 +45,9 @@ const Navbar = () => {
 				<li className={style.navbar__menu_closed} onClick={isMenuShownHandler}><XLg width="20" height="20" /></li>
 			</ul>
 			<div className={style.navbar__actions}>
-				<a onClick={logOut}>Log Out</a>
+				{/* <a onClick={logOut}>Log Out</a> */}
 				{/* <ModalCart/> */}
-				{/* <ModalUser/> */}
+				<ModalUser/>
 				{
 						<ListNested onClick={isMenuShownHandler} className={style.navbar__toggel} width="24" height="24" style={{ marginTop: 2 + "px" }} />
 				}
