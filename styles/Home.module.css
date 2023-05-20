@@ -17,8 +17,9 @@
 }
 
 .highlight{
-    font-weight: 800;
+    font-weight: 700;
     color: var(--red-color);
+    text-transform: capitalize;
 }
 
 .hero__headlinesupport{

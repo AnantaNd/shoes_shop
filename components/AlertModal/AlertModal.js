@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 
 import { alertService } from 'services';
 
-import style from './Alert.module.css';
+import { Alert, AlertTitle, Stack } from '@mui/material';
 
-export { Alert };
+export { AlertModal };
 
 Alert.propTypes = {
     id: PropTypes.string,
@@ -18,7 +18,7 @@ Alert.defaultProps = {
     fade: true
 };
 
-function Alert({ id, fade }) {
+function AlertModal({ id, fade }) {
     const router = useRouter();
     const [alerts, setAlerts] = useState([]);
 
@@ -102,12 +102,16 @@ function Alert({ id, fade }) {
     if (!alerts.length) return null;
 
     return (
-      <div className={style.container}>
+      <div>
         {alerts.map((alert, index) =>
-          <div key={index} className={style.wrapper}>
-            <span className={style.text} dangerouslySetInnerHTML={{ __html: alert.message }}></span>
-            {/* <button className={style.btn} onClick={() => removeAlert(alert)}>&times;</button> */}
-          </div>
+          <Stack sx={{width: '100%'}} key={index}>
+            <Alert severity="info">
+              <AlertTitle dangerouslySetInnerHTML={{ __html: alert.message }}></AlertTitle>
+            </Alert>
+          </Stack>
+          // <div key={index} className={style.wrapper}>
+          //   <span className={style.text} dangerouslySetInnerHTML={{ __html: alert.message }}></span>
+          // </div>
         )}
       </div>
     );

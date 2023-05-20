@@ -1,4 +1,4 @@
-import { Alert } from 'components/Alert/Alert'
+import { AlertModal } from 'components/AlertModal/AlertModal'
 import Layouts from 'components/Layouts/Layouts'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps:{session, ...pageProps} }) {
       </Head> */}
       <div>
         <Layouts>
-          <Alert/>
+          <AlertModal/>
           {authorized && 
             <Component {...pageProps}/>
           }
