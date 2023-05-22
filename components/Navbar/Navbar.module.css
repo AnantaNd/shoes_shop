@@ -23,11 +23,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   content: '';
-  width: 100%;
+  width: 97%;
   height: 85%;
   position: absolute;
   z-index: -1;
-  /* border-radius: 1em; */
+  border-radius: 1em;
   filter: blur(20px);
 }
 .navbar__brand{
