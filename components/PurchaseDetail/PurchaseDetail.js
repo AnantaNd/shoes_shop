@@ -6,19 +6,11 @@ import OptPayment from '../OptPayment/OptPayment'
 import style from './PurchaseDetail.module.css'
 
 
-export default function PurchaseDetail({orderId, name, item, brand, img, tax, price, total, discount, idProduct, tagDisc, onOptPayment}) {
+export default function PurchaseDetail({orderId, name, item, brand, img, tax, price, total, discount, idProduct, tagDisc, addr, size, onOptPayment, onPayment}) {
 
   // const [showPurcase, setShowPurcase] = useState(false)
   const [showPayment, setShowPayment] = useState(false)
-  const [addr, setAddr] = useState()
-  // const [showReview, setShowReview] = useState(false)
-
-  // const handleShowPurcase =()=>{
-  //   setShowPurcase(!showPurcase)
-  // }
-  const handleAddr =(e)=>{
-    setAddr(e.target.value)
-  }
+  
   const handleShowPayment =()=>{
     setShowPayment(!showPayment)
   }
@@ -48,7 +40,9 @@ export default function PurchaseDetail({orderId, name, item, brand, img, tax, pr
           <h1 className={style.title}>Purchase Detail</h1>
           <p className={style.subtitle}>Order ID<span>{orderId}</span></p>
           <p className={style.subtitle}>Item<span>{item}</span></p>
+          <p className={style.subtitle}>Size<span>{size}</span></p>
           <p className={style.subtitle}>Acount Name<span>{name}</span></p>
+          <p className={style.subtitle}>Address<span>{addr}</span></p>
           <p className={style.subtitle}>Price<span>Rp. {price}</span></p>
           <p className={style.subtitle}>TAX (10%)<span>Rp. {tax} </span></p>
           <p className={style.subtitle}>Discount {!tagDisc?'': `(${tagDisc}%)`}<span>Rp. {discount}</span></p>
@@ -92,8 +86,8 @@ export default function PurchaseDetail({orderId, name, item, brand, img, tax, pr
         }
       </div>
       <div className={style.containerBtn}>
-        <Link href={`/`}> 
-          <button disabled={!addr? true: false} className={addr?`${style.btnCheckout}`:`${style.btnCheckoutDisable}`}>Checkout</button>
+        <Link href={`/history`}> 
+          <button onClick={onPayment} className={style.btnCheckout}>Checkout</button>
         </Link>
         <Link href={`/products/${idProduct}`}> 
           <button className={style.btnBack}>Back</button>

@@ -1,15 +1,37 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { userService } from 'services'
 import PurchaseDetail from '../../../components/PurchaseDetail/PurchaseDetail'
 import Section from '../../../components/Section/Section'
 import style from './Checkout.module.css'
 
+
 export default function index({product}) {
-  console.log(product)
-  
-  // const {data: session} = useSession()
+  // console.log(product)
   const [data, setData] = useState(product)
+  const router = useRouter()
+
+  console.log(router)
+  
+  // handle history
+  const onSubmitPayment =()=>{
+    let temp = {
+      email: userService?.userValue.email,
+      name: userService?.userValue.firstName,
+      size: router.query.size,
+      idOrder: router.query.orderId,
+      item: data.name,
+      price: data.price
+    }
+    const dataLocal = localStorage.getItem('history')
+    const dataHistory = dataLocal? [...JSON.parse(dataLocal), temp] : [temp]
+    if(dataLocal){
+      localStorage.removeItem('history')
+    }
+    localStorage.setItem('history', JSON.stringify(dataHistory))
+    console.log(dataHistory)
+  }
 
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
@@ -22,8 +44,8 @@ export default function index({product}) {
     return parseInt(numb-temp)
   }
   const pricePpn = (numb) =>{
-    const temp = numb*10
-    return parseInt(temp/100)
+    const temp = (numb*0.01)
+    return parseInt(temp*10)
   }
 
   // handle options payment
@@ -42,12 +64,13 @@ export default function index({product}) {
         <Section>
           <div className={style.container}>
             <PurchaseDetail
-              orderId={'SSHPHARCODE'}
+              orderId={router.query.orderId}
               idProduct={data.id}
               name={userService?.userValue.firstName.concat(' ',userService?.userValue.lastName)}
+              addr={router.query.address}
+              size={router.query.size}
               item={data.name}
               brand={data.brand}
-              adr={'bandung --hardcode'}
               img={data.img}
               tax={dotPrice(pricePpn(data.price))}
               price={dotPrice(data.price)}
@@ -55,6 +78,7 @@ export default function index({product}) {
               discount={dotPrice(priceDisc(data.price, data?.discount))}
               tagDisc={data.discount}
               onOptPayment={handlePayment}
+              onPayment={onSubmitPayment}
             />
           </div>
         </Section>

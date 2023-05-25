@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { CircularProgress } from '@mui/material';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -93,9 +94,11 @@ export default function Register(){
                   <span> Log In</span>
                 </Link></p>
               </div>
-              <button className={style.btn} disabled={formState.isSubmitting}>
-                Sign Up
-              </button>
+              {!formState.isSubmitting?
+                <button className={style.btn} disabled={formState.isSubmitting}>Sign Up</button>
+                :
+                <button className={style.btn} disabled={formState.isSubmitting}><CircularProgress size={15} thickness={5}/></button>
+              }
             </form>
           </div>
         </div>

@@ -8,6 +8,7 @@ import * as Yup from 'yup';
 import Link from "next/link";
 import { alertService, userService } from 'services';
 
+import { CircularProgress } from '@mui/material';
 import Image from 'next/image';
 import style from './Account.module.css';
 
@@ -80,9 +81,14 @@ export default function login(){
                   <span> Register</span>
                 </Link></p>
               </div>
-              <button className={style.btn} disabled={formState.isSubmitting}>
-                {formState.isSubmitting && <span className='spinner-border spinner-border-sm float-right '></span>}Sign In 
-              </button>
+              {!formState.isSubmitting?
+                <button className={style.btn} disabled={formState.isSubmitting}>Sign In </button>
+                :
+                <button className={style.btn} disabled={formState.isSubmitting}><CircularProgress size={15} thickness={5}/></button>
+              }
+              {/* <button className={style.btn} disabled={formState.isSubmitting}>
+                {formState.isSubmitting && <CircularProgress size={15} thickness={5}/>}Signin 
+              </button> */}
             </form>
           </div>
         </div>

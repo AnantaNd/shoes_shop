@@ -4,7 +4,7 @@ import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
 import style from './CardDetail.module.css'
 
 
-export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, sizeData, onSize, btnDisable, helper, onInputAddr, helperAddr}){
+export default function CardDetail({title, rating, price, priceAftDisc, discount, desc, idProduct, sizeData, onSize, btnDisable, helper, onInputAddr, helperAddr, onBtnAction}){
 
   const [showShipping, setShowShipping] = useState(false)
   const [showDetail, setShowDetail] = useState(false)
@@ -54,15 +54,14 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
             </a>
           </Link>
           <div  className={style.sizeWrapper}>
-            {sizeData?.map((size, i)=>{
-              return (
-                <label htmlFor={size} key={i}>
-                    <div onChange={onSize} className={style.sizeContainer}>
-                        <input className={style.input} id={size} type='radio' name='size' value={size}/>{size}
-                    </div>
-                  </label>
-                )
-              })}
+            <select className={style.selectSize} name='size' onChange={onSize}>
+              <option value=''>Select Size &hellip;</option>
+              {sizeData?.map((size, i)=>{
+                return (
+                    <option key={i} value={size}>{size}</option>
+                  )
+                })}
+            </select>
           </div>
           {!helper? <small className={style.helper}>*choose your size first</small>:''}
           {/* addres form */}
@@ -75,9 +74,9 @@ export default function CardDetail({title, rating, price, priceAftDisc, discount
           </div>
           {/* button */}
           <div className={style.container_btn}>
-            <Link href={`/checkout/${idProduct}`}>
-              <button disabled={btnDisable} className={helper && helperAddr? `${style.btn_buy}`:`${style.btn_buyDisable}`}>Buy</button>
-            </Link>
+            <button onClick={onBtnAction} disabled={btnDisable} className={helper && helperAddr? `${style.btn_buy}`:`${style.btn_buyDisable}`}>Buy</button>
+            {/* <Link href={`/checkout/${idProduct}`}> */}
+            {/* </Link> */}
             <Link href={`/products/`}>
               <button className={style.btn_back}>Back</button>
             </Link>

@@ -1,57 +1,42 @@
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import { FaUser } from 'react-icons/fa'
 import { userService } from 'services'
 import Section from '../../components/Section/Section'
-import { TableHistory } from '../../components/TableHistory/TableHistory'
 import style from './History.module.css'
 
-export const historyData = [
-  {
-    id: 1,
-    name: 'nike aj 1',
-    price: 10000,
-    status: 'pending'
-  },
-  {
-    id: 2,
-    name: 'nike aj 1',
-    price: 10000,
-    status: 'process'
-  },
-  {
-    id: 3,
-    name: 'nike aj 1',
-    price: 10000,
-    status: 'pending'
-  },
-  {
-    id: 4,
-    name: 'nike aj 1',
-    price: 10000,
-    status: 'success'
-  },
-  {
-    id: 5,
-    name: 'nike aj 1',
-    price: 10000,
-    status: 'failed'
-  },
-  {
-    id: 6,
-    name: 'nike aj 1',
-    price: 10000,
-    status: 'failed'
-  },
-]
-
 export default function index({product}) {
-  // console.log(product)
-  // const {data : session} = useSession()
+
+  const [data, setData] = useState()
+
+  const getItemLocal =()=>{
+    const item = localStorage.getItem('history')
+    const parseItem = JSON.parse(item)
+    const x = parseItem?.filter((data)=> data.name == userService?.userValue.firstName)
+    setData(x)
+  }
+
+  useEffect(()=>{
+    getItemLocal()
+  },[])
+  console.log(data)
+
 
   const sumPrice =(data)=>{
-    for(var i=0; i<data.length; i++){
-      return (data[i].price+data[i+1].price)
+    if(data){
+      let sum=0
+      data?.forEach(element => {
+        sum+=element.price
+      });
+      return sum
+    }else{
+      return 0
     }
+  }
+
+  const dotPrice =(numb)=>{
+    return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
   
   return (
@@ -70,10 +55,31 @@ export default function index({product}) {
               <h4 className={style.subtitle}>Summarize</h4>
               <p className={style.text}>User Name: <span> {userService? `${userService?.userValue.username}`: 'hello world'}</span></p>
               <p className={style.text}>Emai: <span> {userService? `${userService?.userValue.email}`: 'helloworld@mail.com'}</span></p>
-              <p className={style.text}>Total Spent: <span> Rp. {sumPrice(product)}</span></p>
+              <p className={style.text}>Total Spent: <span> Rp. {dotPrice(sumPrice(data))}</span></p>
             </div>
             <div className={style.wrapperTable}>
-              <TableHistory dataHistory={historyData}/>
+              <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>No</TableCell>
+                      <TableCell align="center">Order ID</TableCell>
+                      <TableCell align="left">Item</TableCell>
+                      <TableCell align="left">Price</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {data?.map((dataTable, i)=>(
+                      <TableRow key={i} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                        <TableCell>{i+1}</TableCell>
+                        <TableCell align='center'>{dataTable.idOrder}</TableCell>
+                        <TableCell>{dataTable.item}</TableCell>
+                        <TableCell>Rp. {dotPrice(dataTable.price)}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </div>
           </Section>
         </div>

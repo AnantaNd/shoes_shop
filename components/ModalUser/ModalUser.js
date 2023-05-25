@@ -39,7 +39,7 @@ export const ModalUser = () => {
         <div className={style.containerContent}>
           <FaUser className={style.img} size={30}/>
           <div className={style.wrapper}>
-            <p className={style.userName}>{!userService? 'World': userService?.userValue.firstName.concat(' ',userService?.userValue.lastName)}</p>
+            <p className={style.userName}>{userService? userService.userValue.firstName : 'World'}</p>
             <p className={style.email}>{!userService? 'helo@world.com': userService?.userValue.email}</p> 
             <p className={style.membership}>Membership: <span>hardcode</span></p>
           </div>

@@ -142,19 +142,12 @@
   gap: 20px;
   margin: 10px 0;
 }
-.sizeContainer{
-  border: 2.4px solid var(--navy-color);
-  border-radius: 20px;
-  width: 80px;
-  height: 35px;
-  text-align: center;
-  text-transform: uppercase;
+.selectSize{
+  /* border-radius: 8px solid var(--border-color); */
+  padding: .5rem ;
+  border-radius: 8px;
+  width: 200px;
   font-weight: 600;
-  font-size: 18px;
-}
-.sizeContainer:hover{
-  cursor: pointer;
-  background-color: var(--disable-color);
 }
 .helper{
   color: var(--red-color);
