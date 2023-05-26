@@ -58,23 +58,25 @@ export default function index({product}) {
               <p className={style.text}>Total Spent: <span> Rp. {dotPrice(sumPrice(data))}</span></p>
             </div>
             <div className={style.wrapperTable}>
-              <TableContainer component={Paper}>
+              <TableContainer sx={{borderRadius: '1rem'}} component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                  <TableHead>
+                  <TableHead sx={{backgroundColor: '#001253'}}>
                     <TableRow>
-                      <TableCell>No</TableCell>
-                      <TableCell align="center">Order ID</TableCell>
-                      <TableCell align="left">Item</TableCell>
-                      <TableCell align="left">Price</TableCell>
+                      <TableCell sx={{fontWeight: 750, color: 'white'}}>No</TableCell>
+                      <TableCell sx={{fontWeight: 750, color: 'white'}} align="center">Order ID</TableCell>
+                      <TableCell sx={{fontWeight: 750, color: 'white'}} align="left">Item</TableCell>
+                      <TableCell sx={{fontWeight: 750, color: 'white'}} align="left">Price</TableCell>
+                      <TableCell sx={{fontWeight: 750, color: 'white'}} align="left">Status</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {data?.map((dataTable, i)=>(
                       <TableRow key={i} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                        <TableCell>{i+1}</TableCell>
-                        <TableCell align='center'>{dataTable.idOrder}</TableCell>
-                        <TableCell>{dataTable.item}</TableCell>
-                        <TableCell>Rp. {dotPrice(dataTable.price)}</TableCell>
+                        <TableCell sx={{fontWeight: 550}}>{i+1}</TableCell>
+                        <TableCell align='center' sx={{fontWeight: 550}}>{dataTable.idOrder}</TableCell>
+                        <TableCell sx={{fontWeight: 550}}>{dataTable.item}</TableCell>
+                        <TableCell sx={{fontWeight: 550}}>Rp. {dotPrice(dataTable.price)}</TableCell>
+                        <TableCell sx={{fontWeight: 550}}>{dataTable.status}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>

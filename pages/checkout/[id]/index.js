@@ -22,7 +22,8 @@ export default function index({product}) {
       size: router.query.size,
       idOrder: router.query.orderId,
       item: data.name,
-      price: data.price
+      price: priceDisc(data.price, data?.discount)+pricePpn(data.price),
+      status:'process'
     }
     const dataLocal = localStorage.getItem('history')
     const dataHistory = dataLocal? [...JSON.parse(dataLocal), temp] : [temp]
@@ -52,6 +53,7 @@ export default function index({product}) {
   const handlePayment =()=>{
     console.log('handle click')
   }
+  console.log(priceDisc(data.price, data?.discount)+pricePpn(data.price))
 
   return (
     <div>
