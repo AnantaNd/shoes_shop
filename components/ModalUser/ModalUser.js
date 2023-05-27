@@ -9,6 +9,7 @@ import style from './ModalUser.module.css'
 export const ModalUser = () => {
 
   const [isShow, setShow] = useState(false)
+  const [user, setUser] = useState(null)
   // const {data : session} = useSession()
 
 
@@ -16,7 +17,6 @@ export const ModalUser = () => {
       setShow(!isShow)
       // console.log('click')
   }
-  const [user, setUser] = useState(null)
   // const {data : session} = useSession()
 
   useEffect(()=>{
