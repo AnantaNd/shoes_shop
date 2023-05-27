@@ -56,7 +56,7 @@ function AlertModal({ id, fade }) {
 
     return (
       <>
-        <ToastContainer/>
+        <ToastContainer style={{width: '380px', fontWeight: 600}}/>
       </>
     );
 }
