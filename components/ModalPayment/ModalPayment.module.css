@@ -1,0 +1,28 @@
+/* position: 'absolute',
+top: '50%',
+left: '50%',
+transform: 'translate(-50%, -50%)',
+minWidth: 350,
+height: 400,
+bgcolor: 'background.paper',
+boxShadow: 24,
+p: 4,
+borderRadius: '10px',
+overflowY: 'scroll' */
+
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 400px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 1rem;
+}
+.content{
+  overflow-y: scroll;
+  height: 350px;
+  padding: 0 1.2rem;
+}

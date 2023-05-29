@@ -1,6 +1,6 @@
-import React, { useCallback, useRef } from 'react';
-import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import dynamic from 'next/dynamic';
+import { useCallback, useRef } from 'react';
+import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import Styles from './ContainerProduct.module.css';
 // import Card from '../Card/Card';
 
@@ -37,7 +37,7 @@ function ContainerProduct({ dataCard, title, label, img, subLabel }) {
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
   const priceDisc=(numb, disc)=>{
-    const temp = numb/disc
+    const temp = (numb*disc)/100
     // console.log(temp)
     return parseInt(numb-temp)
   }

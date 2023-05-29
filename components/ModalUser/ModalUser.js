@@ -10,7 +10,41 @@ export const ModalUser = () => {
 
   const [isShow, setShow] = useState(false)
   const [user, setUser] = useState(null)
-  // const {data : session} = useSession()
+  const [data, setData] = useState()
+  const [type, setType] = useState()
+  const [benefit, setBenefit] = useState()
+
+  const getItemLocal =()=>{
+    const item = localStorage.getItem('history')
+    const parseItem = JSON.parse(item)
+    const x = parseItem?.filter((data)=> data.name == userService?.userValue.firstName)
+    setData(x)
+  }
+
+  useEffect(()=>{
+    getItemLocal()
+  },[])
+
+  const memberShipType =(data)=>{
+    if(data?.length >= 3 && data?.length <= 4){
+      return 'Silver'
+    }else if(data?.length >= 5 && data?.length <= 8){
+      return 'Gold'
+    }else if(data?.length >= 8){
+      return 'Platinum'
+    }
+    // return 'not member'
+  }
+
+  const memberBenefit =(data)=>{
+    if(memberShipType(data)=='Silver'){
+      return 3
+    }else if(memberShipType(data)=='Gold'){
+      return 5
+    }else if(memberShipType(data)=='Platinum'){
+      return 8
+    }
+  }
 
 
   const handleModal =()=>{
@@ -39,9 +73,9 @@ export const ModalUser = () => {
         <div className={style.containerContent}>
           <FaUser className={style.img} size={30}/>
           <div className={style.wrapper}>
-            <p className={style.userName}>{userService? userService.userValue.firstName : 'World'}</p>
             <p className={style.email}>{!userService? 'helo@world.com': userService?.userValue.email}</p> 
-            <p className={style.membership}>Membership: <span>hardcode</span></p>
+            <p className={style.membership}>Membership: <span>{memberShipType(data)}</span></p>
+            <p className={style.membership}>Banefit discount: <span> {memberBenefit(data)}%</span></p>
           </div>
         </div>
         <div className={style.sparator}></div>

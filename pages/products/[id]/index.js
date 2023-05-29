@@ -60,7 +60,7 @@ export default function Detail({product}){
   }
   const handleAddr=(e)=>{
     setAddr(e.target.value)
-    console.log(addr)
+    // console.log(addr)
   }
   
   // const router = useRouter();

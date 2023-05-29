@@ -7,17 +7,7 @@ import { alertService } from 'services';
 
 export { AlertModal };
 
-// Alert.propTypes = {
-//     id: PropTypes.string,
-//     fade: PropTypes.bool
-// };
-
-// Alert.defaultProps = {
-//     id: 'default-alert',
-//     fade: true
-// };
-
-function AlertModal({ id, fade }) {
+function AlertModal({ id }) {
     const router = useRouter();
     const [alerts, setAlerts] = useState([]);
 

@@ -75,14 +75,14 @@ export default function index({product}) {
   }
   const handleDiscount = (e) => {
     setHasDiscount(e.target.checked);
-    console.log(e.target.checked);
+    // console.log(e.target.checked);
   }
   const handleLastest = (e) => {
     setLastestShoes(e.target.checked);
   }
   const handleBrand = (e) => {
     setBrand(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
   const handleSort = (e) => {
     setSortShoes(e.target.value)

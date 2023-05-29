@@ -48,7 +48,7 @@ export default function Home({product}) {
             <div className={style.hero}>
               <div className={style.hero__container}>
                 <h1 className={style.hero__headline}>Hello 
-                  <span className={style.highlight}> {userService? userService.userValue.firstName.concat(' ',userService.userValue.lastName):'World'}</span>, 
+                  <span className={style.highlight}> {userService? userService.userValue.firstName:'World'}</span>, 
                   <br/>Lets Make Your Day 
                   <span className={style.highlight}> Excited</span>
                 </h1>

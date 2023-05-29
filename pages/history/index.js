@@ -6,7 +6,7 @@ import { userService } from 'services'
 import Section from '../../components/Section/Section'
 import style from './History.module.css'
 
-export default function index({product}) {
+export default function index() {
 
   const [data, setData] = useState()
 
@@ -38,6 +38,26 @@ export default function index({product}) {
   const dotPrice =(numb)=>{
     return numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
+  const memberShipType =(data)=>{
+    if(data?.length >= 3 && data?.length <= 4){
+      return 'Silver'
+    }else if(data?.length >= 5 && data?.length <= 8){
+      return 'Gold'
+    }else if(data?.length >= 8){
+      return 'Platinum'
+    }
+    // return 'not member'
+  }
+
+  const memberBenefit =(data)=>{
+    if(memberShipType(data)=='Silver'){
+      return 3
+    }else if(memberShipType(data)=='Gold'){
+      return 5
+    }else if(memberShipType(data)=='Platinum'){
+      return 8
+    }
+  }
   
   return (
     <>
@@ -55,7 +75,7 @@ export default function index({product}) {
               <h4 className={style.subtitle}>Summarize</h4>
               <p className={style.text}>User Name: <span> {userService? `${userService?.userValue.username}`: 'hello world'}</span></p>
               <p className={style.text}>Emai: <span> {userService? `${userService?.userValue.email}`: 'helloworld@mail.com'}</span></p>
-              <p className={style.text}>Total Spent: <span> Rp. {dotPrice(sumPrice(data))}</span></p>
+              <p className={style.text}>Membership: <span> {memberShipType(data)}</span></p>
             </div>
             <div className={style.wrapperTable}>
               <TableContainer sx={{borderRadius: '1rem'}} component={Paper}>
