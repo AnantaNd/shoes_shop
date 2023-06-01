@@ -86,7 +86,7 @@ export default function Home({ product }) {
 }
 export async function getServerSideProps() {
   try {
-    const res = await fetch(process.env.NEXTAUTH_URL);
+    const res = await fetch('https://shoes-shop-neon.vercel.app/api');
     const product = await res.json();
     return {
       props: {
