@@ -91,7 +91,7 @@ export default function Detail({ product }) {
   );
 }
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`https://shoes-shop-green.vercel.app/api/product/${params.id}`);
+  const res = await fetch(`https://shoes-shop-green.vercel.app/api/product/`+(params.id));
   const product = await res.json();
   return {
     props: {
