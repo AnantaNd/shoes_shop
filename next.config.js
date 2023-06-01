@@ -7,7 +7,7 @@ module.exports = {
   publicRuntimeConfig: {
       apiUrl: process.env.NODE_ENV === 'development'
           ? 'http://localhost:3000/api'
-          : `${process.env.VERCEL_URL}/api` 
+          : 'https://shoes-shop-green.vercel.app/api' 
   },
   async headers() {
     return [
