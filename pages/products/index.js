@@ -222,7 +222,7 @@ export default function index({ product }) {
     </>
   );
 }
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const res = await fetch('http://localhost:3000/api/product');
     const product = await res.json();

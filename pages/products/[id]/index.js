@@ -90,7 +90,7 @@ export default function Detail({ product }) {
     </>
   );
 }
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const res = await fetch(`http://localhost:3000/api/product/${params.id}`);
   const product = await res.json();
   return {
