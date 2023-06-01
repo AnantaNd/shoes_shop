@@ -6,7 +6,7 @@ module.exports = {
   },
   publicRuntimeConfig: {
       apiUrl: process.env.NODE_ENV === 'development'
-          ? 'http://localhost:3000/api' // development api
-          : process.env.NEXTAUTH_URL // production api
+          ? 'http://localhost:3000/api'
+          : process.env.NEXTAUTH_URL 
   },
 }
