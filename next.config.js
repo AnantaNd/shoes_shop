@@ -7,6 +7,6 @@ module.exports = {
   publicRuntimeConfig: {
       apiUrl: process.env.NODE_ENV === 'development'
           ? 'http://localhost:3000/api'
-          : `${process.env.NEXTAUTH_URL}/api` 
+          : 'https://shoes-shop-neon.vercel.app/api' 
   },
 }
