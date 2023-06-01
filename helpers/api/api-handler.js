@@ -4,6 +4,7 @@ export { apiHandler };
 
 function apiHandler(handler) {
     return async (req, res) => {
+        // res.header('Access-Control-Allow-Origin', '*');
         const method = req.method.toLowerCase();
 
         // check handler supports HTTP method

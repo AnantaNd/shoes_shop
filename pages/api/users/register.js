@@ -8,6 +8,7 @@ export default apiHandler({
 
 function register(req, res) {
     // split out password from user details 
+    
     const { password, ...user } = req.body;
 
     // validate

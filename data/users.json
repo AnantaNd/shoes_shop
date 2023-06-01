@@ -1,42 +1,12 @@
 [
     {
-        "email": "ananta@gmail.com",
-        "firstName": "ananta",
+        "email": "888@gmail.com",
+        "firstName": "Ananta",
         "lastName": "noviandanu",
-        "username": "nan",
-        "hash": "$2a$10$X.Zsl3zDeH.zu0lVMg3Xq.VYHOebcFN2BbU6XERAMkwHy/Pt..e9u",
-        "id": 1,
-        "dateCreated": "2023-05-18T06:27:59.791Z",
-        "dateUpdated": "2023-05-18T06:27:59.791Z"
-    },
-    {
-        "email": "ah@gmail.com",
-        "firstName": "ah",
-        "lastName": "hi",
-        "username": "ahhi",
-        "hash": "$2a$10$JnwILjT9gqWymdvMPJNDBupuBKi.GSTNvV2WNxOEn1mvNRUq8/lC6",
-        "id": 2,
-        "dateCreated": "2023-05-23T14:28:17.850Z",
-        "dateUpdated": "2023-05-23T14:28:17.850Z"
-    },
-    {
-        "email": "coba@coba.com",
-        "firstName": "coba",
-        "lastName": "coba",
-        "username": "coco",
-        "hash": "$2a$10$gmiwrKoJm6N7mEWbvQwKe.LTCGkrlGfntlrjTNzGLDgFXkpLSZHv2",
-        "id": 3,
-        "dateCreated": "2023-05-27T13:52:07.056Z",
-        "dateUpdated": "2023-05-27T13:52:07.057Z"
-    },
-    {
-        "email": "qwerty@gmail.com",
-        "firstName": "hi",
-        "lastName": "ha",
-        "username": "hiha",
-        "hash": "$2a$10$1zgGAf1pK9Z3xE6YEVWTAeEjPY5uxqIX6bGsymh.lpD8EPzJlHkjW",
-        "id": 4,
-        "dateCreated": "2023-05-28T04:15:53.191Z",
-        "dateUpdated": "2023-05-28T04:15:53.192Z"
+        "username": "888",
+        "hash": "$2a$10$X1j0lulfqomu565sKb.umuYDkf8F1g3qMU8YUaKWdApIBQuBHa8we",
+        "id": 5,
+        "dateCreated": "2023-06-01T13:50:45.148Z",
+        "dateUpdated": "2023-06-01T13:50:45.148Z"
     }
 ]
