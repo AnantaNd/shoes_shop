@@ -30,17 +30,6 @@
   border-radius: 1em;
   filter: blur(20px);
 }
-.navbar__brand{
-    background: url('../../public/shoesshop.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 80px;
-    height: 80px;
-    /* font-family: 'Pacifico', cursive; */
-    font-size: 24px;
-    cursor: pointer;
-}
-
 .navbar__menus{
     display: flex;
     list-style: none;

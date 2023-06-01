@@ -1,4 +1,5 @@
 import { ModalUser } from 'components/ModalUser/ModalUser';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ListNested, XLg } from 'react-bootstrap-icons';
@@ -22,7 +23,7 @@ function Navbar() {
   return (
     <nav className={style.navbar}>
       <Link href="/">
-        <div className={style.navbar__brand} ></div>
+        <Image src={'/shoesshop.svg'} width={80} height={80}/>
       </Link>
       <ul className={`${style.navbar__menus} ${isMenuShown && style.navbar__menus_active}`}>
         <Link href="/"><li className={style.navbar__menu}>Home</li></Link>
