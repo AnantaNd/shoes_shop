@@ -3,6 +3,7 @@ import Layouts from 'components/Layouts/Layouts'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { userService } from 'services'
+import '../styles/font.css'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps:{session, ...pageProps} }) {
