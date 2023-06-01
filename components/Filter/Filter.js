@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { FaStar } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
 import style from './Filter.module.css';
 
@@ -41,7 +40,7 @@ export default function Filter ({handleCloseFilter, onBrand, onDiscount, onRatin
           <label className={style.labelInp}>New Collection</label><br/>
         </div>
       </div>
-      <div className={style.wrapperInp}>
+      {/* <div className={style.wrapperInp}>
         <h4 className={style.subTitle}>Rating</h4>
         <div onChange={onRating}>
           <input className={style.input} type="radio"name='rating'value={5}/>
@@ -53,7 +52,7 @@ export default function Filter ({handleCloseFilter, onBrand, onDiscount, onRatin
           <input className={style.input} type="radio"name='rating'value={2}/> 
           <label className={style.labelInp}>2<span><FaStar className={style.iconStar} size={12}/></span></label><br/>
         </div>
-      </div>
+      </div> */}
       {/* <button className={style.btnClear} onClick={handleClear}>clear filter</button> */}
     </div>
   )

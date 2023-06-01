@@ -14,12 +14,9 @@ export default function index({product}) {
   const [data, setData] = useState(product)
   const router = useRouter()
   const [local, setLocal] = useState()
-  const [benefit, setBenefit] = useState()
-  const [type, setType] = useState()
+  const [va, setVa] = useState()
 
 
-  console.log(local)
-  
   // handle history set local storage
   const onSubmitPayment =()=>{
     let temp = {
@@ -100,11 +97,11 @@ export default function index({product}) {
   }
 
   // generate random va
-  const generateVA =(length)=>{
+  const generateVA =()=>{
     let result = ''
     const char = '0123456789'
     const charLength = char.length
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i <= 12; i++) {
       result += char.charAt(Math.floor(Math.random()*charLength))
     }
     return result
@@ -113,6 +110,7 @@ export default function index({product}) {
 
   useEffect(()=>{
     getItemLocal()
+    setVa(generateVA)
   },[])
   console.log(data.discount)
 
@@ -156,8 +154,9 @@ export default function index({product}) {
                 itemName={data.name}
                 price={dotPrice(totalBenefit(data,local))}
                 orderId={router.query.orderId}
-                va={generateVA(12)}
+                va={va}
                 onSubmit={onSubmitPayment}
+                // handleCopy={handleCopyClick}
               />
               <Link href={`/products/${data.id}`}> 
                 <button className={style.btnBack}>Back</button>

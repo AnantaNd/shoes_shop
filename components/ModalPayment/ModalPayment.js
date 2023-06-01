@@ -1,6 +1,7 @@
 import { Button, Divider, Grid, Modal, Typography } from "@mui/material";
 import AcordionPayment from "components/AcordionPayment/AcordionPayment";
 import { useState } from "react";
+import { MdCheck, MdOutlineContentCopy } from "react-icons/md";
 import style from './ModalPayment.module.css';
 
 const styleModal = {
@@ -20,8 +21,36 @@ const styleModal = {
 
 export const ModalPayment = ({accountName, itemName, price, orderId, va, onSubmit}) => {
   const [open, setOpen] = useState(false)
+  const [isCopied, setIsCopied] = useState(false)
+
+  
   const handleOpen =()=> setOpen(true)
   const handleClose =()=> setOpen(false)
+
+
+
+  // fuction copy
+  async function copyTextToClipboard(text){
+    if('clipboard' in navigator){
+      return await navigator.clipboard.writeText(text)
+    }else{
+      return document.execCommand('copy', true, text)
+    }
+  }
+  
+  const handleCopyClick=()=>{
+    copyTextToClipboard(va)
+    .then(()=>{
+      setIsCopied(true)
+      setTimeout(()=>{
+        setIsCopied(false)
+      }, 1500)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
+
   return (
     <>
       <Button sx={{borderRadius: '1rem'}} variant="contained" onClick={handleOpen}>Checkout</Button>
@@ -58,7 +87,14 @@ export const ModalPayment = ({accountName, itemName, price, orderId, va, onSubmi
                 <Typography>No VA</Typography>
               </Grid>
               <Grid item>
-                <Typography>{va}</Typography>
+                <Typography sx={{alignItems: 'center'}} value={va}>{va} 
+                <div style={{marginLeft: '10px', display: 'inline'}}>
+                  {isCopied? 
+                    <MdCheck/>:
+                    <MdOutlineContentCopy onClick={handleCopyClick} style={{cursor: 'pointer'}}/>
+                  }
+                </div>
+                </Typography>
               </Grid>
             </Grid>
             <Grid container my={2} xs={12} justifyContent={'space-between'}>

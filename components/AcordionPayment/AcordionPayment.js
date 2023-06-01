@@ -1,8 +1,10 @@
+import { Grid } from '@mui/material';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
+import Link from 'next/link';
 import * as React from 'react';
 import { MdOutlineExpandMore } from 'react-icons/md';
 
@@ -56,25 +58,27 @@ export default function AcordionPayment() {
           <Typography>Dana</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>Livin Mandiri</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
+          <Grid container mx={2} my={2}>
+            <Grid item>
+              <ul style={{padding: '2px', lineHeight: 1.6 }}>
+                <li>First open the Dana application.</li>
+                <li>Then login using the registered number and select "send".</li>
+                <li>Click send to bank and add new bank account.</li>
+                <li>Select and click bank BRI, and then input virtual account.</li>
+                <li>Make sure the payment data correctly, and click confirm.</li>
+                <li>Input your PIN Dana application.</li>
+                <li>Wait a few moments until the transaction process is successful.</li>
+                <li>Orders will be processed within 24 hours by our store</li>
+                <li>You can see the order on the <Link href={'/history'}>
+                  <span 
+                  style={{color: '#D2001A', 
+                          fontWeight: 550,
+                          textDecoration: 'none', cursor: 'pointer'}}>History Page
+                  </span></Link>
+                </li>
+              </ul>
+            </Grid>
+          </Grid>
         </AccordionDetails>
       </Accordion>
     </div>
