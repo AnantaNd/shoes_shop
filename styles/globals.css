@@ -34,5 +34,6 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat';
+  font-weight: normal;
   box-sizing: border-box;
 }
