@@ -112,21 +112,3 @@ export default function index() {
     </>
   );
 }
-export async function getStaticProps() {
-  try {
-    const res = await fetch('http://localhost:3000/api/product');
-    const product = await res.json();
-    return {
-      props: {
-        product,
-      },
-    };
-  } catch (err) {
-    console.error(err);
-  }
-  return {
-    props: {
-      product,
-    },
-  };
-}
