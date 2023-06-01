@@ -1,9 +1,8 @@
-const fs = require('fs');
+const fs = require("fs");
 const path = require('path')
 
 // users in JSON file for simplicity, store in a db for production applications
-let users = require('data/users.json');
-
+let users = require("data/users.json");
 
 export const usersRepo = {
     getAll: () => users,
@@ -11,7 +10,7 @@ export const usersRepo = {
     find: x => users.find(x),
     create,
     update,
-    delete: _delete
+    delete: delete
 };
 
 function create(user) {
@@ -38,12 +37,12 @@ function update(id, params) {
     saveData();
 }
 
-// prefixed with underscore '_' because 'delete' is a reserved word in javascript
+// prefixed with underscore "" because "delete" is a reserved word in javascript
 function _delete(id) {
     // filter out deleted user and save
     users = users.filter(x => x.id.toString() !== id.toString());
     saveData();
-    
+
 }
 
 // private helper functions
