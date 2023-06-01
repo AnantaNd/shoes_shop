@@ -22,7 +22,7 @@ function Navbar() {
   return (
     <nav className={style.navbar}>
       <Link href="/">
-        <div className={style.navbar__brand} />
+        <div className={style.navbar__brand} ></div>
       </Link>
       <ul className={`${style.navbar__menus} ${isMenuShown && style.navbar__menus_active}`}>
         <Link href="/"><li className={style.navbar__menu}>Home</li></Link>
