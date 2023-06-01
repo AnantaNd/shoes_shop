@@ -10,8 +10,8 @@ export const usersRepo = {
     find: x => users.find(x),
     create,
     update,
-    delete: delete
-};
+    delete: _delete
+}
 
 function create(user) {
     // generate new user id
