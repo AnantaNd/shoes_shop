@@ -1,4 +1,8 @@
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../asset/Montserrat/Montserrat-Medium.ttf');
+}
 :root{
   /* --navy-color: #00203F;
   --yellow-color: #F8CF65;
@@ -33,4 +37,5 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat';
 }
