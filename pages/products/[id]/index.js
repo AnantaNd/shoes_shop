@@ -8,9 +8,11 @@ import CardImg from '../../../components/CardImg/CardImg';
 import Section from '../../../components/Section/Section';
 import style from './Detail.module.css';
 
-export default function Detail({ product }) {
+export default function Detail({ product, city }) {
   const [data, setData] = useState(product);
+  const [dataCity, setDataCity] = useState(city);
   const [size, setSize] = useState();
+  const [selectCity, setSelectCity] = useState();
   const [addr, setAddr] = useState();
   const router = useRouter();
 
@@ -28,6 +30,7 @@ export default function Detail({ product }) {
     const userOrder = {
       orderId: generateId(8),
       address: addr,
+      city: selectCity,
       size,
     };
     e.preventDefault();
@@ -36,6 +39,7 @@ export default function Detail({ product }) {
       query: {
         orderId: userOrder.orderId,
         address: userOrder.address,
+        city: userOrder.city,
         size: userOrder.size,
       },
     });
@@ -52,6 +56,10 @@ export default function Detail({ product }) {
   const handleAddr = (e) => {
     setAddr(e.target.value);
   };
+  const handleCity = (e) => {
+    setSelectCity(e.target.value)
+    // console.log(e.target.value)
+  }
 
   return (
     <>
@@ -77,7 +85,9 @@ export default function Detail({ product }) {
               desc={data.desc}
               discount={data.discount}
               sizeData={data.size}
+              dataCity={dataCity}
               onSize={handleSize}
+              onCity={handleCity}
               btnDisable={!(size && addr)}
               helper={size}
               onInputAddr={handleAddr}
@@ -91,11 +101,15 @@ export default function Detail({ product }) {
   );
 }
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`https://shoes-shop-green.vercel.app/api/product/`+(params.id));
-  const product = await res.json();
+  const res1 = await fetch(`https://shoes-shop-green.vercel.app/api/product/`+(params.id));
+  const res2 = await fetch(`http://localhost:3000/api/city`)
+  
+  const product = await res1.json();
+  const city = await res2.json()
   return {
     props: {
       product,
+      city
     },
   };
 }

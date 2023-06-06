@@ -9,6 +9,7 @@ import FooterBanner from '../components/FooterBanner/FooterBanner';
 import Section from '../components/Section/Section';
 import style from '../styles/Home.module.css';
 
+import { ModalMember } from 'components/ModalMember';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -17,6 +18,43 @@ import 'swiper/css/scrollbar';
 export default function Home({ product }) {
   const [flashSale, setFlashSale] = useState();
   const [newCollection, setNewCollection] = useState();
+  const [user, setUser] = useState(null);
+  const [data, setData] = useState();
+
+  const getItemLocal = () => {
+    const item = localStorage.getItem('history');
+    const parseItem = JSON.parse(item);
+    const x = parseItem?.filter((data) => data.name == userService?.userValue.firstName);
+    setData(x);
+  };
+
+  useEffect(() => {
+    getItemLocal();
+  }, []);
+
+  const memberShipType = (data) => {
+    if(data?.length == 0 && data?.length <= 2){
+      return 'unranked'
+    } if (data?.length >= 3 && data?.length <= 4) {
+      return 'Silver';
+    } if (data?.length >= 5 && data?.length <= 8) {
+      return 'Gold';
+    } if (data?.length >= 8) {
+      return 'Platinum';
+    }
+  };
+
+  const memberBenefit = (data) => {
+    if (memberShipType(data) == 'Silver') {
+      return 3;
+    } if (memberShipType(data) == 'Gold') {
+      return 5;
+    } if (memberShipType(data) == 'Platinum') {
+      return 8;
+    } if(memberShipType(data) == 'unranked'){
+      return 0
+    }
+  };
 
   useEffect(() => {
     const discountFilter = product.filter((product) => product.discount >= 0);
@@ -24,6 +62,7 @@ export default function Home({ product }) {
     const collectFilter = product.filter((product) => product.tag === 'new');
     setNewCollection(collectFilter);
   }, []);
+
 
   return (
     <>
@@ -39,22 +78,23 @@ export default function Home({ product }) {
             <div className={style.hero__container}>
               <h1 className={style.hero__headline}>
                 Hello
-                <span className={style.highlight}>
-                  {' '}
-                  {userService ? userService.userValue.firstName : 'World'}
-                </span>
-                ,
+                <span className={style.highlight}> {userService ? userService.userValue.firstName : 'World'}
+                </span>,
                 <br />
                 Lets Make Your Day
                 <span className={style.highlight}> Excited</span>
               </h1>
               <p className={style.hero__headlinesupport}>
-                The series of shoe collections for men, women, teenagers and children, complete! If you are looking for the latest sports shoes, comfortable shoes for daily activities, even stylish shoes.
-                {' '}
-                <span className={style.highlight}>We have all collection for you. </span>
+                The series of shoe collections for men, women, teenagers and children, complete! If you are looking for the latest sports shoes, comfortable shoes for daily activities, even stylish shoes. <span className={style.highlight}>We have all collection for you. </span>
                 Always put forward innovation, for example the newest materials, or the latest technology.
               </p>
-              <Link href="/products"><button className={style.cta}> Get Started</button></Link>
+              {/* <p className={style.hero__headlinesupport}>selamat anda telah terdaftar sebagai member <span className={style.highlight}>{memberShipType(data)}</span></p> */}
+              <div style={{display: 'flex', flexDirection: 'row', gap: '30px'}}>
+                <Link href="/products">
+                  <button className={style.cta}> Get Started</button>
+                </Link>
+                <ModalMember account={userService?.userValue.firstName} memberType={memberShipType(data)}/>
+              </div>
             </div>
             <div className={style.banner}>
               <Image src="/hero_banner.png" width="650px" height="450px" objectFit="contain" style={{ marginLeft: `${8}px` }} alt="img" />

@@ -4,7 +4,7 @@ import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 import style from './CardDetail.module.css';
 
 export default function CardDetail({
-  title, rating, price, priceAftDisc, discount, desc, sizeData, onSize, btnDisable, helper, onInputAddr, helperAddr, onBtnAction,
+  title, rating, price, priceAftDisc, discount, desc, sizeData, onSize, btnDisable, helper, onInputAddr, helperAddr, onBtnAction, dataCity, onCity
 }) {
   const [showShipping, setShowShipping] = useState(false);
   const [showDetail, setShowDetail] = useState(false);
@@ -74,6 +74,14 @@ export default function CardDetail({
         <div>
           <form>
             <h1 className={style.title}>Address</h1>
+            <div className={style.sizeWrapper}>
+              <select onChange={onCity} className={style.selectSize} name='city'>
+                <option value=''>select your city</option>
+                {dataCity?.map((city, i)=>(
+                  <option key={i} value={city.name}>{city.name}</option>
+                ))}
+              </select>
+            </div>
             <textarea className={style.inpAddr} placeholder="input your address for shipping" onChange={onInputAddr} />
             {!helperAddr ? <small className={style.helper}>*input your address</small> : ''}
           </form>

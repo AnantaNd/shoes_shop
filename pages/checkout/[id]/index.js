@@ -8,12 +8,14 @@ import { userService } from 'services';
 import Section from '../../../components/Section/Section';
 import style from './Checkout.module.css';
 
-export default function index({ product }) {
+export default function index({ product, city }) {
   const [data, setData] = useState(product);
+  const [dataCity, setDataCity] = useState(city);
   const router = useRouter();
   const [local, setLocal] = useState();
   const [va, setVa] = useState();
 
+  
   // handle history set local storage
   const onSubmitPayment = () => {
     const temp = {
@@ -42,6 +44,13 @@ export default function index({ product }) {
     setLocal(x);
   };
 
+  const orderPriceFilter =(dataCity)=>{
+    const temp = dataCity?.filter((city)=> (city.name == router.query.city))
+    const mapping = temp.map((city)=> city.price)
+    return parseInt(mapping)
+  }
+  console.log(orderPriceFilter(dataCity))
+
   const memberShipType = (data) => {
     if (data?.length >= 3 && data?.length <= 4) {
       return 'Silver';
@@ -51,7 +60,7 @@ export default function index({ product }) {
       return 'Platinum';
     }
   };
-
+  
   const memberBenefit = (local) => {
     if (memberShipType(local) == 'Silver') {
       return (3);
@@ -63,27 +72,32 @@ export default function index({ product }) {
   };
 
   const totalBenefit = (data, local) => {
+    const ongkir = orderPriceFilter(dataCity)
+    console.log(ongkir)
     let totalDisc = 0;
     if (!memberBenefit(local)) {
       let temp = 0;
       if (data.discount) {
         temp = (data.price * data.discount) / 100;
-        return data.price - temp;
+        return (data.price - temp)+ongkir;
       }
-      return data.price;
+      return data.price+ongkir;
     }
     if (data.discount) {
       totalDisc = (memberBenefit(local) + data.discount);
       const countPrice = (data.price * totalDisc) / 100;
-      return (data.price - countPrice);
+      return (data.price - countPrice)+ongkir;
     }
     totalDisc = (memberBenefit(local));
     const countPrice = (data.price * totalDisc) / 100;
-    return data.price - countPrice;
+    return (data.price - countPrice)+ongkir;
   };
 
   const dotPrice = (numb) => numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-
+  const priceDisc = (numb, disc) => {
+    const temp = (numb * disc) / 100;
+    return parseInt(numb - temp);
+  };
   const generateVA = () => {
     let result = '';
     const char = '0123456789';
@@ -98,6 +112,7 @@ export default function index({ product }) {
     getItemLocal();
     setVa(generateVA);
   }, []);
+
 
   return (
     <div>
@@ -121,7 +136,7 @@ export default function index({ product }) {
               </p>
               <p className={style.subTitleItem}>
                 Rp.
-                {data.price}
+                {dotPrice(priceDisc(data.price, data.discount))}
               </p>
               {!data.discount ? '' : (
                 <div className={style.tagDisc}>
@@ -134,46 +149,31 @@ export default function index({ product }) {
           <div className={style.wrapper}>
             <h1 className={style.title}>Purchase Detail</h1>
             <p className={style.subtitle}>
-              Order ID
-              <span>{router.query.orderId}</span>
+              Order ID <span>{router.query.orderId}</span>
             </p>
             <p className={style.subtitle}>
-              Item
-              <span>{data.name}</span>
+              Item <span>{data.name}</span>
             </p>
             <p className={style.subtitle}>
-              Size
-              <span>{router.query.size}</span>
+              Size <span>{router.query.size}</span>
             </p>
             <p className={style.subtitle}>
-              Acount Name
-              <span>{userService.userValue.firstName}</span>
+              Acount Name <span>{userService.userValue.firstName}</span>
             </p>
             <p className={style.subtitle}>
-              Address
-              <span>{router.query.address}</span>
+              Address <span>{router.query.city.concat(', ', router.query.address)}</span>
             </p>
             <p className={style.total}>
-              Discount Member
-              <span>
-                +
-                {memberBenefit(local)}
-                %
-              </span>
+              Discount Member <span>+ {memberBenefit(local)} %</span>
             </p>
             <p className={style.subtitle}>
-              Price
-              <span>
-                Rp.
-                {data.price}
-              </span>
+              Price <span> Rp. {dotPrice(priceDisc(data.price, data.discount))}</span>
+            </p>
+            <p className={style.subtitle}>
+              Shipping <span> Rp. {dotPrice(orderPriceFilter(dataCity))}</span>
             </p>
             <p className={style.total}>
-              Total
-              <span>
-                Rp.
-                {dotPrice(totalBenefit(data, local))}
-              </span>
+              Total <span> Rp. {dotPrice(totalBenefit(data, local))}</span>
             </p>
           </div>
           <div className={style.containerBtn}>
@@ -195,11 +195,15 @@ export default function index({ product }) {
   );
 }
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`https://shoes-shop-green.vercel.app/api/product/`+(params.id));
-  const product = await res.json();
+  const res1 = await fetch(`https://shoes-shop-green.vercel.app/api/product/`+(params.id));
+  const res2 = await fetch(`http://localhost:3000/api/city`)
+
+  const product = await res1.json();
+  const city = await res2.json();
   return {
     props: {
       product,
+      city
     },
   };
 }

@@ -73,11 +73,11 @@ export function ModalPayment({
               <Grid item>
                 <Typography sx={{ alignItems: 'center' }} value={va}>
                   {va}
-                  <div style={{ marginLeft: '10px', display: 'inline' }}>
+                  <Grid sx={{ marginLeft: '10px', display: 'inline' }}>
                     {isCopied
                       ? <MdCheck />
                       : <MdOutlineContentCopy onClick={handleCopyClick} style={{ cursor: 'pointer' }} />}
-                  </div>
+                  </Grid>
                 </Typography>
               </Grid>
             </Grid>

@@ -66,16 +66,15 @@ export function ModalUser() {
           <div className={style.wrapper}>
             <p className={style.email}>{!userService ? 'helo@world.com' : userService?.userValue.email}</p>
             <p className={style.membership}>
-              Membership:
-              <span>{memberShipType(data)}</span>
+              Membership: <span>{memberShipType(data)}</span>
             </p>
             <p className={style.membership}>
               Banefit discount:
-              <span>
-                {' '}
-                {memberBenefit(data)}
-                %
-              </span>
+              {memberBenefit(data)?
+               <span> {memberBenefit(data)} %</span>
+               :
+               <span> 0 %</span>
+              }
             </p>
           </div>
         </div>
