@@ -102,7 +102,7 @@ export default function Detail({ product, city }) {
 }
 export async function getServerSideProps({ params }) {
   const res1 = await fetch(`https://shoes-shop-green.vercel.app/api/product/`+(params.id));
-  const res2 = await fetch(`http://localhost:3000/api/city`)
+  const res2 = await fetch(`https://shoes-shop-green.vercel.app/api/city`)
   
   const product = await res1.json();
   const city = await res2.json()
