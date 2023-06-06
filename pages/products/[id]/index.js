@@ -47,7 +47,7 @@ export default function Detail({ product, city }) {
 
   const dotPrice = (numb) => numb.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   const priceDisc = (numb, disc) => {
-    const temp = numb / disc;
+    const temp = (numb * disc) / 100;
     return parseInt(numb - temp);
   };
   const handleSize = (e) => {

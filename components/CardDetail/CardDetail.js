@@ -82,7 +82,7 @@ export default function CardDetail({
                 ))}
               </select>
             </div>
-            <textarea className={style.inpAddr} placeholder="input your address for shipping" onChange={onInputAddr} />
+            <textarea className={style.inpAddr} placeholder="others detail (jl. xxx, no. 00)" onChange={onInputAddr} />
             {!helperAddr ? <small className={style.helper}>*input your address</small> : ''}
           </form>
         </div>

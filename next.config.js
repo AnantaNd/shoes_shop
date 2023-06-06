@@ -9,5 +9,6 @@ module.exports = {
       apiUrl: process.env.NODE_ENV === 'development'
           ? 'http://localhost:3000/api'
           : 'https://shoes-shop-green.vercel.app/api' 
-  }
+  },
+  
 }

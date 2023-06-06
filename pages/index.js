@@ -51,7 +51,7 @@ export default function Home({ product }) {
       return 5;
     } if (memberShipType(data) == 'Platinum') {
       return 8;
-    } if(memberShipType(data) == 'unranked'){
+    } if(memberShipType(data) == 'unranked') {
       return 0
     }
   };
@@ -81,8 +81,11 @@ export default function Home({ product }) {
                 <span className={style.highlight}> {userService ? userService.userValue.firstName : 'World'}
                 </span>,
                 <br />
-                Lets Make Your Day
-                <span className={style.highlight}> Excited</span>
+                {memberShipType(data)?
+                  <h1 className={style.hero__headline}>Your account is registered as a membership <span className={style.highlight}> {memberShipType(data)}</span></h1>
+                  :
+                  <h1 className={style.hero__headline}>Gain More Benefit With Leveling Your Membership</h1>
+                }
               </h1>
               <p className={style.hero__headlinesupport}>
                 The series of shoe collections for men, women, teenagers and children, complete! If you are looking for the latest sports shoes, comfortable shoes for daily activities, even stylish shoes. <span className={style.highlight}>We have all collection for you. </span>
