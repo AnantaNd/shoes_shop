@@ -130,9 +130,9 @@
         background-color: transparent;
     }
     .navbar__menus_active::before {
-        /* background-color:  #eaf0f0; */
+        background-color:  #eaf0f0;
         box-shadow: inset 0 0 0 3000px var(--blur-color);
-        backdrop-filter: blur(1px);
+        backdrop-filter: blur(10px);
       }
     .navbar__menus_active::before,
     .navbar__menus_active::before {
@@ -149,7 +149,9 @@
     }
     .navbar__menu{
         padding: 16px 24px;
-        font-size: 14px;
+        font-size: 16px;
+        font-weight: 650;
+        /* color: red; */
         list-style: none;
     }
 
