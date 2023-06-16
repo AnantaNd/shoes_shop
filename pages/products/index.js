@@ -144,7 +144,7 @@ export default function index({ product }) {
           <p className={style.length_products}>
             display
             <span>
-              {data?.length}
+              {_DATA?.currentData().length}
               {' '}
               products
             </span>
