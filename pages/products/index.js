@@ -142,24 +142,14 @@ export default function index({ product }) {
             <button className={style.btnClear} onClick={closeModal}>Clear Filter</button>
           </div>
           <p className={style.length_products}>
-            display
-            <span>
-              {_DATA?.currentData().length}
-              {' '}
-              products
-            </span>
-            {' '}
-            of
-            {product?.length}
-            {' '}
-            products
+            displaying <span> {_DATA?.currentData().length} products</span> out of {product?.length} existing products
           </p>
-          <div className={style.wrapperDisplayFilter}>
+          {/* <div className={style.wrapperDisplayFilter}>
             <p>{brand}</p>
             <p>{checkRating}</p>
             <p>{hasDiscount === true ? 'have discount' : ''}</p>
             <p>{lastestShoes === true ? 'new collection' : ''}</p>
-          </div>
+          </div> */}
           {!openFilter ? ''
             : (
               <Filter

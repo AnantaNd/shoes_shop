@@ -16,7 +16,7 @@ export function ModalMember({account, memberType}) {
  
   return (
     <>
-      <Button sx={{textTransform: 'capitalize', marginTop: '1rem', fontWeight: 800, padding: '10px 12px', borderRadius: '8rem'}} variant="text" onClick={handleOpen}>Check Your Banefit</Button>
+      <Button sx={{textTransform: 'capitalize', marginTop: '1rem', fontWeight: 800, padding: '10px 12px', borderRadius: '8rem'}} variant="text" onClick={handleOpen}>Check Your Benefit</Button>
       <Modal
         open={open}
         onClose={handleClose}
