@@ -25,7 +25,7 @@ export default function index({ product, city }) {
       idOrder: router.query.orderId,
       item: data.name,
       price: totalBenefit(data, local),
-      status: 'process',
+      status: 'success',
     };
     const dataLocal = localStorage.getItem('history');
     const dataHistory = dataLocal ? [...JSON.parse(dataLocal), temp] : [temp];
